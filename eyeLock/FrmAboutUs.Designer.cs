@@ -1,7 +1,7 @@
 ﻿
 namespace eyeLock
 {
-    partial class FrmTemp
+    partial class FrmAboutUs
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@ namespace eyeLock
         {
             this.SuspendLayout();
             // 
-            // FrmTemp
+            // FrmAboutUs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -41,7 +41,7 @@ namespace eyeLock
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.Name = "FrmTemp";
+            this.Name = "FrmAboutUs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "eyeLock";
             this.ResumeLayout(false);
