@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using eyeStarClassLibrary;
+using PersonalClassLibrary.Notif;
 
 namespace eyeLock
 {
@@ -14,7 +8,24 @@ namespace eyeLock
     {
         public FrmLogin()
         {
-            InitializeComponent();
+            if (User.CheckLicense())
+            {
+                if (!User.CheckExpiration())
+                {
+                    InitializeComponent();
+                    this.SetTheme();
+                }
+                else
+                {
+                    eyeMessageContents.LicenseExpired.MessageBoxError();
+                    Environment.Exit(0);
+                }
+            }
+            else
+            {
+                eyeMessageContents.LicenseInvalid.MessageBoxError();
+                Environment.Exit(0);
+            }
         }
     }
 }
