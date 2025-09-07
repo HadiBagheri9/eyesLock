@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 using eyeStarClassLibrary;
 using PersonalClassLibrary.Notif;
 
@@ -26,6 +27,23 @@ namespace eyeLock
                 eyeMessageContents.LicenseInvalid.MessageBoxError();
                 Environment.Exit(0);
             }
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            Hide();
+            FrmMain frmMain = new FrmMain();
+            frmMain.ShowDialog();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = !chkShowPassword.Checked;
         }
     }
 }

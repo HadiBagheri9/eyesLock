@@ -1,5 +1,5 @@
-﻿using eyeStarClassLibrary;
-using System;
+﻿using System;
+using eyeStarClassLibrary;
 
 namespace eyeLock
 {
@@ -9,7 +9,7 @@ namespace eyeLock
         public static string _Password { get; } = "Hadi1313";
         public static string _LicenseKey { get; } = "Fj7YP6OcXeKetQWdgyT2/7bEX4ipbN9ImW5Rq/WVltE=";
         public static string _16ByteKey { get; } = eyeLicense.GtKySxTnBt(_LicenseKey);
-        public static DateTime _Expiration { get; } = new DateTime(2025, 7, 23);
+        public static DateTime _Expiration { get; } = new DateTime(2035, 01, 01);
 
         public static bool CheckLicense()
         {
