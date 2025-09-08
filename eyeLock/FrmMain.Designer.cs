@@ -33,6 +33,7 @@ namespace eyeLock
             this.btnUnlockDecrypt = new System.Windows.Forms.Button();
             this.btnLockEncrypt = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.chkRecoveryFile = new System.Windows.Forms.CheckBox();
             this.chkFolderAccessibility = new System.Windows.Forms.CheckBox();
@@ -40,7 +41,6 @@ namespace eyeLock
             this.rtxtPath = new System.Windows.Forms.RichTextBox();
             this.btnSelectFolder = new System.Windows.Forms.Button();
             this.diaSelectFolder = new System.Windows.Forms.FolderBrowserDialog();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlSideBar.SuspendLayout();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -98,6 +98,15 @@ namespace eyeLock
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(488, 476);
             this.pnlMain.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Location = new System.Drawing.Point(282, 289);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(172, 172);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -167,15 +176,6 @@ namespace eyeLock
             this.btnSelectFolder.Text = "Select Folder";
             this.btnSelectFolder.UseVisualStyleBackColor = false;
             this.btnSelectFolder.Click += new System.EventHandler(this.btnSelectFolder_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Location = new System.Drawing.Point(282, 289);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(172, 172);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
             // 
             // FrmMain
             // 

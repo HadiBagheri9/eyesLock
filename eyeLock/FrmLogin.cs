@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using eyeStarClassLibrary;
+using eyeStar_ClassLibrary;
 using PersonalClassLibrary.Notif;
 
 namespace eyeLock

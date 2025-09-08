@@ -1,4 +1,4 @@
-﻿using eyeStarClassLibrary;
+﻿using eyeStar_ClassLibrary;
 
 namespace eyeLock
 {

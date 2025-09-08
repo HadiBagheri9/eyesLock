@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using eyeStarClassLibrary;
+using eyeStar_ClassLibrary;
 using System.Collections.Generic;
 using PersonalClassLibrary.Notif;
 using PersonalClassLibrary.Windows;
