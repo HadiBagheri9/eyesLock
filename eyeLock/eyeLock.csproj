@@ -33,8 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="eyeStarClassLibrary">
-      <HintPath>..\..\eyeStarClassLibrary\eyeStarClassLibrary\bin\Debug\eyeStarClassLibrary.dll</HintPath>
+    <Reference Include="eyeStar-ClassLibrary">
+      <HintPath>..\..\eyeStar-ClassLibrary\eyeStarClassLibrary\bin\Release\eyeStar-ClassLibrary.dll</HintPath>
     </Reference>
     <Reference Include="PersonalClassLibrary">
       <HintPath>..\..\..\..\Programming\Projects\C#\ClassLibrary\PersonalClassLibrary\PersonalClassLibrary\bin\Release\PersonalClassLibrary.dll</HintPath>
@@ -100,6 +100,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -113,6 +114,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eyeStar-logo-5th-reshape.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

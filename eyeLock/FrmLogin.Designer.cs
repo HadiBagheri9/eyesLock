@@ -162,6 +162,7 @@ namespace eyeLock
             this.eyeLockLogo.Size = new System.Drawing.Size(172, 172);
             this.eyeLockLogo.TabIndex = 7;
             this.eyeLockLogo.TabStop = false;
+            this.eyeLockLogo.Click += new System.EventHandler(this.eyeLockLogo_Click);
             // 
             // FrmLogin
             // 

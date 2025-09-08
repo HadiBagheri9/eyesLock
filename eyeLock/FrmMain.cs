@@ -223,6 +223,12 @@ namespace eyeLock
             btnUnlockDecrypt.Enabled = true;
         }
 
+        private void eyeLockLogo_Click(object sender, EventArgs e)
+        {
+            FrmAboutUs frmAboutUs = new FrmAboutUs();
+            frmAboutUs.ShowDialog();
+        }
+
         /// <summary>
         /// To disable buttons
         /// </summary>

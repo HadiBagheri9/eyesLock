@@ -29,25 +29,126 @@ namespace eyeLock
         /// </summary>
         private void InitializeComponent()
         {
+            this.pnlSideBar = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.pnlMain = new System.Windows.Forms.Panel();
+            this.lbl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.eyeStarLogo = new System.Windows.Forms.PictureBox();
+            this.eyeLockLogo = new System.Windows.Forms.PictureBox();
+            this.pnlSideBar.SuspendLayout();
+            this.pnlMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eyeStarLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eyeLockLogo)).BeginInit();
             this.SuspendLayout();
+            // 
+            // pnlSideBar
+            // 
+            this.pnlSideBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlSideBar.Controls.Add(this.btnClose);
+            this.pnlSideBar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlSideBar.Location = new System.Drawing.Point(0, 844);
+            this.pnlSideBar.Name = "pnlSideBar";
+            this.pnlSideBar.Size = new System.Drawing.Size(488, 104);
+            this.pnlSideBar.TabIndex = 0;
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(189)))), ((int)(((byte)(41)))));
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.btnClose.Location = new System.Drawing.Point(177, 24);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(132, 54);
+            this.btnClose.TabIndex = 1;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = false;
+            // 
+            // pnlMain
+            // 
+            this.pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlMain.Controls.Add(this.lbl);
+            this.pnlMain.Controls.Add(this.eyeStarLogo);
+            this.pnlMain.Controls.Add(this.label1);
+            this.pnlMain.Controls.Add(this.eyeLockLogo);
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMain.Location = new System.Drawing.Point(0, 0);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(488, 844);
+            this.pnlMain.TabIndex = 1;
+            // 
+            // lbl
+            // 
+            this.lbl.AutoSize = true;
+            this.lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl.Location = new System.Drawing.Point(33, 46);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(0, 24);
+            this.lbl.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(189, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "About Us";
+            // 
+            // eyeStarLogo
+            // 
+            this.eyeStarLogo.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.eyeStarLogo.Image = global::eyeLock.Properties.Resources.eyeStar_logo_5th_reshape;
+            this.eyeStarLogo.Location = new System.Drawing.Point(276, 748);
+            this.eyeStarLogo.Name = "eyeStarLogo";
+            this.eyeStarLogo.Size = new System.Drawing.Size(72, 72);
+            this.eyeStarLogo.TabIndex = 2;
+            this.eyeStarLogo.TabStop = false;
+            this.eyeStarLogo.MouseHover += new System.EventHandler(this.eyeStarLogo_MouseHover);
+            // 
+            // eyeLockLogo
+            // 
+            this.eyeLockLogo.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.eyeLockLogo.Image = global::eyeLock.Properties.Resources._12;
+            this.eyeLockLogo.Location = new System.Drawing.Point(276, 46);
+            this.eyeLockLogo.Margin = new System.Windows.Forms.Padding(3, 20, 20, 3);
+            this.eyeLockLogo.Name = "eyeLockLogo";
+            this.eyeLockLogo.Size = new System.Drawing.Size(172, 172);
+            this.eyeLockLogo.TabIndex = 0;
+            this.eyeLockLogo.TabStop = false;
+            this.eyeLockLogo.MouseHover += new System.EventHandler(this.eyeLockLogo_MouseHover);
             // 
             // FrmAboutUs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            this.ClientSize = new System.Drawing.Size(488, 580);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.CancelButton = this.btnClose;
+            this.ClientSize = new System.Drawing.Size(488, 948);
+            this.Controls.Add(this.pnlMain);
+            this.Controls.Add(this.pnlSideBar);
             this.Name = "FrmAboutUs";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "eyeLock";
+            this.Load += new System.EventHandler(this.FrmAboutUs_Load);
+            this.pnlSideBar.ResumeLayout(false);
+            this.pnlMain.ResumeLayout(false);
+            this.pnlMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eyeStarLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eyeLockLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel pnlSideBar;
+        private System.Windows.Forms.Panel pnlMain;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox eyeLockLogo;
+        private System.Windows.Forms.PictureBox eyeStarLogo;
+        private System.Windows.Forms.Label lbl;
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-using eyeStarClassLibrary;
+using eyeStar_ClassLibrary;
 using PersonalClassLibrary.Notif;
 using System.Windows.Forms;
 
@@ -27,6 +27,23 @@ namespace eyeLock
                 eyeMessageContents.LicenseInvalid.MessageBoxError();
                 Environment.Exit(0);
             }
+        }
+
+        private void FrmAboutUs_Load(object sender, EventArgs e)
+        {
+            lbl.Text = eyeAboutSoftwares.eyeLock;
+        }
+
+        private void eyeStarLogo_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(eyeStarLogo, "eyeStar");
+        }
+
+        private void eyeLockLogo_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(eyeLockLogo, "eyeLock");
         }
     }
 }

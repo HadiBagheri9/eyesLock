@@ -45,5 +45,11 @@ namespace eyeLock
         {
             txtPassword.UseSystemPasswordChar = !chkShowPassword.Checked;
         }
+
+        private void eyeLockLogo_Click(object sender, EventArgs e)
+        {
+            FrmAboutUs frmAboutUs = new FrmAboutUs();
+            frmAboutUs.ShowDialog();
+        }
     }
 }

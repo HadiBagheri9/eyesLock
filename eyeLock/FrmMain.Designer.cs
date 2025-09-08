@@ -33,7 +33,7 @@ namespace eyeLock
             this.btnUnlockDecrypt = new System.Windows.Forms.Button();
             this.btnLockEncrypt = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.eyeLockLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.chkRecoveryFile = new System.Windows.Forms.CheckBox();
             this.chkFolderAccessibility = new System.Windows.Forms.CheckBox();
@@ -43,7 +43,7 @@ namespace eyeLock
             this.diaSelectFolder = new System.Windows.Forms.FolderBrowserDialog();
             this.pnlSideBar.SuspendLayout();
             this.pnlMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eyeLockLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSideBar
@@ -86,7 +86,7 @@ namespace eyeLock
             // pnlMain
             // 
             this.pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlMain.Controls.Add(this.pictureBox1);
+            this.pnlMain.Controls.Add(this.eyeLockLogo);
             this.pnlMain.Controls.Add(this.label1);
             this.pnlMain.Controls.Add(this.chkRecoveryFile);
             this.pnlMain.Controls.Add(this.chkFolderAccessibility);
@@ -99,14 +99,15 @@ namespace eyeLock
             this.pnlMain.Size = new System.Drawing.Size(488, 476);
             this.pnlMain.TabIndex = 1;
             // 
-            // pictureBox1
+            // eyeLockLogo
             // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Location = new System.Drawing.Point(282, 289);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(172, 172);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.eyeLockLogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.eyeLockLogo.Location = new System.Drawing.Point(282, 289);
+            this.eyeLockLogo.Name = "eyeLockLogo";
+            this.eyeLockLogo.Size = new System.Drawing.Size(172, 172);
+            this.eyeLockLogo.TabIndex = 4;
+            this.eyeLockLogo.TabStop = false;
+            this.eyeLockLogo.Click += new System.EventHandler(this.eyeLockLogo_Click);
             // 
             // label1
             // 
@@ -192,7 +193,7 @@ namespace eyeLock
             this.pnlSideBar.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eyeLockLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -210,6 +211,6 @@ namespace eyeLock
         private System.Windows.Forms.RichTextBox rtxtPath;
         private System.Windows.Forms.Button btnSelectFolder;
         private System.Windows.Forms.FolderBrowserDialog diaSelectFolder;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox eyeLockLogo;
     }
 }
