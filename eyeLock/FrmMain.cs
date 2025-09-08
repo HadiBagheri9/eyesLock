@@ -43,6 +43,11 @@ namespace eyeLock
             DisableComponents();
         }
 
+        private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void btnSelectFolder_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = diaSelectFolder.ShowDialog();
