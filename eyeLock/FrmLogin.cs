@@ -51,5 +51,11 @@ namespace eyeLock
             FrmAboutUs frmAboutUs = new FrmAboutUs();
             frmAboutUs.ShowDialog();
         }
+
+        private void eyeLockLogo_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(eyeLockLogo, "About eyeLock");
+        }
     }
 }

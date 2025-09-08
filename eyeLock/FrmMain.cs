@@ -92,6 +92,12 @@ namespace eyeLock
             "Done".MessageBoxInformation();
         }
 
+        private void eyeLockLogo_Click(object sender, EventArgs e)
+        {
+            FrmAboutUs frmAboutUs = new FrmAboutUs();
+            frmAboutUs.ShowDialog();
+        }
+
         private void chkCryptography_CheckedChanged(object sender, EventArgs e)
         {
             isCryptionOn = chkCryptography.Checked ? true : false;
@@ -108,6 +114,12 @@ namespace eyeLock
         {
             isRecoveryFileOn = chkRecoveryFile.Checked ? true : false;
             CheckAndChangeButtonsAbility();
+        }
+
+        private void eyeLockLogo_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(eyeLockLogo, "About eyeLock");
         }
 
         //**********************************************************************
@@ -221,12 +233,6 @@ namespace eyeLock
             chkRecoveryFile.Enabled = true;
             btnLockEncrypt.Enabled = true;
             btnUnlockDecrypt.Enabled = true;
-        }
-
-        private void eyeLockLogo_Click(object sender, EventArgs e)
-        {
-            FrmAboutUs frmAboutUs = new FrmAboutUs();
-            frmAboutUs.ShowDialog();
         }
 
         /// <summary>

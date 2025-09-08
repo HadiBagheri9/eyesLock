@@ -163,6 +163,7 @@ namespace eyeLock
             this.eyeLockLogo.TabIndex = 7;
             this.eyeLockLogo.TabStop = false;
             this.eyeLockLogo.Click += new System.EventHandler(this.eyeLockLogo_Click);
+            this.eyeLockLogo.MouseHover += new System.EventHandler(this.eyeLockLogo_MouseHover);
             // 
             // FrmLogin
             // 
