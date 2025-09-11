@@ -11,7 +11,7 @@ namespace eyeLock
     public partial class FrmMain : FrmTemp
     {
         List<string> listFiles = new List<string>();
-        string fileNameAddition = "eye";
+        string fileNameAddition = ".eye";
         string path;
         bool isCryptionOn = false, isLockingOn = false, isRecoveryFileOn = false;
 
@@ -179,15 +179,23 @@ namespace eyeLock
 
                 foreach (var item in listFiles)
                 {
-                    if (item.EndsWith(fileNameAddition))
+                    try
                     {
-                        PersonalClassLibrary.Windows.FileOptions.DecryptFile(item, item.Remove(item.Length-3, 3), User._16ByteKey);
-                        File.Delete(item);
+                        if (item.EndsWith(fileNameAddition))
+                        {
+                            PersonalClassLibrary.Windows.FileOptions.DecryptFile(item, item.Remove(item.Length - fileNameAddition.Length, fileNameAddition.Length), User._16ByteKey);
+                            File.Delete(item);
+                        }
+                        else
+                        {
+                            $"{item} is not in a correct format to decrypt!".MessageBoxError();
+                            //File.Delete(item);
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        PersonalClassLibrary.Windows.FileOptions.DecryptFile(item, item + fileNameAddition, User._16ByteKey);
-                        File.Delete(item);
+                        ex.Message.MessageBoxError();
+                        continue;
                     }
                 }
             }
