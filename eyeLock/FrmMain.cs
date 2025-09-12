@@ -163,14 +163,16 @@ namespace eyeLock
 
                 foreach (var item in listFiles)
                 {
+                    string output = item + fileNameAddition;
+
                     if (item.EndsWith("desktop.ini"))
                     {
                         File.SetAttributes(item, FileAttributes.Hidden);
                         continue;
                     }
 
-                    PersonalClassLibrary.Windows.FileOptions.EncryptFile(item, item + fileNameAddition, User._16ByteKey);
-                    File.SetAttributes(item + fileNameAddition, FileAttributes.ReadOnly);
+                    PersonalClassLibrary.Windows.FileOptions.EncryptFile(item, output, User._16ByteKey);
+                    File.SetAttributes(output, FileAttributes.ReadOnly);
 
                     //if ((item + fileNameAddition).EndsWith("desktop.ini" + fileNameAddition))
                     //    File.SetAttributes((item + fileNameAddition), FileAttributes.Hidden);
@@ -192,12 +194,14 @@ namespace eyeLock
 
                 foreach (var item in listFiles)
                 {
+                    string output = item.Remove(item.Length - fileNameAddition.Length, fileNameAddition.Length);
+
                     try
                     {
                         if (item.EndsWith(fileNameAddition))
                         {
                             File.SetAttributes(item, ~FileAttributes.ReadOnly);
-                            PersonalClassLibrary.Windows.FileOptions.DecryptFile(item, item.Remove(item.Length - fileNameAddition.Length, fileNameAddition.Length), User._16ByteKey);
+                            PersonalClassLibrary.Windows.FileOptions.DecryptFile(item, output, User._16ByteKey);
 
                             //if ((item.Remove(item.Length - fileNameAddition.Length, fileNameAddition.Length)).EndsWith("desktop.ini"))
                             //    File.SetAttributes((item.Remove(item.Length - fileNameAddition.Length, fileNameAddition.Length)), FileAttributes.Hidden);
