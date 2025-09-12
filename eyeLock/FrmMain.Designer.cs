@@ -108,7 +108,7 @@ namespace eyeLock
             this.eyeLockLogo.TabIndex = 4;
             this.eyeLockLogo.TabStop = false;
             this.eyeLockLogo.Click += new System.EventHandler(this.eyeLockLogo_Click);
-            this.eyeLockLogo.MouseHover += new System.EventHandler(this.eyeLockLogo_MouseHover);
+            //this.eyeLockLogo.MouseHover += new System.EventHandler(this.eyeLockLogo_MouseHover);
             // 
             // label1
             // 

@@ -41,6 +41,14 @@ namespace eyeLock
         private void FrmMain_Load(object sender, EventArgs e)
         {
             DisableComponents();
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(btnLockEncrypt, "Lock | Encrypt");
+            toolTip.SetToolTip(btnUnlockDecrypt, "Unlock | Decrypt");
+            toolTip.SetToolTip(btnSelectFolder, "Select a folder.");
+            toolTip.SetToolTip(chkCryptography, "Enable : It does the cryptography operation for files within the folder.");
+            toolTip.SetToolTip(chkFolderAccessibility, "Enable : It does the folder access limiting operation for the top folder.");
+            toolTip.SetToolTip(chkRecoveryFile, "Enable : It creates a recovery file next to the selected folder. It is efficient for sensitive data.");
+            toolTip.SetToolTip(eyeLockLogo, "About eyeLock");
         }
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
@@ -121,12 +129,6 @@ namespace eyeLock
             CheckAndChangeButtonsAbility();
         }
 
-        private void eyeLockLogo_MouseHover(object sender, EventArgs e)
-        {
-            ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(eyeLockLogo, "About eyeLock");
-        }
-
         //**********************************************************************
 
         private void LockFolder(string path)
@@ -162,6 +164,7 @@ namespace eyeLock
                 foreach (var item in listFiles)
                 {
                     PersonalClassLibrary.Windows.FileOptions.EncryptFile(item, item + fileNameAddition, User._16ByteKey);
+                    File.SetAttributes(item + fileNameAddition, FileAttributes.ReadOnly);
                     File.Delete(item);
                 }
             }
@@ -183,6 +186,7 @@ namespace eyeLock
                     {
                         if (item.EndsWith(fileNameAddition))
                         {
+                            File.SetAttributes(item, ~FileAttributes.ReadOnly);
                             PersonalClassLibrary.Windows.FileOptions.DecryptFile(item, item.Remove(item.Length - fileNameAddition.Length, fileNameAddition.Length), User._16ByteKey);
                             File.Delete(item);
                         }
