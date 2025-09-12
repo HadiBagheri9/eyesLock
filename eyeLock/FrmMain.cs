@@ -11,7 +11,7 @@ namespace eyeLock
     public partial class FrmMain : FrmTemp
     {
         List<string> listFiles = new List<string>();
-        string fileNameAddition = ".eye";
+        string fileNameAddition = ".eye", isNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIf your data is sensitive and important, you should turn on the recovery file option.\n\nDo you want to turn it on?";
         string path;
         bool isCryptionOn = false, isLockingOn = false, isRecoveryFileOn = false;
 
@@ -72,6 +72,13 @@ namespace eyeLock
 
         private void btnLockEncrypt_Click(object sender, EventArgs e)
         {
+            if (!isRecoveryFileOn)
+            {
+
+                DialogResult flag = MessageBox.Show(isNotRecoveryFileOnMessage, "eyeLock Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                isRecoveryFileOn = flag == DialogResult.Yes ? true : false;
+            }
+
             if (isCryptionOn)
             {
                 EncryptFiles(path);
@@ -232,7 +239,7 @@ namespace eyeLock
                 ex.Message.MessageBoxError();
             }
         }
-
+           
         private void BackUpFile(string path)
         {
              
