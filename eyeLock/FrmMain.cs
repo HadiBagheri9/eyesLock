@@ -163,8 +163,18 @@ namespace eyeLock
 
                 foreach (var item in listFiles)
                 {
+                    if (item.EndsWith("desktop.ini"))
+                    {
+                        File.SetAttributes(item, FileAttributes.Hidden);
+                        continue;
+                    }
+
                     PersonalClassLibrary.Windows.FileOptions.EncryptFile(item, item + fileNameAddition, User._16ByteKey);
                     File.SetAttributes(item + fileNameAddition, FileAttributes.ReadOnly);
+
+                    //if ((item + fileNameAddition).EndsWith("desktop.ini" + fileNameAddition))
+                    //    File.SetAttributes((item + fileNameAddition), FileAttributes.Hidden);
+
                     File.Delete(item);
                 }
             }
@@ -188,10 +198,20 @@ namespace eyeLock
                         {
                             File.SetAttributes(item, ~FileAttributes.ReadOnly);
                             PersonalClassLibrary.Windows.FileOptions.DecryptFile(item, item.Remove(item.Length - fileNameAddition.Length, fileNameAddition.Length), User._16ByteKey);
+
+                            //if ((item.Remove(item.Length - fileNameAddition.Length, fileNameAddition.Length)).EndsWith("desktop.ini"))
+                            //    File.SetAttributes((item.Remove(item.Length - fileNameAddition.Length, fileNameAddition.Length)), FileAttributes.Hidden);
+
                             File.Delete(item);
                         }
                         else
                         {
+                            if (item.EndsWith("desktop.ini"))
+                            {
+                                File.SetAttributes(item, FileAttributes.Hidden);
+                                continue;
+                            }
+
                             $"{item} is not in a correct format to decrypt!".MessageBoxError();
                             //File.Delete(item);
                         }
