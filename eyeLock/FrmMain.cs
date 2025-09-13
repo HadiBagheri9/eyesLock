@@ -41,6 +41,7 @@ namespace eyeLock
         private void FrmMain_Load(object sender, EventArgs e)
         {
             DisableComponents();
+
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(btnLockEncrypt, "Lock | Encrypt");
             toolTip.SetToolTip(btnUnlockDecrypt, "Unlock | Decrypt");

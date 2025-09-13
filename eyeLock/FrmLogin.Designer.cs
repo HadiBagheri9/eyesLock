@@ -163,7 +163,7 @@ namespace eyeLock
             this.eyeLockLogo.TabIndex = 7;
             this.eyeLockLogo.TabStop = false;
             this.eyeLockLogo.Click += new System.EventHandler(this.eyeLockLogo_Click);
-            this.eyeLockLogo.MouseHover += new System.EventHandler(this.eyeLockLogo_MouseHover);
+//            this.eyeLockLogo.MouseHover += new System.EventHandler(this.eyeLockLogo_MouseHover);
             // 
             // FrmLogin
             // 
@@ -177,6 +177,7 @@ namespace eyeLock
             this.Controls.Add(this.pnlMain);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmLogin";
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.pnlSideBar.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();

@@ -117,7 +117,7 @@ namespace eyeLock
             this.eyeStarLogo.Size = new System.Drawing.Size(72, 72);
             this.eyeStarLogo.TabIndex = 2;
             this.eyeStarLogo.TabStop = false;
-            this.eyeStarLogo.MouseHover += new System.EventHandler(this.eyeStarLogo_MouseHover);
+//            this.eyeStarLogo.MouseHover += new System.EventHandler(this.eyeStarLogo_MouseHover);
             // 
             // label1
             // 
@@ -139,7 +139,7 @@ namespace eyeLock
             this.eyeLockLogo.Size = new System.Drawing.Size(172, 172);
             this.eyeLockLogo.TabIndex = 0;
             this.eyeLockLogo.TabStop = false;
-            this.eyeLockLogo.MouseHover += new System.EventHandler(this.eyeLockLogo_MouseHover);
+//            this.eyeLockLogo.MouseHover += new System.EventHandler(this.eyeLockLogo_MouseHover);
             // 
             // FrmAboutUs
             // 

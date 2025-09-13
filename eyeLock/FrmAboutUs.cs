@@ -34,17 +34,10 @@ namespace eyeLock
             lbl.Text = eyeAboutSoftwares.eyeLockDiscription;
             lbl2.Text = eyeAboutSoftwares.eyeLockExplain;
             lbl3.Text = eyeAboutSoftwares.eyeLockContactUs;
-        }
 
-        private void eyeStarLogo_MouseHover(object sender, EventArgs e)
-        {
             ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(btnClose, "Close this form.");
             toolTip.SetToolTip(eyeStarLogo, "eyeStar");
-        }
-
-        private void eyeLockLogo_MouseHover(object sender, EventArgs e)
-        {
-            ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(eyeLockLogo, "eyeLock");
         }
     }
