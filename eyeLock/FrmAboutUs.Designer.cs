@@ -32,9 +32,11 @@ namespace eyeLock
             this.pnlSideBar = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.lbl3 = new System.Windows.Forms.Label();
+            this.lbl2 = new System.Windows.Forms.Label();
             this.lbl = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.eyeStarLogo = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.eyeLockLogo = new System.Windows.Forms.PictureBox();
             this.pnlSideBar.SuspendLayout();
             this.pnlMain.SuspendLayout();
@@ -69,6 +71,8 @@ namespace eyeLock
             // pnlMain
             // 
             this.pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlMain.Controls.Add(this.lbl3);
+            this.pnlMain.Controls.Add(this.lbl2);
             this.pnlMain.Controls.Add(this.lbl);
             this.pnlMain.Controls.Add(this.eyeStarLogo);
             this.pnlMain.Controls.Add(this.label1);
@@ -79,6 +83,22 @@ namespace eyeLock
             this.pnlMain.Size = new System.Drawing.Size(488, 844);
             this.pnlMain.TabIndex = 1;
             // 
+            // lbl3
+            // 
+            this.lbl3.AutoSize = true;
+            this.lbl3.Location = new System.Drawing.Point(42, 550);
+            this.lbl3.Name = "lbl3";
+            this.lbl3.Size = new System.Drawing.Size(0, 25);
+            this.lbl3.TabIndex = 5;
+            // 
+            // lbl2
+            // 
+            this.lbl2.AutoSize = true;
+            this.lbl2.Location = new System.Drawing.Point(37, 257);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(0, 25);
+            this.lbl2.TabIndex = 4;
+            // 
             // lbl
             // 
             this.lbl.AutoSize = true;
@@ -87,6 +107,17 @@ namespace eyeLock
             this.lbl.Name = "lbl";
             this.lbl.Size = new System.Drawing.Size(0, 24);
             this.lbl.TabIndex = 3;
+            // 
+            // eyeStarLogo
+            // 
+            this.eyeStarLogo.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.eyeStarLogo.Image = global::eyeLock.Properties.Resources.eyeStar_logo_5th_reshape;
+            this.eyeStarLogo.Location = new System.Drawing.Point(376, 530);
+            this.eyeStarLogo.Name = "eyeStarLogo";
+            this.eyeStarLogo.Size = new System.Drawing.Size(72, 72);
+            this.eyeStarLogo.TabIndex = 2;
+            this.eyeStarLogo.TabStop = false;
+            this.eyeStarLogo.MouseHover += new System.EventHandler(this.eyeStarLogo_MouseHover);
             // 
             // label1
             // 
@@ -97,17 +128,6 @@ namespace eyeLock
             this.label1.Size = new System.Drawing.Size(108, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "About Us";
-            // 
-            // eyeStarLogo
-            // 
-            this.eyeStarLogo.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.eyeStarLogo.Image = global::eyeLock.Properties.Resources.eyeStar_logo_5th_reshape;
-            this.eyeStarLogo.Location = new System.Drawing.Point(276, 748);
-            this.eyeStarLogo.Name = "eyeStarLogo";
-            this.eyeStarLogo.Size = new System.Drawing.Size(72, 72);
-            this.eyeStarLogo.TabIndex = 2;
-            this.eyeStarLogo.TabStop = false;
-            this.eyeStarLogo.MouseHover += new System.EventHandler(this.eyeStarLogo_MouseHover);
             // 
             // eyeLockLogo
             // 
@@ -150,5 +170,7 @@ namespace eyeLock
         private System.Windows.Forms.PictureBox eyeLockLogo;
         private System.Windows.Forms.PictureBox eyeStarLogo;
         private System.Windows.Forms.Label lbl;
+        private System.Windows.Forms.Label lbl2;
+        private System.Windows.Forms.Label lbl3;
     }
 }

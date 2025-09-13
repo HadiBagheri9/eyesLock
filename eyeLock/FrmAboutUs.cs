@@ -31,7 +31,9 @@ namespace eyeLock
 
         private void FrmAboutUs_Load(object sender, EventArgs e)
         {
-            lbl.Text = eyeAboutSoftwares.eyeLock;
+            lbl.Text = eyeAboutSoftwares.eyeLockDiscription;
+            lbl2.Text = eyeAboutSoftwares.eyeLockExplain;
+            lbl3.Text = eyeAboutSoftwares.eyeLockContactUs;
         }
 
         private void eyeStarLogo_MouseHover(object sender, EventArgs e)

@@ -102,6 +102,7 @@ namespace eyeLock
             if (isCryptionOn)
             {
                 DecryptFiles(path);
+                //Delete Recovery File...
             }
 
             if (isLockingOn)
