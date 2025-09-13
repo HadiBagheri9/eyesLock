@@ -10,7 +10,7 @@ namespace eyeLock
 {
     public partial class FrmMain : FrmTemp
     {
-        List<string> listFiles = new List<string>();
+        List<string> listFiles = new List<string>(), listFolders = new List<string>();
         string fileNameAddition = ".eye", isNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIf your data is sensitive and important, you should turn on the recovery file option.\n\nDo you want to turn it on?";
         string path;
         bool isCryptionOn = false, isLockingOn = false, isRecoveryFileOn = false;
@@ -143,6 +143,13 @@ namespace eyeLock
         {
             try
             {
+                //listFolders = FolderOptions.GetAllFolders(path);
+                //
+                //foreach (var item in listFolders)
+                //{
+                //    FolderOptions.LockDirectory(item);
+                //}
+
                 FolderOptions.LockDirectory(path);
             }
             catch (Exception ex)
@@ -156,6 +163,12 @@ namespace eyeLock
             try
             {
                 FolderOptions.UnLockDirectory(path);
+                //listFolders = FolderOptions.GetAllFolders(path);
+                //
+                //foreach (var item in listFolders)
+                //{
+                //    FolderOptions.UnLockDirectory(item);
+                //}
             }
             catch (Exception ex)
             {
