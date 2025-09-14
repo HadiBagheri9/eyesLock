@@ -26,13 +26,13 @@ namespace eyeLock
                 }
                 else
                 {
-                    eyeMessageContents.LicenseExpired.MessageBoxError();
+                    eyeMessageContents.LicenseExpired.MessageBoxError("eyeLock Error");
                     Environment.Exit(0);
                 }
             }
             else 
             {
-                eyeMessageContents.LicenseInvalid.MessageBoxError();
+                eyeMessageContents.LicenseInvalid.MessageBoxError("eyeLock Error");
                 Environment.Exit(0);
             }
             
@@ -95,7 +95,7 @@ namespace eyeLock
                 BackUpFile(path);
             }
 
-            "Done".MessageBoxWarning();
+            "Done".MessageBoxWarning("eyeLock Warning");
         }
 
         private void btnUnlockDecrypt_Click(object sender, EventArgs e)
@@ -111,7 +111,7 @@ namespace eyeLock
                 UnlockFolder(path);
             }
 
-            "Done".MessageBoxInformation();
+            "Done".MessageBoxInformation("eyeLock Information");
         }
 
         private void eyeLockLogo_Click(object sender, EventArgs e)
@@ -155,7 +155,7 @@ namespace eyeLock
             }
             catch (Exception ex)
             {
-                ex.Message.MessageBoxError();
+                ex.Message.MessageBoxError("eyeLock Error");
             }
         }
 
@@ -173,7 +173,7 @@ namespace eyeLock
             }
             catch (Exception ex)
             {
-                ex.Message.MessageBoxError();
+                ex.Message.MessageBoxError("eyeLock Error");
             }
         }
 
@@ -204,7 +204,7 @@ namespace eyeLock
             }
             catch (Exception ex)
             {
-                ex.Message.MessageBoxError();
+                ex.Message.MessageBoxError("eyeLock Error");
             }
         }
 
@@ -244,14 +244,14 @@ namespace eyeLock
                     }
                     catch (Exception ex)
                     {
-                        ex.Message.MessageBoxError();
+                        ex.Message.MessageBoxError("eyeLock Error");
                         continue;
                     }
                 }
             }
             catch (Exception ex)
             {
-                ex.Message.MessageBoxError();
+                ex.Message.MessageBoxError("eyeLock Error");
             }
         }
            

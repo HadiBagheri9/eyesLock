@@ -18,13 +18,13 @@ namespace eyeLock
                 }
                 else
                 {
-                    eyeMessageContents.LicenseExpired.MessageBoxError();
+                    eyeMessageContents.LicenseExpired.MessageBoxError("eyeLock Error");
                     Environment.Exit(0);
                 }
             }
             else
             {
-                eyeMessageContents.LicenseInvalid.MessageBoxError();
+                eyeMessageContents.LicenseInvalid.MessageBoxError("eyeLock Error");
                 Environment.Exit(0);
             }
         }
