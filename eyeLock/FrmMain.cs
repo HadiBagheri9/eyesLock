@@ -5,14 +5,18 @@ using System.Collections.Generic;
 using PersonalClassLibrary.Notif;
 using PersonalClassLibrary.Windows;
 using System.Windows.Forms;
+using PersonalClassLibrary.Data;
 
 namespace eyeLock
 {
     public partial class FrmMain : FrmTemp
     {
         List<string> listFiles = new List<string>(), listFolders = new List<string>();
-        string fileNameAddition = ".eye", isNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIf your data is sensitive and important, you should turn on the recovery file option.\n\nDo you want to turn it on?";
+        string fileNameAddition = ".eye", recoveryFileName = "recovery.info", separatorString = "|||";
+        string isNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIf your data is sensitive and important, you should turn on the recovery file option.\n\nDo you want to turn it on?";
         string path;
+        string cipher = "1385/12/24HadieyeLock";
+        
         bool isCryptionOn = false, isLockingOn = false, isRecoveryFileOn = false;
 
         public FrmMain()
@@ -35,7 +39,6 @@ namespace eyeLock
                 eyeMessageContents.LicenseInvalid.MessageBoxError("eyeLock Error");
                 Environment.Exit(0);
             }
-            
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -73,6 +76,8 @@ namespace eyeLock
 
         private void btnLockEncrypt_Click(object sender, EventArgs e)
         {
+            DisableButtons();
+
             if (!isRecoveryFileOn)
             {
 
@@ -95,15 +100,27 @@ namespace eyeLock
                 BackUpFile(path);
             }
 
-            "Done".MessageBoxWarning("eyeLock Warning");
+            EnableButtons();
+
+            "Encryption has been done.".MessageBoxWarning("eyeLock Warning");
         }
 
         private void btnUnlockDecrypt_Click(object sender, EventArgs e)
         {
-            if (isCryptionOn)
+            DisableButtons();
+
+            string backUpFileName = path + "\\" + recoveryFileName;
+
+            if (File.Exists(backUpFileName))
             {
-                DecryptFiles(path);
-                //Delete Recovery File...
+                try
+                {
+                    File.Delete(backUpFileName);
+                }
+                catch (Exception ex)
+                {
+                    ex.Message.MessageBoxError("eyeLock Error");
+                }
             }
 
             if (isLockingOn)
@@ -111,7 +128,15 @@ namespace eyeLock
                 UnlockFolder(path);
             }
 
-            "Done".MessageBoxInformation("eyeLock Information");
+            if (isCryptionOn)
+            {
+                DecryptFiles(path);
+                //Delete Recovery File...
+            }
+
+            EnableButtons();
+
+            "Decryption has been done.".MessageBoxInformation("eyeLock Information");
         }
 
         private void eyeLockLogo_Click(object sender, EventArgs e)
@@ -257,7 +282,33 @@ namespace eyeLock
            
         private void BackUpFile(string path)
         {
-             
+            string salt;
+            string backUpFileName = path + "\\" + recoveryFileName;
+
+            try
+            {
+                string content = string.Format($"{User._LicenseKey}{separatorString}{User._16ByteKey}{separatorString}" +
+                $"{User.__User}{separatorString}{User.__Pass}{separatorString}{User.__Insta}{separatorString}" +
+                $"{User.__Disc}{separatorString}{User.__PaidA}");
+                foreach (var item in listFiles)
+                {
+                    content += string.Format($"\n{item}");
+                }
+
+                salt = eyeKeyMethods.HApproach(eyeKeyMethods.HMethod(cipher));
+                salt = salt.Remove(salt.Length - 2, 2);
+                salt += salt;
+                //salt += salt;
+                salt = salt.ReverseText();
+                salt = salt.Replace('r', '&');
+
+                content = CryptText.Encrypt(content, salt);
+                File.WriteAllText(backUpFileName, content);
+            }
+            catch (Exception ex)
+            {
+                ex.Message.MessageBoxError("eyeLock Error");
+            }
         }
 
         //**********************************************************************

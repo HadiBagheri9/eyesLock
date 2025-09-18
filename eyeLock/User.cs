@@ -5,6 +5,8 @@ namespace eyeLock
 {
     class User
     {
+        public static string __User { get; } = "eyestar";public static string __Pass { get; } = "Hadi1313";public static string __Insta { get; } = "hadi.bagheri.9";public static string __Disc { get; } = " ";public static string __PaidA { get; } = "0";
+
         public static string _Username { get; } = "$2a$13$RE5xqjFB1.s3gPLDTXjZWuhyRNQWqLqC4QNXfHFBILqCVg1DVa6cC";
         public static string _Password { get; } = "$2a$13$32Ue8m6w6wf4EmnGxUWokOVyCu30.PFNxR6uX7dp151ArRyDvfSVu";
         public static string _LicenseKey { get; } = "Fj7YP6OcXeKetQWdgyT2/7bEX4ipbN9ImW5Rq/WVltE=";
