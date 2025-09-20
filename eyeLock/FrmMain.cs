@@ -7,6 +7,7 @@ using PersonalClassLibrary.Windows;
 using System.Windows.Forms;
 using PersonalClassLibrary.Data;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace eyeLock
 {
@@ -14,7 +15,8 @@ namespace eyeLock
     {
         List<string> listFiles = new List<string>(), listFolders = new List<string>();
         string fileNameAddition = ".eye", recoveryFileName = "recovery.info", separatorString = "|||";
-        string isNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIf your data is sensitive and important, you should turn on the recovery file option.\n\nDo you want to turn it on?";
+        string isEncryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIf your data is sensitive and important, you should turn on the recovery file option.\n\nDo you want to turn it on?";
+        string isDecryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIt is better to turn on the recovery file option when you want to do Decryption Operation.\nIf you turn it on, it will delete the recovery.info file.";
         string path;
         string cipher = "1385/12/24HadieyeLock";
         
@@ -47,8 +49,8 @@ namespace eyeLock
             DisableComponents();
 
             ToolTip toolTip = new ToolTip();
-            toolTip.SetToolTip(btnLockEncrypt, "Lock | Encrypt");
-            toolTip.SetToolTip(btnUnlockDecrypt, "Unlock | Decrypt");
+            toolTip.SetToolTip(btnLockEncrypt, "Encrypt | Lock");
+            toolTip.SetToolTip(btnUnlockDecrypt, "Decrypt | Unlock");
             toolTip.SetToolTip(btnSelectFolder, "Select a folder.");
             toolTip.SetToolTip(chkCryptography, "Enable : It does the cryptography operation for files within the folder.");
             toolTip.SetToolTip(chkFolderAccessibility, "Enable : It does the folder access limiting operation for the top folder.");
@@ -78,65 +80,95 @@ namespace eyeLock
         private async void btnLockEncrypt_Click(object sender, EventArgs e)
         {
             DisableButtons();
+            rtxtPath.Clear();
+            rtxtPath.Text = path;
 
             if (!isRecoveryFileOn)
             {
 
-                DialogResult flag = MessageBox.Show(isNotRecoveryFileOnMessage, "eyeLock Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult flag = MessageBox.Show(isEncryptionNotRecoveryFileOnMessage, "eyeLock Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 isRecoveryFileOn = flag == DialogResult.Yes ? true : false;
+                chkRecoveryFile.Checked = flag == DialogResult.Yes ? true : false;
             }
 
             if (isCryptionOn)
             {
                 await EncryptFilesAsync(path);
-                lblLog.Text = "Encryption has been done.";
+                //lblLog.Text = "Encryption has been done.";
+                rtxtPath.Text += "\n\nInfo: Encryption has been done.";
             }
 
             if (isRecoveryFileOn)
             {
                 BackUpFile(path);
+                rtxtPath.Text += "\nInfo: recovery.info has been made.";
             }
 
             if (isLockingOn)
             {
                 LockFolder(path);
-                lblLog.Text = "Folder has been locked.";
+                //lblLog.Text = "Folder has been locked.";
+                rtxtPath.Text += "\nInfo: Folder has been locked.";
             }
 
-
+            rtxtPath.Text += "\n\n\nInfo: All Done!";
+            //rtxtPath.Text = rtxtPath.Text.Trim();
             EnableButtons();
         }
 
         private async void btnUnlockDecrypt_Click(object sender, EventArgs e)
         {
             DisableButtons();
+            rtxtPath.Clear();
+            rtxtPath.Text = path;
 
             string backUpFileName = path + "\\" + recoveryFileName;
 
-            if (File.Exists(backUpFileName))
+            if (!isRecoveryFileOn)
             {
-                try
-                {
-                    File.Delete(backUpFileName);
-                }
-                catch (Exception ex)
-                {
-                    ex.Message.MessageBoxError("eyeLock Error");
-                }
+
+                DialogResult flag = MessageBox.Show(isDecryptionNotRecoveryFileOnMessage, "eyeLock Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                isRecoveryFileOn = flag == DialogResult.Yes ? true : false;
+                chkRecoveryFile.Checked = flag == DialogResult.Yes ? true : false;
             }
 
             if (isLockingOn)
             {
                 UnlockFolder(path);
-                lblLog.Text = "Folder has been Unlocked";
+                //lblLog.Text = "Folder has been Unlocked";
+                rtxtPath.Text += "\nInfo: Folder has been Unlocked";
+            }
+
+            if (isRecoveryFileOn)
+            {
+                if (File.Exists(backUpFileName))
+                {
+                    try
+                    {
+                        File.Delete(backUpFileName);
+                        rtxtPath.Text += "\nInfo: recovery.info has been deleted.";
+                    }
+                    catch (Exception ex)
+                    {
+                        rtxtPath.Text+="\nError: " + ex.Message;
+                    }
+                }
+                else
+                {
+                    rtxtPath.Text += "\nInfo: recovery.info was not found!";
+                }
             }
 
             if (isCryptionOn)
             {
                 await DecryptFilesAsync(path);
-                lblLog.Text = "Decryption has been done.";
+                //lblLog.Text = "Decryption has been done.";
+                rtxtPath.Text += "\n\nInfo: Decryption has been done.";
             }
 
+
+            rtxtPath.Text += "\n\n\nInfo: All Done!";
+            //rtxtPath.Text = rtxtPath.Text.Trim();
             EnableButtons();
         }
 
@@ -181,7 +213,7 @@ namespace eyeLock
             }
             catch (Exception ex)
             {
-                ex.Message.MessageBoxError("eyeLock Error");
+                 rtxtPath.Text += "\nError: " + ex.Message;
             }
         }
 
@@ -199,7 +231,7 @@ namespace eyeLock
             }
             catch (Exception ex)
             {
-                ex.Message.MessageBoxError("eyeLock Error");
+                 rtxtPath.Text += "\nError: " + ex.Message;
             }
         }
 
@@ -218,29 +250,30 @@ namespace eyeLock
                         continue;
                     }
 
+                    rtxtPath.Text += $"\nWorking: {item}";
                     await Task.Run(() =>
                     {
                         PersonalClassLibrary.Windows.FileOptions.EncryptFile(item, output, User._16ByteKey, new byte[16]);
                         File.SetAttributes(output, FileAttributes.ReadOnly);
                         File.Delete(item);
-                        
+                        //rtxtPath.Text += $"\nEncrypted: {item}";
                     });
-                    rtxtPath.Text += $"\nWorking: {item}";
-
+                    rtxtPath.Text += $"\nEncrypted: {item}";
+                    Thread.Sleep(10);
                     //if ((item + fileNameAddition).EndsWith("desktop.ini" + fileNameAddition))
                     //    File.SetAttributes((item + fileNameAddition), FileAttributes.Hidden);
 
 
                 }
-                foreach (var item in listFiles)
-                {
-                    rtxtPath.Text += $"\nEncrypted: {item}";
-                }
+                //foreach (var item in listFiles)
+                //{
+                //    rtxtPath.Text += $"\nEncrypted: {item}";
+                //}
                 listFiles.Clear();
             }
             catch (Exception ex)
             {
-                ex.Message.MessageBoxError("eyeLock Error");
+                rtxtPath.Text += "\nError: " + ex.Message;
             }
         }
 
@@ -258,12 +291,14 @@ namespace eyeLock
                         if (item.EndsWith(fileNameAddition))
                         {
                             File.SetAttributes(item, ~FileAttributes.ReadOnly);
+                            rtxtPath.Text += $"\nWorking: {item}";
                             await Task.Run(() =>
                             {
                                 PersonalClassLibrary.Windows.FileOptions.DecryptFile(item, output, User._16ByteKey, new byte[16]);
                                 File.Delete(item);
                             });
-                            rtxtPath.Text += $"\nWorking: {output}";
+                            rtxtPath.Text += $"\nDecrypted: {item}";
+                            Thread.Sleep(10);
                             //if ((item.Remove(item.Length - fileNameAddition.Length, fileNameAddition.Length)).EndsWith("desktop.ini"))
                             //    File.SetAttributes((item.Remove(item.Length - fileNameAddition.Length, fileNameAddition.Length)), FileAttributes.Hidden);
 
@@ -277,25 +312,25 @@ namespace eyeLock
                                 continue;
                             }
 
-                            $"{item} is not in a correct format to decrypt!".MessageBoxError();
+                            rtxtPath.Text += $"\nError: {item} is not in a correct format to decrypt!";
                             //File.Delete(item);
                         }
                     }
                     catch (Exception ex)
                     {
-                        ex.Message.MessageBoxError("eyeLock Error");
+                        rtxtPath.Text += "\nError: " + ex.Message;
                         continue;
                     }
                 }
-                foreach (var item in listFiles)
-                {
-                    rtxtPath.Text += $"\nDecrypted: {item}";
-                }
+                //foreach (var item in listFiles)
+                //{
+                //    rtxtPath.Text += $"\nDecrypted: {item}";
+                //}
                 listFiles.Clear();
             }
             catch (Exception ex)
             {
-                ex.Message.MessageBoxError("eyeLock Error");
+                rtxtPath.Text += "\nError: " + ex.Message;
             }
         }
            
@@ -326,7 +361,7 @@ namespace eyeLock
             }
             catch (Exception ex)
             {
-                ex.Message.MessageBoxError("eyeLock Error");
+                rtxtPath.Text += "\nError: " + ex.Message;
             }
         }
 

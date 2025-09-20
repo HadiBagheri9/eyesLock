@@ -33,6 +33,7 @@ namespace eyeLock
             this.btnUnlockDecrypt = new System.Windows.Forms.Button();
             this.btnLockEncrypt = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.lblLog = new System.Windows.Forms.Label();
             this.eyeLockLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.chkRecoveryFile = new System.Windows.Forms.CheckBox();
@@ -41,7 +42,6 @@ namespace eyeLock
             this.rtxtPath = new System.Windows.Forms.RichTextBox();
             this.btnSelectFolder = new System.Windows.Forms.Button();
             this.diaSelectFolder = new System.Windows.Forms.FolderBrowserDialog();
-            this.lblLog = new System.Windows.Forms.Label();
             this.pnlSideBar.SuspendLayout();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eyeLockLogo)).BeginInit();
@@ -67,7 +67,7 @@ namespace eyeLock
             this.btnUnlockDecrypt.Name = "btnUnlockDecrypt";
             this.btnUnlockDecrypt.Size = new System.Drawing.Size(132, 54);
             this.btnUnlockDecrypt.TabIndex = 0;
-            this.btnUnlockDecrypt.Text = "Unlock|Dec";
+            this.btnUnlockDecrypt.Text = "Decrypt|U";
             this.btnUnlockDecrypt.UseVisualStyleBackColor = false;
             this.btnUnlockDecrypt.Click += new System.EventHandler(this.btnUnlockDecrypt_Click);
             // 
@@ -80,7 +80,7 @@ namespace eyeLock
             this.btnLockEncrypt.Name = "btnLockEncrypt";
             this.btnLockEncrypt.Size = new System.Drawing.Size(132, 54);
             this.btnLockEncrypt.TabIndex = 0;
-            this.btnLockEncrypt.Text = "Lock|Enc";
+            this.btnLockEncrypt.Text = "Encrypt|L";
             this.btnLockEncrypt.UseVisualStyleBackColor = false;
             this.btnLockEncrypt.Click += new System.EventHandler(this.btnLockEncrypt_Click);
             // 
@@ -100,6 +100,16 @@ namespace eyeLock
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(488, 476);
             this.pnlMain.TabIndex = 1;
+            // 
+            // lblLog
+            // 
+            this.lblLog.AutoSize = true;
+            this.lblLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(82)))), ((int)(((byte)(164)))));
+            this.lblLog.Location = new System.Drawing.Point(33, 289);
+            this.lblLog.Name = "lblLog";
+            this.lblLog.Size = new System.Drawing.Size(0, 20);
+            this.lblLog.TabIndex = 5;
             // 
             // eyeLockLogo
             // 
@@ -159,6 +169,7 @@ namespace eyeLock
             // 
             // rtxtPath
             // 
+            this.rtxtPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtPath.Location = new System.Drawing.Point(33, 159);
             this.rtxtPath.Name = "rtxtPath";
             this.rtxtPath.ReadOnly = true;
@@ -179,16 +190,6 @@ namespace eyeLock
             this.btnSelectFolder.Text = "Select Folder";
             this.btnSelectFolder.UseVisualStyleBackColor = false;
             this.btnSelectFolder.Click += new System.EventHandler(this.btnSelectFolder_Click);
-            // 
-            // lblLog
-            // 
-            this.lblLog.AutoSize = true;
-            this.lblLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(82)))), ((int)(((byte)(164)))));
-            this.lblLog.Location = new System.Drawing.Point(33, 289);
-            this.lblLog.Name = "lblLog";
-            this.lblLog.Size = new System.Drawing.Size(0, 20);
-            this.lblLog.TabIndex = 5;
             // 
             // FrmMain
             // 
