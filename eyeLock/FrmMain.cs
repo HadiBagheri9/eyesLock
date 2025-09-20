@@ -6,6 +6,7 @@ using PersonalClassLibrary.Notif;
 using PersonalClassLibrary.Windows;
 using System.Windows.Forms;
 using PersonalClassLibrary.Data;
+using System.Threading.Tasks;
 
 namespace eyeLock
 {
@@ -74,7 +75,7 @@ namespace eyeLock
             rtxtPath.Text = path;
         }
 
-        private void btnLockEncrypt_Click(object sender, EventArgs e)
+        private async void btnLockEncrypt_Click(object sender, EventArgs e)
         {
             DisableButtons();
 
@@ -87,12 +88,8 @@ namespace eyeLock
 
             if (isCryptionOn)
             {
-                EncryptFiles(path);
-            }
-
-            if (isLockingOn)
-            {
-                LockFolder(path);
+                await EncryptFilesAsync(path);
+                lblLog.Text = "Encryption has been done.";
             }
 
             if (isRecoveryFileOn)
@@ -100,12 +97,17 @@ namespace eyeLock
                 BackUpFile(path);
             }
 
-            EnableButtons();
+            if (isLockingOn)
+            {
+                LockFolder(path);
+                lblLog.Text = "Folder has been locked.";
+            }
 
-            "Encryption has been done.".MessageBoxWarning("eyeLock Warning");
+
+            EnableButtons();
         }
 
-        private void btnUnlockDecrypt_Click(object sender, EventArgs e)
+        private async void btnUnlockDecrypt_Click(object sender, EventArgs e)
         {
             DisableButtons();
 
@@ -126,17 +128,16 @@ namespace eyeLock
             if (isLockingOn)
             {
                 UnlockFolder(path);
+                lblLog.Text = "Folder has been Unlocked";
             }
 
             if (isCryptionOn)
             {
-                DecryptFiles(path);
-                //Delete Recovery File...
+                await DecryptFilesAsync(path);
+                lblLog.Text = "Decryption has been done.";
             }
 
             EnableButtons();
-
-            "Decryption has been done.".MessageBoxInformation("eyeLock Information");
         }
 
         private void eyeLockLogo_Click(object sender, EventArgs e)
@@ -202,12 +203,11 @@ namespace eyeLock
             }
         }
 
-        private void EncryptFiles(string path)
+        private async Task EncryptFilesAsync(string path)
         {
             try
             {
                 listFiles = FolderOptions.GetAllFiles(path);
-
                 foreach (var item in listFiles)
                 {
                     string output = item + fileNameAddition;
@@ -218,14 +218,25 @@ namespace eyeLock
                         continue;
                     }
 
-                    PersonalClassLibrary.Windows.FileOptions.EncryptFile(item, output, User._16ByteKey);
-                    File.SetAttributes(output, FileAttributes.ReadOnly);
+                    await Task.Run(() =>
+                    {
+                        PersonalClassLibrary.Windows.FileOptions.EncryptFile(item, output, User._16ByteKey, new byte[16]);
+                        File.SetAttributes(output, FileAttributes.ReadOnly);
+                        File.Delete(item);
+                        
+                    });
+                    rtxtPath.Text += $"\nWorking: {item}";
 
                     //if ((item + fileNameAddition).EndsWith("desktop.ini" + fileNameAddition))
                     //    File.SetAttributes((item + fileNameAddition), FileAttributes.Hidden);
 
-                    File.Delete(item);
+
                 }
+                foreach (var item in listFiles)
+                {
+                    rtxtPath.Text += $"\nEncrypted: {item}";
+                }
+                listFiles.Clear();
             }
             catch (Exception ex)
             {
@@ -233,12 +244,11 @@ namespace eyeLock
             }
         }
 
-        private void DecryptFiles(string path)
+        private async Task DecryptFilesAsync(string path)
         {
             try
             {
                 listFiles = FolderOptions.GetAllFiles(path);
-
                 foreach (var item in listFiles)
                 {
                     string output = item.Remove(item.Length - fileNameAddition.Length, fileNameAddition.Length);
@@ -248,12 +258,16 @@ namespace eyeLock
                         if (item.EndsWith(fileNameAddition))
                         {
                             File.SetAttributes(item, ~FileAttributes.ReadOnly);
-                            PersonalClassLibrary.Windows.FileOptions.DecryptFile(item, output, User._16ByteKey);
-
+                            await Task.Run(() =>
+                            {
+                                PersonalClassLibrary.Windows.FileOptions.DecryptFile(item, output, User._16ByteKey, new byte[16]);
+                                File.Delete(item);
+                            });
+                            rtxtPath.Text += $"\nWorking: {output}";
                             //if ((item.Remove(item.Length - fileNameAddition.Length, fileNameAddition.Length)).EndsWith("desktop.ini"))
                             //    File.SetAttributes((item.Remove(item.Length - fileNameAddition.Length, fileNameAddition.Length)), FileAttributes.Hidden);
 
-                            File.Delete(item);
+
                         }
                         else
                         {
@@ -273,6 +287,11 @@ namespace eyeLock
                         continue;
                     }
                 }
+                foreach (var item in listFiles)
+                {
+                    rtxtPath.Text += $"\nDecrypted: {item}";
+                }
+                listFiles.Clear();
             }
             catch (Exception ex)
             {
@@ -302,7 +321,7 @@ namespace eyeLock
                 salt = salt.ReverseText();
                 salt = salt.Replace('r', '&');
 
-                content = CryptText.Encrypt(content, salt);
+                content = CryptText.Encrypt(content, salt, new byte[16]);
                 File.WriteAllText(backUpFileName, content);
             }
             catch (Exception ex)

@@ -41,6 +41,7 @@ namespace eyeLock
             this.rtxtPath = new System.Windows.Forms.RichTextBox();
             this.btnSelectFolder = new System.Windows.Forms.Button();
             this.diaSelectFolder = new System.Windows.Forms.FolderBrowserDialog();
+            this.lblLog = new System.Windows.Forms.Label();
             this.pnlSideBar.SuspendLayout();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eyeLockLogo)).BeginInit();
@@ -86,6 +87,7 @@ namespace eyeLock
             // pnlMain
             // 
             this.pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlMain.Controls.Add(this.lblLog);
             this.pnlMain.Controls.Add(this.eyeLockLogo);
             this.pnlMain.Controls.Add(this.label1);
             this.pnlMain.Controls.Add(this.chkRecoveryFile);
@@ -108,7 +110,6 @@ namespace eyeLock
             this.eyeLockLogo.TabIndex = 4;
             this.eyeLockLogo.TabStop = false;
             this.eyeLockLogo.Click += new System.EventHandler(this.eyeLockLogo_Click);
-            //this.eyeLockLogo.MouseHover += new System.EventHandler(this.eyeLockLogo_MouseHover);
             // 
             // label1
             // 
@@ -179,6 +180,16 @@ namespace eyeLock
             this.btnSelectFolder.UseVisualStyleBackColor = false;
             this.btnSelectFolder.Click += new System.EventHandler(this.btnSelectFolder_Click);
             // 
+            // lblLog
+            // 
+            this.lblLog.AutoSize = true;
+            this.lblLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(82)))), ((int)(((byte)(164)))));
+            this.lblLog.Location = new System.Drawing.Point(33, 289);
+            this.lblLog.Name = "lblLog";
+            this.lblLog.Size = new System.Drawing.Size(0, 20);
+            this.lblLog.TabIndex = 5;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -214,5 +225,6 @@ namespace eyeLock
         private System.Windows.Forms.Button btnSelectFolder;
         private System.Windows.Forms.FolderBrowserDialog diaSelectFolder;
         private System.Windows.Forms.PictureBox eyeLockLogo;
+        private System.Windows.Forms.Label lblLog;
     }
 }
