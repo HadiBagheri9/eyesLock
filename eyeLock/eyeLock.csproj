@@ -86,6 +86,9 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMain.FileFormat.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmTemp.cs">
       <SubType>Form</SubType>
     </Compile>

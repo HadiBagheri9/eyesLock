@@ -367,6 +367,9 @@ namespace eyeLock
 
         //**********************************************************************
 
+        /// <summary>
+        /// If checkboxes are not checked buttons will be disabled
+        /// </summary>
         private void CheckAndChangeButtonsAbility()
         {
             if ((!isCryptionOn) && (!isLockingOn))
