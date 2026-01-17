@@ -41,8 +41,11 @@ namespace eyeLock
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            if (BCrypt.Net.BCrypt.EnhancedVerify(txtUsername.Text.Trim(), User._Username)
-                && BCrypt.Net.BCrypt.EnhancedVerify(txtPassword.Text.Trim(), User._Password))
+            if (
+                BCrypt.Net.BCrypt.EnhancedVerify(txtUsername.Text.Trim(), User._Username)
+                &&
+                BCrypt.Net.BCrypt.EnhancedVerify(txtPassword.Text.Trim(), User._Password)
+                )
             {
                 Cursor = Cursors.Default;
                 Hide();

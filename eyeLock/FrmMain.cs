@@ -14,11 +14,13 @@ namespace eyeLock
     public partial class FrmMain : FrmTemp
     {
         List<string> listFiles = new List<string>(), listFolders = new List<string>();
-        string fileNameAddition = ".eye", recoveryFileName = "recovery.info", separatorString = "|||";
+        string fileNameAddition = ".eye",
+            recoveryFileName = "recovery.info",
+            separatorString = "|||"; // Used in RFCE
         string isEncryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIf your data is sensitive and important, you should turn on the recovery file option.\n\nDo you want to turn it on?";
         string isDecryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIt is better to turn on the recovery file option when you want to do Decryption Operation.\nIf you turn it on, it will delete the recovery.info file.";
         string path;
-        string cipher = "1385/12/24HadieyeLock";
+        string RFCE_Base = "1385/12/24HadieyeLock"; // Base
         
         bool isCryptionOn = false, isLockingOn = false, isRecoveryFileOn = false;
 
@@ -139,6 +141,13 @@ namespace eyeLock
                 rtxtPath.Text += "\nInfo: Folder has been Unlocked";
             }
 
+            if (isCryptionOn)
+            {
+                await DecryptFilesAsync(path);
+                //lblLog.Text = "Decryption has been done.";
+                rtxtPath.Text += "\n\nInfo: Decryption has been done.";
+            }
+
             if (isRecoveryFileOn)
             {
                 if (File.Exists(backUpFileName))
@@ -159,12 +168,6 @@ namespace eyeLock
                 }
             }
 
-            if (isCryptionOn)
-            {
-                await DecryptFilesAsync(path);
-                //lblLog.Text = "Decryption has been done.";
-                rtxtPath.Text += "\n\nInfo: Decryption has been done.";
-            }
 
 
             rtxtPath.Text += "\n\n\nInfo: All Done!";
@@ -253,7 +256,7 @@ namespace eyeLock
                     rtxtPath.Text += $"\nWorking: {item}";
                     await Task.Run(() =>
                     {
-                        PersonalClassLibrary.Windows.FileOptions.EncryptFile(item, output, User._16ByteKey, new byte[16]);
+                        PersonalClassLibrary.Windows.FileOptions.EncryptFile(item, output, User._FE_DK, new byte[16]);
                         File.SetAttributes(output, FileAttributes.ReadOnly);
                         File.Delete(item);
                         //rtxtPath.Text += $"\nEncrypted: {item}";
@@ -294,7 +297,7 @@ namespace eyeLock
                             rtxtPath.Text += $"\nWorking: {item}";
                             await Task.Run(() =>
                             {
-                                PersonalClassLibrary.Windows.FileOptions.DecryptFile(item, output, User._16ByteKey, new byte[16]);
+                                PersonalClassLibrary.Windows.FileOptions.DecryptFile(item, output, User._FE_DK, new byte[16]);
                                 File.Delete(item);
                             });
                             rtxtPath.Text += $"\nDecrypted: {item}";
@@ -336,12 +339,12 @@ namespace eyeLock
            
         private void BackUpFile(string path)
         {
-            string salt;
+            string RFCE_DK;
             string backUpFileName = path + "\\" + recoveryFileName;
 
             try
             {
-                string content = string.Format($"{User._LicenseKey}{separatorString}{User._16ByteKey}{separatorString}" +
+                string content = string.Format($"{User._LicenseKey}{separatorString}{User._FE_DK}{separatorString}" +
                 $"{User.__User}{separatorString}{User.__Pass}{separatorString}{User.__Insta}{separatorString}" +
                 $"{User.__Disc}{separatorString}{User.__PaidA}");
                 foreach (var item in listFiles)
@@ -349,14 +352,14 @@ namespace eyeLock
                     content += string.Format($"\n{item}");
                 }
 
-                salt = eyeKeyMethods.HApproach(eyeKeyMethods.HMethod(cipher));
-                salt = salt.Remove(salt.Length - 2, 2);
-                salt += salt;
+                RFCE_DK = eyeKeyMethods.HApproach(eyeKeyMethods.HMethod(RFCE_Base));
+                RFCE_DK = RFCE_DK.Remove(RFCE_DK.Length - 2, 2);
+                RFCE_DK += RFCE_DK;
                 //salt += salt;
-                salt = salt.ReverseText();
-                salt = salt.Replace('r', '&');
+                RFCE_DK = RFCE_DK.ReverseText();
+                RFCE_DK = RFCE_DK.Replace('r', '&');
 
-                content = CryptText.Encrypt(content, salt, new byte[16]);
+                content = CryptText.Encrypt(content, RFCE_DK, new byte[16]);
                 File.WriteAllText(backUpFileName, content);
             }
             catch (Exception ex)
