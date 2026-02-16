@@ -3,12 +3,12 @@ namespace eyeLock
 {
     partial class FrmMain
     {
-        byte[] iconBytes = null;
+        //byte[] iconBytes = null;
         private void CreateIconFile(string path)
         {
             // Fill
 
-            File.WriteAllBytes(path, iconBytes);
+            //File.WriteAllBytes(path, iconBytes);
         }
     }
 }
