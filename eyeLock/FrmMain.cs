@@ -352,7 +352,7 @@ namespace eyeLock
                     content += string.Format($"\n{item}");
                 }
 
-                RFCE_DK = eyeKeyMethods.HMethod(eyeKeyMethods.HApproach(RFCE_Base));
+                RFCE_DK = eye_Key_IV.HMethod_DK(eye_Key_IV.HApproach(RFCE_Base));
                 RFCE_DK = RFCE_DK.Remove(RFCE_DK.Length - 2, 2);
                 RFCE_DK += RFCE_DK;
                 //salt += salt;
