@@ -135,6 +135,7 @@ namespace eyeLock
             // 
             this.chkRecoveryFile.AutoSize = true;
             this.chkRecoveryFile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkRecoveryFile.Enabled = false;
             this.chkRecoveryFile.Location = new System.Drawing.Point(33, 409);
             this.chkRecoveryFile.Name = "chkRecoveryFile";
             this.chkRecoveryFile.Size = new System.Drawing.Size(233, 29);

@@ -14,18 +14,19 @@ namespace eyeLock
     public partial class FrmMain : FrmTemp
     {
         List<string> listFiles = new List<string>(), listFolders = new List<string>();
-        string fileNameAddition = ".eye",
-            recoveryFileName = "recovery.info",
-            separatorString = "|||"; // Used in RFCE
-        string isEncryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIf your data is sensitive and important, you should turn on the recovery file option.\n\nDo you want to turn it on?";
-        string isDecryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIt is better to turn on the recovery file option when you want to do Decryption Operation.\nIf you turn it on, it will delete the recovery.info file.";
+        string fileNameAddition = ".eye";//,
+            //recoveryFileName = "recovery.info",
+            //separatorString = "|||"; // Used in RFCE
+        //string isEncryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIf your data is sensitive and important, you should turn on the recovery file option.\n\nDo you want to turn it on?";
+        //string isDecryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIt is better to turn on the recovery file option when you want to do Decryption Operation.\nIf you turn it on, it will delete the recovery.info file.";
+        //string RFCE_Base = "eyeLock"; // Base
         string path;
-        string RFCE_Base = "1385/12/24HadieyeLock"; // Base
         
         bool isCryptionOn = false, isLockingOn = false, isRecoveryFileOn = false;
 
         public FrmMain()
         {
+            /*
             if (User.CheckLicense())
             {
                 if (!User.CheckExpiration())
@@ -44,7 +45,11 @@ namespace eyeLock
                 eyeMessageContents.LicenseInvalid.MessageBoxError("eyeLock Error");
                 Environment.Exit(0);
             }
+            */
+            InitializeComponent();
+            this.SetTheme();
         }
+
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
@@ -85,36 +90,34 @@ namespace eyeLock
             rtxtPath.Clear();
             rtxtPath.Text = path;
 
+            /*
             if (!isRecoveryFileOn)
             {
 
                 DialogResult flag = MessageBox.Show(isEncryptionNotRecoveryFileOnMessage, "eyeLock Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 isRecoveryFileOn = flag == DialogResult.Yes ? true : false;
                 chkRecoveryFile.Checked = flag == DialogResult.Yes ? true : false;
-            }
+            }*/
 
             if (isCryptionOn)
             {
                 await EncryptFilesAsync(path);
-                //lblLog.Text = "Encryption has been done.";
                 rtxtPath.Text += "\n\nInfo: Encryption has been done.";
             }
-
+            /*
             if (isRecoveryFileOn)
             {
                 BackUpFile(path);
                 rtxtPath.Text += "\nInfo: recovery.info has been made.";
-            }
+            }*/
 
             if (isLockingOn)
             {
                 LockFolder(path);
-                //lblLog.Text = "Folder has been locked.";
                 rtxtPath.Text += "\nInfo: Folder has been locked.";
             }
 
             rtxtPath.Text += "\n\n\nInfo: All Done!";
-            //rtxtPath.Text = rtxtPath.Text.Trim();
             EnableButtons();
         }
 
@@ -124,15 +127,16 @@ namespace eyeLock
             rtxtPath.Clear();
             rtxtPath.Text = path;
 
-            string backUpFileName = path + "\\" + recoveryFileName;
+            //string backUpFileName = path + "\\" + recoveryFileName;
 
+            /*
             if (!isRecoveryFileOn)
             {
 
                 DialogResult flag = MessageBox.Show(isDecryptionNotRecoveryFileOnMessage, "eyeLock Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 isRecoveryFileOn = flag == DialogResult.Yes ? true : false;
                 chkRecoveryFile.Checked = flag == DialogResult.Yes ? true : false;
-            }
+            }*/
 
             if (isLockingOn)
             {
@@ -148,6 +152,7 @@ namespace eyeLock
                 rtxtPath.Text += "\n\nInfo: Decryption has been done.";
             }
 
+            /*
             if (isRecoveryFileOn)
             {
                 if (File.Exists(backUpFileName))
@@ -166,12 +171,11 @@ namespace eyeLock
                 {
                     rtxtPath.Text += "\nInfo: recovery.info was not found!";
                 }
-            }
+            }*/
 
 
 
             rtxtPath.Text += "\n\n\nInfo: All Done!";
-            //rtxtPath.Text = rtxtPath.Text.Trim();
             EnableButtons();
         }
 
@@ -240,6 +244,7 @@ namespace eyeLock
 
         private async Task EncryptFilesAsync(string path)
         {
+            User._FE_DK = User._FE_DK.Substring(0, 16);//1
             try
             {
                 listFiles = FolderOptions.GetAllFiles(path);
@@ -282,6 +287,7 @@ namespace eyeLock
 
         private async Task DecryptFilesAsync(string path)
         {
+            User._FE_DK = User._FE_DK.Substring(0, 16);//1
             try
             {
                 listFiles = FolderOptions.GetAllFiles(path);
@@ -336,7 +342,7 @@ namespace eyeLock
                 rtxtPath.Text += "\nError: " + ex.Message;
             }
         }
-           
+        /*
         private void BackUpFile(string path)
         {
             string RFCE_DK;
@@ -366,7 +372,7 @@ namespace eyeLock
             {
                 rtxtPath.Text += "\nError: " + ex.Message;
             }
-        }
+        }*/
 
         //**********************************************************************
 

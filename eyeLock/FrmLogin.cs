@@ -9,6 +9,7 @@ namespace eyeLock
     {
         public FrmLogin()
         {
+            /*
             if (User.CheckLicense())
             {
                 if (!User.CheckExpiration())
@@ -27,6 +28,10 @@ namespace eyeLock
                 eyeMessageContents.LicenseInvalid.MessageBoxError("eyeLock Error");
                 Environment.Exit(0);
             }
+            */
+            //license
+            InitializeComponent();
+            this.SetTheme();
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
