@@ -21,7 +21,7 @@ namespace eyeLock
         public static string _LicenseKey { get; } = "Fj7YP6OcXeKetQWdgyT2/7bEX4ipbN9ImW5Rq/WVltE=";
         //public static string _FE_DK { get; } = eye_Key_IV.GtKySxTnBt(_LicenseKey);
         */
-        public static string _FE_DK { get; set; } = eye_Key_IV.HMethod_DK(eye_Key_IV.HApproach(Global._FE_Base));
+        
 
         /*
         public static bool CheckLicense()
