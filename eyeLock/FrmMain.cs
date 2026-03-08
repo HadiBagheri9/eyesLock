@@ -244,7 +244,6 @@ namespace eyeLock
 
         private async Task EncryptFilesAsync(string path)
         {
-            User._FE_DK = User._FE_DK.Substring(0, 16);//1
             try
             {
                 listFiles = FolderOptions.GetAllFiles(path);
@@ -261,7 +260,7 @@ namespace eyeLock
                     rtxtPath.Text += $"\nWorking: {item}";
                     await Task.Run(() =>
                     {
-                        PersonalClassLibrary.Windows.FileOptions.EncryptFile(item, output, User._FE_DK, new byte[16]);
+                        PersonalClassLibrary.Windows.FileOptions.EncryptFile(item, output, Global._FE_DK,Global._FE_DV);
                         File.SetAttributes(output, FileAttributes.ReadOnly);
                         File.Delete(item);
                         //rtxtPath.Text += $"\nEncrypted: {item}";
@@ -281,13 +280,12 @@ namespace eyeLock
             }
             catch (Exception ex)
             {
-                rtxtPath.Text += "\nError: " + ex.Message;
+                rtxtPath.Text += "\nError: " + ex;
             }
         }
 
         private async Task DecryptFilesAsync(string path)
         {
-            User._FE_DK = User._FE_DK.Substring(0, 16);//1
             try
             {
                 listFiles = FolderOptions.GetAllFiles(path);
@@ -303,7 +301,7 @@ namespace eyeLock
                             rtxtPath.Text += $"\nWorking: {item}";
                             await Task.Run(() =>
                             {
-                                PersonalClassLibrary.Windows.FileOptions.DecryptFile(item, output, User._FE_DK, new byte[16]);
+                                PersonalClassLibrary.Windows.FileOptions.DecryptFile(item, output, Global._FE_DK, Global._FE_DV);
                                 File.Delete(item);
                             });
                             rtxtPath.Text += $"\nDecrypted: {item}";

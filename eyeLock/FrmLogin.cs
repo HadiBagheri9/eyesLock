@@ -46,6 +46,7 @@ namespace eyeLock
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
+            /*
             if (
                 BCrypt.Net.BCrypt.EnhancedVerify(txtUsername.Text.Trim(), User._Username)
                 &&
@@ -61,7 +62,7 @@ namespace eyeLock
             {
                 Cursor = Cursors.Default;
                 "Username and Password are incorrect".MessageBoxError();
-            }
+            }*/
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
