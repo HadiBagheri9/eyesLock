@@ -86,6 +86,8 @@ namespace eyeLock
 
         private async void btnLockEncrypt_Click(object sender, EventArgs e)
         {
+            MessageBox.Show($"{Global._FE_DK}\n{eye_Key_IV.HMethod_DV(Global._FE_Bridge)}\n{Global._FE_DV.Length.ToString()}");
+
             DisableButtons();
             rtxtPath.Clear();
             rtxtPath.Text = path;
@@ -117,7 +119,7 @@ namespace eyeLock
                 rtxtPath.Text += "\nInfo: Folder has been locked.";
             }
 
-            rtxtPath.Text += "\n\n\nInfo: All Done!";
+            //rtxtPath.Text += "\n\n\nInfo: All Done!";
             EnableButtons();
         }
 
@@ -175,7 +177,7 @@ namespace eyeLock
 
 
 
-            rtxtPath.Text += "\n\n\nInfo: All Done!";
+            //rtxtPath.Text += "\n\n\nInfo: All Done!";
             EnableButtons();
         }
 
