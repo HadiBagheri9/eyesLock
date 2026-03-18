@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using PersonalClassLibrary.Data;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Text;
 
 namespace eyeLock
 {
@@ -86,7 +87,7 @@ namespace eyeLock
 
         private async void btnLockEncrypt_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"{Global._FE_DK}\n{eye_Key_IV.HMethod_DV(Global._FE_Bridge)}\n{Global._FE_DV.Length.ToString()}");
+            
 
             DisableButtons();
             rtxtPath.Clear();
@@ -262,6 +263,13 @@ namespace eyeLock
                     rtxtPath.Text += $"\nWorking: {item}";
                     await Task.Run(() =>
                     {
+                        FileInfo fileInfo = new FileInfo(output);
+                        Global._FE_Base = $"{Global._SeedPhrase}{fileInfo.Name}";
+                        Global._FE_Bridge = eye_Key_IV.HApproach(Global._FE_Base);
+                        Global._FE_DK = eye_Key_IV.HMethod_DK(Global._FE_Bridge);
+                        Global._FE_DV = Encoding.ASCII.GetBytes(eye_Key_IV.HMethod_DV(Global._FE_Bridge)); ;
+                        MessageBox.Show($"{Global._FE_DK}\n{eye_Key_IV.HMethod_DV(Global._FE_Bridge)}\n{Global._FE_DV.Length.ToString()}");//1
+
                         PersonalClassLibrary.Windows.FileOptions.EncryptFile(item, output, Global._FE_DK,Global._FE_DV);
                         File.SetAttributes(output, FileAttributes.ReadOnly);
                         File.Delete(item);
@@ -303,6 +311,13 @@ namespace eyeLock
                             rtxtPath.Text += $"\nWorking: {item}";
                             await Task.Run(() =>
                             {
+                                FileInfo fileInfo = new FileInfo(item);
+                                Global._FE_Base = $"{Global._SeedPhrase}{fileInfo.Name}";
+                                Global._FE_Bridge = eye_Key_IV.HApproach(Global._FE_Base);
+                                Global._FE_DK = eye_Key_IV.HMethod_DK(Global._FE_Bridge);
+                                Global._FE_DV = Encoding.ASCII.GetBytes(eye_Key_IV.HMethod_DV(Global._FE_Bridge)); ;
+                                MessageBox.Show($"{Global._FE_DK}\n{eye_Key_IV.HMethod_DV(Global._FE_Bridge)}\n{Global._FE_DV.Length.ToString()}");//1
+
                                 PersonalClassLibrary.Windows.FileOptions.DecryptFile(item, output, Global._FE_DK, Global._FE_DV);
                                 File.Delete(item);
                             });
