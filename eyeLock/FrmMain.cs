@@ -15,38 +15,13 @@ namespace eyeLock
     public partial class FrmMain : FrmTemp
     {
         List<string> listFiles = new List<string>(), listFolders = new List<string>();
-        string fileNameAddition = ".eye";//,
-            //recoveryFileName = "recovery.info",
-            //separatorString = "|||"; // Used in RFCE
-        //string isEncryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIf your data is sensitive and important, you should turn on the recovery file option.\n\nDo you want to turn it on?";
-        //string isDecryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIt is better to turn on the recovery file option when you want to do Decryption Operation.\nIf you turn it on, it will delete the recovery.info file.";
-        //string RFCE_Base = "eyeLock"; // Base
+        string fileNameAddition = ".eye";
         string path;
         
         bool isCryptionOn = false, isLockingOn = false, isRecoveryFileOn = false;
 
         public FrmMain()
         {
-            /*
-            if (User.CheckLicense())
-            {
-                if (!User.CheckExpiration())
-                {
-                    InitializeComponent();
-                    this.SetTheme();
-                }
-                else
-                {
-                    eyeMessageContents.LicenseExpired.MessageBoxError("eyeLock Error");
-                    Environment.Exit(0);
-                }
-            }
-            else 
-            {
-                eyeMessageContents.LicenseInvalid.MessageBoxError("eyeLock Error");
-                Environment.Exit(0);
-            }
-            */
             InitializeComponent();
             this.SetTheme();
         }
@@ -212,13 +187,6 @@ namespace eyeLock
         {
             try
             {
-                //listFolders = FolderOptions.GetAllFolders(path);
-                //
-                //foreach (var item in listFolders)
-                //{
-                //    FolderOptions.LockDirectory(item);
-                //}
-
                 FolderOptions.LockDirectory(path);
             }
             catch (Exception ex)
@@ -232,12 +200,6 @@ namespace eyeLock
             try
             {
                 FolderOptions.UnLockDirectory(path);
-                //listFolders = FolderOptions.GetAllFolders(path);
-                //
-                //foreach (var item in listFolders)
-                //{
-                //    FolderOptions.UnLockDirectory(item);
-                //}
             }
             catch (Exception ex)
             {
@@ -273,7 +235,6 @@ namespace eyeLock
                         PersonalClassLibrary.Windows.FileOptions.EncryptFile(item, output, Global._FE_DK,Global._FE_DV);
                         File.SetAttributes(output, FileAttributes.ReadOnly);
                         File.Delete(item);
-                        //rtxtPath.Text += $"\nEncrypted: {item}";
                     });
                     rtxtPath.Text += $"\nEncrypted: {item}";
                     Thread.Sleep(10);
@@ -282,10 +243,6 @@ namespace eyeLock
 
 
                 }
-                //foreach (var item in listFiles)
-                //{
-                //    rtxtPath.Text += $"\nEncrypted: {item}";
-                //}
                 listFiles.Clear();
             }
             catch (Exception ex)
@@ -337,7 +294,6 @@ namespace eyeLock
                             }
 
                             rtxtPath.Text += $"\nError: {item} is not in a correct format to decrypt!";
-                            //File.Delete(item);
                         }
                     }
                     catch (Exception ex)
@@ -346,10 +302,6 @@ namespace eyeLock
                         continue;
                     }
                 }
-                //foreach (var item in listFiles)
-                //{
-                //    rtxtPath.Text += $"\nDecrypted: {item}";
-                //}
                 listFiles.Clear();
             }
             catch (Exception ex)
@@ -361,32 +313,7 @@ namespace eyeLock
         private void BackUpFile(string path)
         {
             string RFCE_DK;
-            string backUpFileName = path + "\\" + recoveryFileName;
-
-            try
-            {
-                string content = string.Format($"{User._LicenseKey}{separatorString}{User._FE_DK}{separatorString}" +
-                $"{User.__User}{separatorString}{User.__Pass}{separatorString}{User.__Insta}{separatorString}" +
-                $"{User.__Disc}{separatorString}{User.__PaidA}");
-                foreach (var item in listFiles)
-                {
-                    content += string.Format($"\n{item}");
-                }
-
-                RFCE_DK = eye_Key_IV.HMethod_DK(eye_Key_IV.HApproach(RFCE_Base));
-                RFCE_DK = RFCE_DK.Remove(RFCE_DK.Length - 2, 2);
-                RFCE_DK += RFCE_DK;
-                //salt += salt;
-                RFCE_DK = RFCE_DK.ReverseText();
-                RFCE_DK = RFCE_DK.Replace('r', '&');
-
-                content = CryptText.Encrypt(content, RFCE_DK, new byte[16]);
-                File.WriteAllText(backUpFileName, content);
-            }
-            catch (Exception ex)
-            {
-                rtxtPath.Text += "\nError: " + ex.Message;
-            }
+            
         }*/
 
         //**********************************************************************
