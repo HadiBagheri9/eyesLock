@@ -15,7 +15,9 @@ namespace eyeLock
     public partial class FrmMain : FrmTemp
     {
         List<string> listFiles = new List<string>(), listFolders = new List<string>();
-        string fileNameAddition = ".eye";
+        string fileNameAddition = ".eye", recoveryFileName = "recovery.txt";
+        string isEncryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIf your data is sensitive and important, you must turn on the recovery file option.\n\nDo you want to turn it on?";
+        string isDecryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIt is better to turn on the recovery file option when you want to do Decryption Operation.\nIf you turn it on, it will delete the recovery.info file.";
         string path;
         
         bool isCryptionOn = false, isLockingOn = false, isRecoveryFileOn = false;
@@ -68,26 +70,26 @@ namespace eyeLock
             rtxtPath.Clear();
             rtxtPath.Text = path;
 
-            /*
+            
             if (!isRecoveryFileOn)
             {
 
                 DialogResult flag = MessageBox.Show(isEncryptionNotRecoveryFileOnMessage, "eyeLock Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 isRecoveryFileOn = flag == DialogResult.Yes ? true : false;
                 chkRecoveryFile.Checked = flag == DialogResult.Yes ? true : false;
-            }*/
+            }
 
             if (isCryptionOn)
             {
                 await EncryptFilesAsync(path);
                 rtxtPath.Text += "\n\nInfo: Encryption has been done.";
             }
-            /*
+            
             if (isRecoveryFileOn)
             {
-                BackUpFile(path);
-                rtxtPath.Text += "\nInfo: recovery.info has been made.";
-            }*/
+                RecoveryFile(path);
+                rtxtPath.Text += $"\nInfo: {recoveryFileName} has been made.";
+            }
 
             if (isLockingOn)
             {
@@ -107,14 +109,14 @@ namespace eyeLock
 
             //string backUpFileName = path + "\\" + recoveryFileName;
 
-            /*
+            
             if (!isRecoveryFileOn)
             {
 
                 DialogResult flag = MessageBox.Show(isDecryptionNotRecoveryFileOnMessage, "eyeLock Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 isRecoveryFileOn = flag == DialogResult.Yes ? true : false;
                 chkRecoveryFile.Checked = flag == DialogResult.Yes ? true : false;
-            }*/
+            }
 
             if (isLockingOn)
             {
@@ -130,15 +132,15 @@ namespace eyeLock
                 rtxtPath.Text += "\n\nInfo: Decryption has been done.";
             }
 
-            /*
+            
             if (isRecoveryFileOn)
             {
-                if (File.Exists(backUpFileName))
+                if (File.Exists($"{path}\\{recoveryFileName}"))
                 {
                     try
                     {
-                        File.Delete(backUpFileName);
-                        rtxtPath.Text += "\nInfo: recovery.info has been deleted.";
+                        File.Delete($"{path}\\{recoveryFileName}");
+                        rtxtPath.Text += $"\nInfo: {recoveryFileName} has been deleted.";
                     }
                     catch (Exception ex)
                     {
@@ -147,9 +149,9 @@ namespace eyeLock
                 }
                 else
                 {
-                    rtxtPath.Text += "\nInfo: recovery.info was not found!";
+                    rtxtPath.Text += $"\nInfo: {recoveryFileName} was not found!";
                 }
-            }*/
+            }
 
 
 
@@ -309,12 +311,35 @@ namespace eyeLock
                 rtxtPath.Text += "\nError: " + ex.Message;
             }
         }
-        /*
-        private void BackUpFile(string path)
+        
+        private void RecoveryFile(string path)
         {
-            string RFCE_DK;
+            string recoveryFilePath = string.Format($"{path}\\{recoveryFileName}");
+            string[] encryptedFiles = Directory.GetFiles(path);
+            StreamWriter streamWriter = new StreamWriter(recoveryFilePath);
+            streamWriter.WriteLine("Name\tSize\tCreation Time");
+
+            foreach (var item in encryptedFiles)
+            {
+                if (item.EndsWith("desktop.ini"))
+                {
+                    continue;
+                }
+                FileInfo fileInfo = new FileInfo(item);
+                
+                try
+                {
+                    streamWriter.WriteLine($"{fileInfo.Name}\t{fileInfo.Length} Bytes\t{fileInfo.CreationTime}");
+                }
+                catch (Exception ex)
+                {
+                    rtxtPath.Text += $"\n{ex.Message}";
+                }
+            }
+            streamWriter.Close();
+            streamWriter.Dispose();
             
-        }*/
+        }
 
         //**********************************************************************
 
