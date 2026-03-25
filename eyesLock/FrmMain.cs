@@ -1,13 +1,12 @@
 ﻿using System;
 using System.IO;
-using eyeStar_ClassLibrary;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Text;
 
-namespace eyeLock
+namespace eyesLock
 {
     public partial class FrmMain : FrmTemp
     {
@@ -218,9 +217,9 @@ namespace eyeLock
                     {
                         FileInfo fileInfo = new FileInfo(output);
                         Global._FE_Base = $"{Global._SeedPhrase}{fileInfo.Name}";
-                        Global._FE_Bridge = eye_Key_IV.HApproach(Global._FE_Base);
-                        Global._FE_DK = eye_Key_IV.HMethod_DK(Global._FE_Bridge);
-                        Global._FE_DV = Encoding.ASCII.GetBytes(eye_Key_IV.HMethod_DV(Global._FE_Bridge)); ;
+                        Global._FE_Bridge = Key_IV_Generator.HApproach(Global._FE_Base);
+                        Global._FE_DK = Key_IV_Generator.HMethod_DK(Global._FE_Bridge);
+                        Global._FE_DV = Encoding.ASCII.GetBytes(Key_IV_Generator.HMethod_DV(Global._FE_Bridge)); ;
                         
 
                         FileOptions.EncryptFile(item, output, Global._FE_DK,Global._FE_DV);
@@ -259,9 +258,9 @@ namespace eyeLock
                             {
                                 FileInfo fileInfo = new FileInfo(item);
                                 Global._FE_Base = $"{Global._SeedPhrase}{fileInfo.Name}";
-                                Global._FE_Bridge = eye_Key_IV.HApproach(Global._FE_Base);
-                                Global._FE_DK = eye_Key_IV.HMethod_DK(Global._FE_Bridge);
-                                Global._FE_DV = Encoding.ASCII.GetBytes(eye_Key_IV.HMethod_DV(Global._FE_Bridge)); ;
+                                Global._FE_Bridge = Key_IV_Generator.HApproach(Global._FE_Base);
+                                Global._FE_DK = Key_IV_Generator.HMethod_DK(Global._FE_Bridge);
+                                Global._FE_DV = Encoding.ASCII.GetBytes(Key_IV_Generator.HMethod_DV(Global._FE_Bridge)); ;
                                 
 
                                 FileOptions.DecryptFile(item, output, Global._FE_DK, Global._FE_DV);

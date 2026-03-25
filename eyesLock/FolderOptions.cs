@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Security.AccessControl;
 
-namespace eyeLock
+namespace eyesLock
 {
     class FolderOptions
     {

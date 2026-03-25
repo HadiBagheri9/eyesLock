@@ -1,3 +1,1 @@
-TO DO : Diagram for License system
-
 NOTE : Yellow Events need more details about the Encryption/Decryption and KEY-IV generating.

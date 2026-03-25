@@ -1,5 +1,6 @@
 ﻿using System.IO;
-namespace eyeLock
+
+namespace eyesLock
 {
     partial class FrmMain
     {

@@ -1,7 +1,6 @@
 ﻿using System;
-using eyeStar_ClassLibrary;
 
-namespace eyeLock
+namespace eyesLock
 {
     class User
     {

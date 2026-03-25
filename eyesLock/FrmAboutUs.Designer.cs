@@ -1,5 +1,5 @@
 ﻿
-namespace eyeLock
+namespace eyesLock
 {
     partial class FrmAboutUs
     {
@@ -111,13 +111,13 @@ namespace eyeLock
             // eyeStarLogo
             // 
             this.eyeStarLogo.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.eyeStarLogo.Image = global::eyeLock.Properties.Resources.eyeStar_logo_5th_reshape;
+            this.eyeStarLogo.Image = global::eyesLock.Properties.Resources.eyeStar_logo_5th_reshape;
             this.eyeStarLogo.Location = new System.Drawing.Point(376, 530);
             this.eyeStarLogo.Name = "eyeStarLogo";
             this.eyeStarLogo.Size = new System.Drawing.Size(72, 72);
             this.eyeStarLogo.TabIndex = 2;
             this.eyeStarLogo.TabStop = false;
-//            this.eyeStarLogo.MouseHover += new System.EventHandler(this.eyeStarLogo_MouseHover);
+            //            this.eyeStarLogo.MouseHover += new System.EventHandler(this.eyeStarLogo_MouseHover);
             // 
             // label1
             // 
@@ -132,14 +132,13 @@ namespace eyeLock
             // eyeLockLogo
             // 
             this.eyeLockLogo.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.eyeLockLogo.Image = global::eyeLock.Properties.Resources._12;
             this.eyeLockLogo.Location = new System.Drawing.Point(276, 46);
             this.eyeLockLogo.Margin = new System.Windows.Forms.Padding(3, 20, 20, 3);
             this.eyeLockLogo.Name = "eyeLockLogo";
             this.eyeLockLogo.Size = new System.Drawing.Size(172, 172);
             this.eyeLockLogo.TabIndex = 0;
             this.eyeLockLogo.TabStop = false;
-//            this.eyeLockLogo.MouseHover += new System.EventHandler(this.eyeLockLogo_MouseHover);
+            //            this.eyeLockLogo.MouseHover += new System.EventHandler(this.eyeLockLogo_MouseHover);
             // 
             // FrmAboutUs
             // 

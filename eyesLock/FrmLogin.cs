@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using eyeStar_ClassLibrary;
 
-namespace eyeLock
+namespace eyesLock
 {
     public partial class FrmLogin : FrmTemp
     {

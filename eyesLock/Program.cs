@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace eyeLock
+namespace eyesLock
 {
     static class Program
     {

@@ -1,9 +1,7 @@
 ﻿using System;
-using eyeStar_ClassLibrary;
-using PersonalClassLibrary.Notif;
 using System.Windows.Forms;
 
-namespace eyeLock
+namespace eyesLock
 {
     public partial class FrmAboutUs : FrmTemp
     {
@@ -35,9 +33,11 @@ namespace eyeLock
 
         private void FrmAboutUs_Load(object sender, EventArgs e)
         {
-            lbl.Text = eyeAboutSoftwares.eyeLockDiscription;
-            lbl2.Text = eyeAboutSoftwares.eyeLockExplain;
-            lbl3.Text = eyeAboutSoftwares.eyeLockContactUs;
+            //Check after accomplishing the development operation
+
+            //lbl.Text = eyeAboutSoftwares.eyeLockDiscription;
+            //lbl2.Text = eyeAboutSoftwares.eyeLockExplain;
+            //lbl3.Text = eyeAboutSoftwares.eyeLockContactUs;
 
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(btnClose, "Close this form.");

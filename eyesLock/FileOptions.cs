@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace eyeLock
+namespace eyesLock
 {
     class FileOptions
     {

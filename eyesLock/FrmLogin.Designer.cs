@@ -1,5 +1,5 @@
 ﻿
-namespace eyeLock
+namespace eyesLock
 {
     partial class FrmLogin
     {

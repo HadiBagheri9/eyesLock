@@ -1,5 +1,4 @@
-﻿
-namespace eyeLock
+﻿namespace eyesLock
 {
     partial class FrmTemp
     {
