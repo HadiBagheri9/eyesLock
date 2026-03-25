@@ -2,10 +2,7 @@
 using System.IO;
 using eyeStar_ClassLibrary;
 using System.Collections.Generic;
-using PersonalClassLibrary.Notif;
-using PersonalClassLibrary.Windows;
 using System.Windows.Forms;
-using PersonalClassLibrary.Data;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Text;
@@ -14,10 +11,10 @@ namespace eyeLock
 {
     public partial class FrmMain : FrmTemp
     {
-        List<string> listFiles = new List<string>(), listFolders = new List<string>();
+        List<string> listFiles = new List<string>();
         string fileNameAddition = ".eye", recoveryFileName = "recovery.txt";
         string isEncryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIf your data is sensitive and important, you must turn on the recovery file option.\n\nDo you want to turn it on?";
-        string isDecryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIt is better to turn on the recovery file option when you want to do Decryption Operation.\nIf you turn it on, it will delete the recovery.info file.";
+        //string isDecryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIt is better to turn on the recovery file option when you want to do Decryption Operation.\nIf you turn it on, it will delete the recovery.info file.";
         string path;
         
         bool isCryptionOn = false, isLockingOn = false, isRecoveryFileOn = false;
@@ -64,8 +61,6 @@ namespace eyeLock
 
         private async void btnLockEncrypt_Click(object sender, EventArgs e)
         {
-            
-
             DisableButtons();
             rtxtPath.Clear();
             rtxtPath.Text = path;
@@ -97,7 +92,6 @@ namespace eyeLock
                 rtxtPath.Text += "\nInfo: Folder has been locked.";
             }
 
-            //rtxtPath.Text += "\n\n\nInfo: All Done!";
             EnableButtons();
         }
 
@@ -107,32 +101,28 @@ namespace eyeLock
             rtxtPath.Clear();
             rtxtPath.Text = path;
 
-            //string backUpFileName = path + "\\" + recoveryFileName;
 
-            
+            /*
             if (!isRecoveryFileOn)
             {
-
                 DialogResult flag = MessageBox.Show(isDecryptionNotRecoveryFileOnMessage, "eyeLock Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 isRecoveryFileOn = flag == DialogResult.Yes ? true : false;
                 chkRecoveryFile.Checked = flag == DialogResult.Yes ? true : false;
-            }
+            }*/
 
             if (isLockingOn)
             {
                 UnlockFolder(path);
-                //lblLog.Text = "Folder has been Unlocked";
                 rtxtPath.Text += "\nInfo: Folder has been Unlocked";
             }
 
             if (isCryptionOn)
             {
                 await DecryptFilesAsync(path);
-                //lblLog.Text = "Decryption has been done.";
                 rtxtPath.Text += "\n\nInfo: Decryption has been done.";
             }
 
-            
+            /*
             if (isRecoveryFileOn)
             {
                 if (File.Exists($"{path}\\{recoveryFileName}"))
@@ -151,11 +141,10 @@ namespace eyeLock
                 {
                     rtxtPath.Text += $"\nInfo: {recoveryFileName} was not found!";
                 }
-            }
+            }*/
 
 
 
-            //rtxtPath.Text += "\n\n\nInfo: All Done!";
             EnableButtons();
         }
 
@@ -232,16 +221,14 @@ namespace eyeLock
                         Global._FE_Bridge = eye_Key_IV.HApproach(Global._FE_Base);
                         Global._FE_DK = eye_Key_IV.HMethod_DK(Global._FE_Bridge);
                         Global._FE_DV = Encoding.ASCII.GetBytes(eye_Key_IV.HMethod_DV(Global._FE_Bridge)); ;
-                        MessageBox.Show($"{Global._FE_DK}\n{eye_Key_IV.HMethod_DV(Global._FE_Bridge)}\n{Global._FE_DV.Length.ToString()}");//1
+                        
 
-                        PersonalClassLibrary.Windows.FileOptions.EncryptFile(item, output, Global._FE_DK,Global._FE_DV);
+                        FileOptions.EncryptFile(item, output, Global._FE_DK,Global._FE_DV);
                         File.SetAttributes(output, FileAttributes.ReadOnly);
                         File.Delete(item);
                     });
                     rtxtPath.Text += $"\nEncrypted: {item}";
                     Thread.Sleep(10);
-                    //if ((item + fileNameAddition).EndsWith("desktop.ini" + fileNameAddition))
-                    //    File.SetAttributes((item + fileNameAddition), FileAttributes.Hidden);
 
 
                 }
@@ -275,17 +262,13 @@ namespace eyeLock
                                 Global._FE_Bridge = eye_Key_IV.HApproach(Global._FE_Base);
                                 Global._FE_DK = eye_Key_IV.HMethod_DK(Global._FE_Bridge);
                                 Global._FE_DV = Encoding.ASCII.GetBytes(eye_Key_IV.HMethod_DV(Global._FE_Bridge)); ;
-                                MessageBox.Show($"{Global._FE_DK}\n{eye_Key_IV.HMethod_DV(Global._FE_Bridge)}\n{Global._FE_DV.Length.ToString()}");//1
+                                
 
-                                PersonalClassLibrary.Windows.FileOptions.DecryptFile(item, output, Global._FE_DK, Global._FE_DV);
+                                FileOptions.DecryptFile(item, output, Global._FE_DK, Global._FE_DV);
                                 File.Delete(item);
                             });
                             rtxtPath.Text += $"\nDecrypted: {item}";
                             Thread.Sleep(10);
-                            //if ((item.Remove(item.Length - fileNameAddition.Length, fileNameAddition.Length)).EndsWith("desktop.ini"))
-                            //    File.SetAttributes((item.Remove(item.Length - fileNameAddition.Length, fileNameAddition.Length)), FileAttributes.Hidden);
-
-
                         }
                         else
                         {
@@ -338,7 +321,6 @@ namespace eyeLock
             }
             streamWriter.Close();
             streamWriter.Dispose();
-            
         }
 
         //**********************************************************************
