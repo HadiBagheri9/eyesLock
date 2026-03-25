@@ -137,9 +137,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\12.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\eyeStar-logo-5th-reshape.png" />
   </ItemGroup>
   <ItemGroup>
