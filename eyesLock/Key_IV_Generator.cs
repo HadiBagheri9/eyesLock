@@ -32,10 +32,10 @@ namespace eyesLock
 
             return _Bridge;
         }
-        public static string HMethod_DK(string _Bridge)
+        public static string HMethod_DK(string _Bridge, byte keySize)
         {
             string _DK = "";
-            for (int i = 0; i < _Bridge.Length && _DK.Length != 32; i++)
+            for (int i = 0; i < _Bridge.Length && _DK.Length != keySize; i++)
             {
                 _DK += _Bridge[i];
             }
