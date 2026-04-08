@@ -7,26 +7,6 @@ namespace eyesLock
     {
         public FrmAboutUs()
         {
-            /*
-            if (User.CheckLicense())
-            {
-                if (!User.CheckExpiration())
-                {
-                    InitializeComponent();
-                    this.SetTheme();
-                }
-                else
-                {
-                    eyeMessageContents.LicenseExpired.MessageBoxError("eyeLock Error");
-                    Environment.Exit(0);
-                }
-            }
-            else
-            {
-                eyeMessageContents.LicenseInvalid.MessageBoxError("eyeLock Error");
-                Environment.Exit(0);
-            }*/
-            //license
             InitializeComponent();
             this.SetTheme();
         }
