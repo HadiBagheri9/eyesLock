@@ -17,9 +17,9 @@ namespace eyesLock
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FrmMain());
+            Application.Run(new FrmImportSeed());
 
-            
+            List<string> listFiles = FileOptions.ListSeedPhrases();
 
             //The initial version of the software includes only one seed phrase file.
             //The ability to add more seed phrases will be added soon.
