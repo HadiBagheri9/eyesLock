@@ -10,6 +10,10 @@ namespace eyesLock
     {
         static string seedPhraseFileFormat = ".eyesph";
 
+        /// <summary>
+        /// Get list of the existed Seed Phrase files in startup path and return file paths as a list.
+        /// </summary>
+        /// <returns></returns>
         public static List<string> ListSeedPhrases()
         {
             List<string> listFiles = new List<string>();
@@ -21,6 +25,15 @@ namespace eyesLock
 
             return listFiles;
         }
+
+        /// <summary>
+        /// Encrypt a file using AES256 algorithm.
+        /// </summary>
+        /// <param name="inputFilePath"></param>
+        /// <param name="outputFilePath"></param>
+        /// <param name="key"></param>
+        /// <param name="iv"></param>
+        /// <returns></returns>
         public static bool EncryptFile(string inputFilePath, string outputFilePath, string key, byte[] iv)
         {
             using (FileStream fsInput = new FileStream(inputFilePath, FileMode.Open))
@@ -45,6 +58,14 @@ namespace eyesLock
             }
         }
 
+        /// <summary>
+        /// Dencrypt a file using AES256 algorithm.
+        /// </summary>
+        /// <param name="inputFilePath"></param>
+        /// <param name="outputFilePath"></param>
+        /// <param name="key"></param>
+        /// <param name="iv"></param>
+        /// <returns></returns>
         public static bool DecryptFile(string inputFilePath, string outputFilePath, string key, byte[] iv)
         {
             using (FileStream fsInput = new FileStream(inputFilePath, FileMode.Open))

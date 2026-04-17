@@ -6,14 +6,18 @@ namespace eyesLock
 {
     static class Theme
     {
-        // Dark Theme
+        // Dark Theme Values
         private static Color DarkBack = Color.FromArgb(54, 54, 54);
         private static Color LightFore = Color.FromArgb(224, 224, 224);
 
-        // Light Theme
+        // Light Theme Values
         private static Color LightBack = Color.FromArgb(199, 199, 199);
         private static Color DarkFore = Color.FromArgb(26, 26, 26);
 
+        /// <summary>
+        /// Set the application theme based on system theme.
+        /// </summary>
+        /// <param name="frm"></param>
         public static void SetTheme(this Form frm)
         {
             bool? flag = CheckDarkModeOnOrOff();
@@ -36,7 +40,10 @@ namespace eyesLock
             }
         }
 
-
+        /// <summary>
+        /// Check if the system dark mode theme is on or off.
+        /// </summary>
+        /// <returns></returns>
         private static bool? CheckDarkModeOnOrOff()
         {
             const string registryKey = @"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize";

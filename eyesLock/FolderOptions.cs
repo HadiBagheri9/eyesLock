@@ -7,6 +7,10 @@ namespace eyesLock
 {
     class FolderOptions
     {
+        /// <summary>
+        /// Disable user accessibility to a directory.
+        /// </summary>
+        /// <param name="path"></param>
         public static void LockDirectory(string path)
         {
             DirectorySecurity ds = Directory.GetAccessControl(path);
@@ -14,6 +18,11 @@ namespace eyesLock
             ds.AddAccessRule(fsar);
             Directory.SetAccessControl(path, ds);
         }
+
+        /// <summary>
+        /// Ensable user accessibility to a directory.
+        /// </summary>
+        /// <param name="path"></param>
         public static void UnLockDirectory(string path)
         {
             DirectorySecurity ds = Directory.GetAccessControl(path);
@@ -22,6 +31,11 @@ namespace eyesLock
             Directory.SetAccessControl(path, ds);
         }
 
+        /// <summary>
+        /// Get all file paths in a specific directory with defined exceptions and return them as a list.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public static List<string> GetAllFiles(string path)
         {
             string[] arrayFiles = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories);
@@ -47,6 +61,11 @@ namespace eyesLock
             return listFiles;
         }
 
+        /// <summary>
+        /// Get all folder paths in a specific directory with defined exceptions and return them as a list.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public static List<string> GetAllFolders(string path)
         {
             string[] arrayFiles = Directory.GetDirectories(path, "*.*", SearchOption.AllDirectories);

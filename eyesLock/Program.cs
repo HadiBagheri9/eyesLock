@@ -15,12 +15,15 @@ namespace eyesLock
         [STAThread]
         static void Main()
         {
+            // Basic Start Operation.
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmImportSeed());
 
+            // Get List of the Seed Phrase files to Check.
             List<string> listFiles = FileOptions.ListSeedPhrases();
 
+            // 1 Comments
             //The initial version of the software includes only one seed phrase file.
             //The ability to add more seed phrases will be added soon.
             //If more than one seed phrase file exist, it opens first item of the list.
@@ -33,6 +36,7 @@ namespace eyesLock
                 //Open FrmImportSeed
             }
 
+            // Only for test
             string testM = "";//1
             foreach (var item in listFiles)//1
             {

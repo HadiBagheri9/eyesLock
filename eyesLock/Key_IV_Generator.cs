@@ -5,6 +5,11 @@ namespace eyesLock
 {
     class Key_IV_Generator
     {
+        /// <summary>
+        /// It returns the File Encryption Bridge String.
+        /// </summary>
+        /// <param name="_Base">File Encryption Base String</param>
+        /// <returns></returns>
         public static string HApproach(string _Base)
         {
             string _Bridge = "";
@@ -32,6 +37,13 @@ namespace eyesLock
 
             return _Bridge;
         }
+
+        /// <summary>
+        /// It returns the File Encryption Digital Key.
+        /// </summary>
+        /// <param name="_Bridge">File Encryption Bridge String</param>
+        /// <param name="keySize">Key Size(Bytes)</param>
+        /// <returns></returns>
         public static string HMethod_DK(string _Bridge, byte keySize)
         {
             string _DK = "";
@@ -43,6 +55,11 @@ namespace eyesLock
             return _DK;
         }
 
+        /// <summary>
+        /// It returns the File Encryption Digital Initial Vector as a 16-byte String.
+        /// </summary>
+        /// <param name="_Bridge">File Encryption Bridge String</param>
+        /// <returns></returns>
         public static string HMethod_DV(string _Bridge)
         {
             string _DV = "";
