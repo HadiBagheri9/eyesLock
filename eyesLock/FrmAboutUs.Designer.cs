@@ -117,7 +117,6 @@ namespace eyesLock
             this.eyeStarLogo.Size = new System.Drawing.Size(72, 72);
             this.eyeStarLogo.TabIndex = 2;
             this.eyeStarLogo.TabStop = false;
-            //            this.eyeStarLogo.MouseHover += new System.EventHandler(this.eyeStarLogo_MouseHover);
             // 
             // label1
             // 
@@ -138,7 +137,6 @@ namespace eyesLock
             this.eyeLockLogo.Size = new System.Drawing.Size(172, 172);
             this.eyeLockLogo.TabIndex = 0;
             this.eyeLockLogo.TabStop = false;
-            //            this.eyeLockLogo.MouseHover += new System.EventHandler(this.eyeLockLogo_MouseHover);
             // 
             // FrmAboutUs
             // 
@@ -150,6 +148,7 @@ namespace eyesLock
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlSideBar);
             this.Name = "FrmAboutUs";
+            this.Text = "eyes\'Lock";
             this.Load += new System.EventHandler(this.FrmAboutUs_Load);
             this.pnlSideBar.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);

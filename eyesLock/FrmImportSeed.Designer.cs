@@ -31,7 +31,7 @@ namespace eyesLock
         {
             this.pnlSideBar = new System.Windows.Forms.Panel();
             this.btnGenerateNew = new System.Windows.Forms.Button();
-            this.btnManualImport = new System.Windows.Forms.Button();
+            this.btnImport = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.chkEnterManually = new System.Windows.Forms.CheckBox();
             this.chk13thPhrase = new System.Windows.Forms.CheckBox();
@@ -70,7 +70,7 @@ namespace eyesLock
             // 
             this.pnlSideBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlSideBar.Controls.Add(this.btnGenerateNew);
-            this.pnlSideBar.Controls.Add(this.btnManualImport);
+            this.pnlSideBar.Controls.Add(this.btnImport);
             this.pnlSideBar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlSideBar.Location = new System.Drawing.Point(0, 476);
             this.pnlSideBar.Name = "pnlSideBar";
@@ -89,17 +89,18 @@ namespace eyesLock
             this.btnGenerateNew.Text = "Gen|New";
             this.btnGenerateNew.UseVisualStyleBackColor = false;
             // 
-            // btnManualImport
+            // btnImport
             // 
-            this.btnManualImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(82)))), ((int)(((byte)(164)))));
-            this.btnManualImport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnManualImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManualImport.Location = new System.Drawing.Point(322, 24);
-            this.btnManualImport.Name = "btnManualImport";
-            this.btnManualImport.Size = new System.Drawing.Size(132, 54);
-            this.btnManualImport.TabIndex = 0;
-            this.btnManualImport.Text = "M|Import";
-            this.btnManualImport.UseVisualStyleBackColor = false;
+            this.btnImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(82)))), ((int)(((byte)(164)))));
+            this.btnImport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImport.Location = new System.Drawing.Point(322, 24);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(132, 54);
+            this.btnImport.TabIndex = 0;
+            this.btnImport.Text = "Import";
+            this.btnImport.UseVisualStyleBackColor = false;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // pnlMain
             // 
@@ -282,11 +283,11 @@ namespace eyesLock
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(185, 0);
+            this.label1.Location = new System.Drawing.Point(134, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 25);
+            this.label1.Size = new System.Drawing.Size(219, 25);
             this.label1.TabIndex = 1;
-            this.label1.Text = "eyes\'Lock";
+            this.label1.Text = "Import Seed Phrase";
             // 
             // txtSeed13
             // 
@@ -413,7 +414,7 @@ namespace eyesLock
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlSideBar);
             this.Name = "FrmImportSeed";
-            this.Text = "";
+            this.Text = "eyes\'Lock";
             this.Load += new System.EventHandler(this.FrmImportSeed_Load);
             this.pnlSideBar.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);
@@ -427,7 +428,7 @@ namespace eyesLock
         private System.Windows.Forms.Panel pnlSideBar;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Button btnGenerateNew;
-        private System.Windows.Forms.Button btnManualImport;
+        private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.TextBox txtSeed2;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;

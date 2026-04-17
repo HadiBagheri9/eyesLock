@@ -125,11 +125,11 @@ namespace eyesLock
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(193, 0);
+            this.label1.Location = new System.Drawing.Point(185, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 25);
+            this.label1.Size = new System.Drawing.Size(117, 25);
             this.label1.TabIndex = 3;
-            this.label1.Text = "eyeLock";
+            this.label1.Text = "eyes\'Lock";
             // 
             // chkRecoveryFile
             // 
@@ -202,7 +202,7 @@ namespace eyesLock
             this.Controls.Add(this.pnlSideBar);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
-            this.Text = " ";
+            this.Text = " eyes\'Lock";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.pnlSideBar.ResumeLayout(false);
