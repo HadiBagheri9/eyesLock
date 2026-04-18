@@ -37,6 +37,19 @@
         /// </summary>
         public static string _RecoveryFileName = "recovery.txt";
 
+        /// <summary>
+        /// The extension of the encrypted files.
+        /// </summary>
         public static string _EncryptedFileExtension = ".eye";
+
+        /// <summary>
+        /// Sleep time between operating each file.
+        /// </summary>
+        public static int _CryptographySleepTime = 10;
+
+        /// <summary>
+        /// Size of the keys in Bytes.
+        /// </summary>
+        public static byte _DigitalKeySize = 32;
     }
 }
