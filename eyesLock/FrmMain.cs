@@ -13,7 +13,7 @@ namespace eyesLock
         List<string> listFiles = new List<string>();
         
         string isEncryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIf your data is sensitive and important, you must turn on the recovery file option.\n\nDo you want to turn it on?";
-        //string isDecryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIt is better to turn on the recovery file option when you want to do Decryption Operation.\nIf you turn it on, it will delete the recovery.info file.";
+        string isDecryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIt is better to turn on the recovery file option when you want to do Decryption Operation.\nIf you turn it on, it will delete the recovery.info file.";
         string path;
         
         bool isCryptionOn = false, isLockingOn = false, isRecoveryFileOn = false;
@@ -101,13 +101,13 @@ namespace eyesLock
             rtxtPath.Text = path;
 
 
-            /*
+            
             if (!isRecoveryFileOn)
             {
                 DialogResult flag = MessageBox.Show(isDecryptionNotRecoveryFileOnMessage, "eyeLock Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 isRecoveryFileOn = flag == DialogResult.Yes ? true : false;
                 chkRecoveryFile.Checked = flag == DialogResult.Yes ? true : false;
-            }*/
+            }
 
             if (isLockingOn)
             {
@@ -121,15 +121,15 @@ namespace eyesLock
                 rtxtPath.Text += "\n\nInfo: Decryption has been done.";
             }
 
-            /*
+            
             if (isRecoveryFileOn)
             {
-                if (File.Exists($"{path}\\{recoveryFileName}"))
+                if (File.Exists($"{path}\\{Global._RecoveryFileName}"))
                 {
                     try
                     {
-                        File.Delete($"{path}\\{recoveryFileName}");
-                        rtxtPath.Text += $"\nInfo: {recoveryFileName} has been deleted.";
+                        File.Delete($"{path}\\{Global._RecoveryFileName}");
+                        rtxtPath.Text += $"\nInfo: {Global._RecoveryFileName} has been deleted.";
                     }
                     catch (Exception ex)
                     {
@@ -138,9 +138,9 @@ namespace eyesLock
                 }
                 else
                 {
-                    rtxtPath.Text += $"\nInfo: {recoveryFileName} was not found!";
+                    rtxtPath.Text += $"\nInfo: {Global._RecoveryFileName} was not found!";
                 }
-            }*/
+            }
 
 
 
