@@ -296,7 +296,7 @@ namespace eyesLock
         
         private void RecoveryFile(string path)
         {
-            string recoveryFilePath = string.Format($"{path}\\{recoveryFileName}");
+            string recoveryFilePath = string.Format($"{path}\\{Global._RecoveryFileName}");
             string[] encryptedFiles = Directory.GetFiles(path);
             StreamWriter streamWriter = new StreamWriter(recoveryFilePath);
             streamWriter.WriteLine("Name\tSize\tCreation Time");
