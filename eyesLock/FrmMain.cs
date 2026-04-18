@@ -64,7 +64,7 @@ namespace eyesLock
             rtxtPath.Clear();
             rtxtPath.Text = path;
 
-            
+            // Check if The Recovery file option is not turned on, show a message.
             if (!isRecoveryFileOn)
             {
 
@@ -100,8 +100,7 @@ namespace eyesLock
             rtxtPath.Clear();
             rtxtPath.Text = path;
 
-
-            
+            // Check if The Recovery file option is not turned on, show a message.
             if (!isRecoveryFileOn)
             {
                 DialogResult flag = MessageBox.Show(isDecryptionNotRecoveryFileOnMessage, "eyeLock Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -121,7 +120,7 @@ namespace eyesLock
                 rtxtPath.Text += "\n\nInfo: Decryption has been done.";
             }
 
-            
+            // Check if the Recovery file option is turned on for decryption, delete the Recovery file.
             if (isRecoveryFileOn)
             {
                 if (File.Exists($"{path}\\{Global._RecoveryFileName}"))
@@ -215,19 +214,22 @@ namespace eyesLock
                     rtxtPath.Text += $"\nWorking: {item}";
                     await Task.Run(() =>
                     {
+                        // Generate Key and IV.
                         FileInfo fileInfo = new FileInfo(output);
                         Global._FE_Base = $"{Global._SeedPhrase}{fileInfo.Name}";
                         Global._FE_Bridge = Key_IV_Generator.HApproach(Global._FE_Base);
-                        Global._FE_DK = Key_IV_Generator.HMethod_DK(Global._FE_Bridge, 32);
+                        Global._FE_DK = Key_IV_Generator.HMethod_DK(Global._FE_Bridge, Global._DigitalKeySize);
                         Global._FE_DV = Encoding.ASCII.GetBytes(Key_IV_Generator.HMethod_DV(Global._FE_Bridge));
                         
 
                         FileOptions.EncryptFile(item, output, Global._FE_DK,Global._FE_DV);
+
+                        // Set ReadOnly Attribute for the file.
                         File.SetAttributes(output, FileAttributes.ReadOnly);
                         File.Delete(item);
                     });
                     rtxtPath.Text += $"\nEncrypted: {item}";
-                    Thread.Sleep(10);
+                    Thread.Sleep(Global._CryptographySleepTime);
 
 
                 }
@@ -252,14 +254,16 @@ namespace eyesLock
                     {
                         if (item.EndsWith(Global._EncryptedFileExtension))
                         {
+                            // Remove ReadOnly Attribute from the file.
                             File.SetAttributes(item, ~FileAttributes.ReadOnly);
                             rtxtPath.Text += $"\nWorking: {item}";
                             await Task.Run(() =>
                             {
+                                // Generate Key and IV.
                                 FileInfo fileInfo = new FileInfo(item);
                                 Global._FE_Base = $"{Global._SeedPhrase}{fileInfo.Name}";
                                 Global._FE_Bridge = Key_IV_Generator.HApproach(Global._FE_Base);
-                                Global._FE_DK = Key_IV_Generator.HMethod_DK(Global._FE_Bridge, 32);
+                                Global._FE_DK = Key_IV_Generator.HMethod_DK(Global._FE_Bridge, Global._DigitalKeySize);
                                 Global._FE_DV = Encoding.ASCII.GetBytes(Key_IV_Generator.HMethod_DV(Global._FE_Bridge)); ;
                                 
 
@@ -267,7 +271,7 @@ namespace eyesLock
                                 File.Delete(item);
                             });
                             rtxtPath.Text += $"\nDecrypted: {item}";
-                            Thread.Sleep(10);
+                            Thread.Sleep(Global._CryptographySleepTime);
                         }
                         else
                         {
