@@ -11,7 +11,7 @@ namespace eyesLock
     public partial class FrmMain : FrmTemp
     {
         List<string> listFiles = new List<string>();
-        string fileNameAddition = ".eye", recoveryFileName = "recovery.txt";
+        
         string isEncryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIf your data is sensitive and important, you must turn on the recovery file option.\n\nDo you want to turn it on?";
         //string isDecryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIt is better to turn on the recovery file option when you want to do Decryption Operation.\nIf you turn it on, it will delete the recovery.info file.";
         string path;
@@ -82,7 +82,7 @@ namespace eyesLock
             if (isRecoveryFileOn)
             {
                 RecoveryFile(path);
-                rtxtPath.Text += $"\nInfo: {recoveryFileName} has been made.";
+                rtxtPath.Text += $"\nInfo: {Global._RecoveryFileName} has been made.";
             }
 
             if (isLockingOn)
@@ -204,7 +204,7 @@ namespace eyesLock
                 listFiles = FolderOptions.GetAllFiles(path);
                 foreach (var item in listFiles)
                 {
-                    string output = item + fileNameAddition;
+                    string output = item + Global._EncryptedFileExtension;
 
                     if (item.EndsWith("desktop.ini"))
                     {
@@ -246,11 +246,11 @@ namespace eyesLock
                 listFiles = FolderOptions.GetAllFiles(path);
                 foreach (var item in listFiles)
                 {
-                    string output = item.Remove(item.Length - fileNameAddition.Length, fileNameAddition.Length);
+                    string output = item.Remove(item.Length - Global._EncryptedFileExtension.Length, Global._EncryptedFileExtension.Length);
 
                     try
                     {
-                        if (item.EndsWith(fileNameAddition))
+                        if (item.EndsWith(Global._EncryptedFileExtension))
                         {
                             File.SetAttributes(item, ~FileAttributes.ReadOnly);
                             rtxtPath.Text += $"\nWorking: {item}";

