@@ -14,7 +14,7 @@ namespace eyesLock
             using (Aes aes = Aes.Create())
             {
                 aes.KeySize = 256;
-                aes.Key = Encoding.UTF8.GetBytes(key);
+                aes.Key = Encoding.ASCII.GetBytes(key);
                 aes.IV = iv;
 
                 ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
@@ -50,7 +50,7 @@ namespace eyesLock
                 using (Aes aes = Aes.Create())
                 {
                     aes.KeySize = 256;
-                    aes.Key = Encoding.UTF8.GetBytes(key);
+                    aes.Key = Encoding.ASCII.GetBytes(key);
                     aes.IV = iv;
 
                     ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
@@ -69,7 +69,7 @@ namespace eyesLock
             }
             catch (Exception ex)
             {
-                ex.Message.MessageBoxWarning();
+                System.Windows.Forms.MessageBox.Show(ex.Message);
                 return "";
             }
         }
