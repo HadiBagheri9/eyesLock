@@ -51,5 +51,10 @@
         /// Size of the keys in Bytes.
         /// </summary>
         public static byte _DigitalKeySize = 32;
+
+        /// <summary>
+        /// Seed Phrase File Format
+        /// </summary>
+        static string seedPhraseFileFormat = ".eyesph";
     }
 }
