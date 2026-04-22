@@ -16,7 +16,7 @@ namespace eyesLock
         public static List<string> ListSeedPhrases()
         {
             List<string> listFiles = new List<string>();
-            string[] arrayFiles = Directory.GetFiles(Application.StartupPath, $"*{seedPhraseFileFormat}");
+            string[] arrayFiles = Directory.GetFiles(Application.StartupPath, $"*{Global.seedPhraseFileFormat}");
             foreach (var item in arrayFiles)
             {
                 listFiles.Add(item);
