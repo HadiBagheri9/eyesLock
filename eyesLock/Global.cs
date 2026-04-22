@@ -10,7 +10,7 @@
         /// <summary>
         /// The 13th Mnemonic phrase.
         /// </summary>
-        public static string _Seed13thPhrase { get; set; }
+        public static string _Seed13thPhrase { get; set; } = "";
 
         /// <summary>
         /// File Encrytion Base String.
