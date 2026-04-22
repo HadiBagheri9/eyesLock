@@ -60,6 +60,6 @@
         /// <summary>
         /// A variable that is used in Seed Phrase Files to separate words.
         /// </summary>
-        public static string _SeedPhraseSeparator { get; } = "|";
+        public static char _SeedPhraseSeparator { get; } = '|';
     }
 }
