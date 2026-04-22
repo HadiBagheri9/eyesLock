@@ -8,7 +8,6 @@ namespace eyesLock
 {
     class FileOptions
     {
-        static string seedPhraseFileFormat = ".eyesph";
 
         /// <summary>
         /// Get list of the existed Seed Phrase files in startup path and return file paths as a list.
