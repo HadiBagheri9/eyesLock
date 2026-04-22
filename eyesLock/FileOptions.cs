@@ -6,25 +6,8 @@ using System.Security.Cryptography;
 
 namespace eyesLock
 {
-    class FileOptions
+    partial class FileOptions
     {
-
-        /// <summary>
-        /// Get list of the existed Seed Phrase files in startup path and return file paths as a list.
-        /// </summary>
-        /// <returns></returns>
-        public static List<string> ListSeedPhrases()
-        {
-            List<string> listFiles = new List<string>();
-            string[] arrayFiles = Directory.GetFiles(Application.StartupPath, $"*{Global.seedPhraseFileFormat}");
-            foreach (var item in arrayFiles)
-            {
-                listFiles.Add(item);
-            }
-
-            return listFiles;
-        }
-
         /// <summary>
         /// Encrypt a file using AES256 algorithm.
         /// </summary>
