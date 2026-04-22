@@ -57,5 +57,9 @@
         /// </summary>
         public static byte _DigitalKeySize = 32;
 
+        /// <summary>
+        /// A variable that is used in Seed Phrase Files to separate words.
+        /// </summary>
+        public static string _SeedPhraseSeparator { get; } = "|";
     }
 }
