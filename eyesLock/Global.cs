@@ -13,6 +13,11 @@
         public static string _Seed13thPhrase { get; set; } = "";
 
         /// <summary>
+        /// Path for the bip39 file.
+        /// </summary>
+        public static string _Bip39File { get; } = "bip39.txt";
+
+        /// <summary>
         /// File Encrytion Base String.
         /// </summary>
         public static string _FE_Base { get; set; }

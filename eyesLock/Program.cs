@@ -18,8 +18,8 @@ namespace eyesLock
             // Basic Start Operation.
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FrmImportSeed());
-            Application.Run(new FrmPassword(FrmPasswordType.Set));
+            Application.Run(new FrmImportSeed());
+            //Application.Run(new FrmPassword(FrmPasswordType.Set));
 
             // Get List of the Seed Phrase files to Check.
             List<string> listFiles = FileOptions.ListSeedPhrases();

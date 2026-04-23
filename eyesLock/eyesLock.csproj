@@ -151,6 +151,8 @@
     <None Include="Resources\eyeStar-logo-5th-reshape.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\bip39.txt" />
+    <Content Include="bip39.txt" />
     <Content Include="MapsAndNotes\eyeLock.txt" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
@@ -7,6 +10,8 @@ namespace eyesLock
 {
     public partial class FrmImportSeed : FrmTemp
     {
+        List<string> bip39List = new List<string>();
+        
         public FrmImportSeed()
         {
             InitializeComponent();
@@ -18,6 +23,19 @@ namespace eyesLock
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(btnImport, "Manual Import");
             toolTip.SetToolTip(btnGenerateNew, "Generate New");
+
+            try
+            {
+                StreamReader streamReader = new StreamReader(Global._Bip39File);
+                while (!streamReader.EndOfStream)
+                {
+                    bip39List.Add(streamReader.ReadLine().Trim().ToLower());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "eyes'Lock");
+            }
         }
 
         private void chk13thPhrase_CheckedChanged(object sender, System.EventArgs e)
@@ -43,14 +61,23 @@ namespace eyesLock
 
         private void btnImport_Click(object sender, System.EventArgs e)
         {
-            /*
-            foreach (Control item in this.Controls)
+            // Check validation of all 12 text boxes
+            int validations = 0;
+            foreach (Control item in pnlMain.Controls)
             {
-                if (item is TextBox && item.Name != "txtSeed13")
+                if (item is ThemeTextBox)
                 {
-                    //Check Bip39 Else Return
+                    if (!ValidateWord((ThemeTextBox)item))
+                    {
+                        MessageBox.Show(item.Text);
+                        validations++;
+                    }
                 }
-            }*/
+            }
+
+            // Check if all 12 words are valid
+            if (validations > 0)
+                return;
 
             // File Content Variable.
             string seedPhraseFileContent = string.Format($"" +
@@ -112,6 +139,26 @@ namespace eyesLock
             _SE_DV = null;
 
             //Bip39 largest vocabulary
+        }
+
+        /// <summary>
+        /// To check if the entered word in the text box is valid.
+        /// </summary>
+        /// <param name="txt"></param>
+        private bool ValidateWord(ThemeTextBox txt)
+        {
+            string word = txt.Text.Trim().ToLower();
+
+            if (!string.IsNullOrWhiteSpace(word) && !bip39List.Contains(word))
+            {
+                txt.BorderColor = Color.Red;
+                return false;
+            }
+            else
+            {
+                txt.BorderColor = Color.White;
+                return true;
+            }
         }
     }
 }
