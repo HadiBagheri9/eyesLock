@@ -4,7 +4,7 @@ namespace System.Windows.Forms
 {
     internal class ThemeTextBox : TextBox
     {
-        public Color BorderColor { get; set; } = Color.Gray;
+        public Color BorderColor { get; set; } = Color.White;
 
         protected override void WndProc(ref Message m)
         {
@@ -14,8 +14,12 @@ namespace System.Windows.Forms
             {
                 using (Graphics g = Graphics.FromHwnd(Handle))
                 {
-                    Rectangle rect = new Rectangle(0, 0, Width - 1, Height - 1);
-                    ControlPaint.DrawBorder(g, rect, BorderColor, ButtonBorderStyle.Solid);
+                    using (Pen p = new Pen(BorderColor, 2))
+                    {
+                        Rectangle rect = new Rectangle(0, 0, Width - 2, Height - 2);
+                        ControlPaint.DrawBorder(g, rect, BorderColor, ButtonBorderStyle.Solid);
+                        g.DrawRectangle(p, rect);
+                    }
                 }
             }
         }
