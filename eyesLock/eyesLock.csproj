@@ -62,7 +62,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CryptText.cs" />
     <Compile Include="FileOptions.cs" />
+    <Compile Include="FileOptionsSeedPhraseFiles.cs" />
     <Compile Include="FolderOptions.cs" />
     <Compile Include="FrmAboutUs.cs">
       <SubType>Form</SubType>
@@ -84,6 +86,12 @@
     </Compile>
     <Compile Include="FrmMain.FileFormat.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPassword.Designer.cs">
+      <DependentUpon>FrmPassword.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmTemp.cs">
       <SubType>Form</SubType>
@@ -109,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPassword.resx">
+      <DependentUpon>FrmPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTemp.resx">
       <DependentUpon>FrmTemp.cs</DependentUpon>
