@@ -108,6 +108,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="System\Windows\Forms\ThemeTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Theme.cs" />
     <EmbeddedResource Include="FrmAboutUs.resx">
       <DependentUpon>FrmAboutUs.cs</DependentUpon>

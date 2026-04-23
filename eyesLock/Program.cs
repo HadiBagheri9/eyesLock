@@ -18,7 +18,8 @@ namespace eyesLock
             // Basic Start Operation.
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmImportSeed());
+            //Application.Run(new FrmImportSeed());
+            Application.Run(new FrmPassword(FrmPasswordType.Set));
 
             // Get List of the Seed Phrase files to Check.
             List<string> listFiles = FileOptions.ListSeedPhrases();
@@ -35,15 +36,6 @@ namespace eyesLock
             { 
                 //Open FrmImportSeed
             }
-
-            // Only for test
-            string testM = "";//1
-            foreach (var item in listFiles)//1
-            {
-                testM += item + "\n";//1
-            }
-            MessageBox.Show(testM);//1
-            
         }
     }
 }
