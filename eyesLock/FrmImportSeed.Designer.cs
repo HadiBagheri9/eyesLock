@@ -88,6 +88,7 @@ namespace eyesLock
             this.btnGenerateNew.TabIndex = 1;
             this.btnGenerateNew.Text = "Gen|New";
             this.btnGenerateNew.UseVisualStyleBackColor = false;
+            this.btnGenerateNew.Click += new System.EventHandler(this.btnGenerateNew_Click);
             // 
             // btnImport
             // 

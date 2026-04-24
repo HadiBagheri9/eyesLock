@@ -160,5 +160,20 @@ namespace eyesLock
                 return true;
             }
         }
+
+        private void btnGenerateNew_Click(object sender, EventArgs e)
+        {
+            Random rand = new Random();
+
+            foreach (Control item in pnlMain.Controls)
+            {
+                int i = rand.Next(0, bip39List.Count);
+                if (item is ThemeTextBox)
+                {
+                    item.Text = bip39List[i];
+                    item.Enabled = false;
+                }
+            }
+        }
     }
 }
