@@ -301,108 +301,132 @@ namespace eyesLock
             // 
             // txtSeed11
             // 
+            this.txtSeed11.BorderColor = System.Drawing.Color.White;
             this.txtSeed11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSeed11.Enabled = false;
             this.txtSeed11.Location = new System.Drawing.Point(82, 329);
+            this.txtSeed11.MaxLength = 16;
             this.txtSeed11.Name = "txtSeed11";
             this.txtSeed11.Size = new System.Drawing.Size(140, 31);
             this.txtSeed11.TabIndex = 11;
             // 
             // txtSeed12
             // 
+            this.txtSeed12.BorderColor = System.Drawing.Color.White;
             this.txtSeed12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSeed12.Enabled = false;
             this.txtSeed12.Location = new System.Drawing.Point(314, 329);
+            this.txtSeed12.MaxLength = 16;
             this.txtSeed12.Name = "txtSeed12";
             this.txtSeed12.Size = new System.Drawing.Size(140, 31);
             this.txtSeed12.TabIndex = 12;
             // 
             // txtSeed9
             // 
+            this.txtSeed9.BorderColor = System.Drawing.Color.White;
             this.txtSeed9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSeed9.Enabled = false;
             this.txtSeed9.Location = new System.Drawing.Point(82, 280);
+            this.txtSeed9.MaxLength = 16;
             this.txtSeed9.Name = "txtSeed9";
             this.txtSeed9.Size = new System.Drawing.Size(140, 31);
             this.txtSeed9.TabIndex = 9;
             // 
             // txtSeed10
             // 
+            this.txtSeed10.BorderColor = System.Drawing.Color.White;
             this.txtSeed10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSeed10.Enabled = false;
             this.txtSeed10.Location = new System.Drawing.Point(314, 280);
+            this.txtSeed10.MaxLength = 16;
             this.txtSeed10.Name = "txtSeed10";
             this.txtSeed10.Size = new System.Drawing.Size(140, 31);
             this.txtSeed10.TabIndex = 10;
             // 
             // txtSeed7
             // 
+            this.txtSeed7.BorderColor = System.Drawing.Color.White;
             this.txtSeed7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSeed7.Enabled = false;
             this.txtSeed7.Location = new System.Drawing.Point(82, 231);
+            this.txtSeed7.MaxLength = 16;
             this.txtSeed7.Name = "txtSeed7";
             this.txtSeed7.Size = new System.Drawing.Size(140, 31);
             this.txtSeed7.TabIndex = 7;
             // 
             // txtSeed8
             // 
+            this.txtSeed8.BorderColor = System.Drawing.Color.White;
             this.txtSeed8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSeed8.Enabled = false;
             this.txtSeed8.Location = new System.Drawing.Point(314, 231);
+            this.txtSeed8.MaxLength = 16;
             this.txtSeed8.Name = "txtSeed8";
             this.txtSeed8.Size = new System.Drawing.Size(140, 31);
             this.txtSeed8.TabIndex = 8;
             // 
             // txtSeed5
             // 
+            this.txtSeed5.BorderColor = System.Drawing.Color.White;
             this.txtSeed5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSeed5.Enabled = false;
             this.txtSeed5.Location = new System.Drawing.Point(82, 182);
+            this.txtSeed5.MaxLength = 16;
             this.txtSeed5.Name = "txtSeed5";
             this.txtSeed5.Size = new System.Drawing.Size(140, 31);
             this.txtSeed5.TabIndex = 5;
             // 
             // txtSeed6
             // 
+            this.txtSeed6.BorderColor = System.Drawing.Color.White;
             this.txtSeed6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSeed6.Enabled = false;
             this.txtSeed6.Location = new System.Drawing.Point(314, 182);
+            this.txtSeed6.MaxLength = 16;
             this.txtSeed6.Name = "txtSeed6";
             this.txtSeed6.Size = new System.Drawing.Size(140, 31);
             this.txtSeed6.TabIndex = 6;
             // 
             // txtSeed3
             // 
+            this.txtSeed3.BorderColor = System.Drawing.Color.White;
             this.txtSeed3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSeed3.Enabled = false;
             this.txtSeed3.Location = new System.Drawing.Point(82, 133);
+            this.txtSeed3.MaxLength = 16;
             this.txtSeed3.Name = "txtSeed3";
             this.txtSeed3.Size = new System.Drawing.Size(140, 31);
             this.txtSeed3.TabIndex = 3;
             // 
             // txtSeed4
             // 
+            this.txtSeed4.BorderColor = System.Drawing.Color.White;
             this.txtSeed4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSeed4.Enabled = false;
             this.txtSeed4.Location = new System.Drawing.Point(314, 133);
+            this.txtSeed4.MaxLength = 16;
             this.txtSeed4.Name = "txtSeed4";
             this.txtSeed4.Size = new System.Drawing.Size(140, 31);
             this.txtSeed4.TabIndex = 4;
             // 
             // txtSeed1
             // 
+            this.txtSeed1.BorderColor = System.Drawing.Color.White;
             this.txtSeed1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSeed1.Enabled = false;
             this.txtSeed1.Location = new System.Drawing.Point(82, 84);
+            this.txtSeed1.MaxLength = 16;
             this.txtSeed1.Name = "txtSeed1";
             this.txtSeed1.Size = new System.Drawing.Size(140, 31);
             this.txtSeed1.TabIndex = 1;
             // 
             // txtSeed2
             // 
+            this.txtSeed2.BorderColor = System.Drawing.Color.White;
             this.txtSeed2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSeed2.Enabled = false;
             this.txtSeed2.Location = new System.Drawing.Point(314, 84);
+            this.txtSeed2.MaxLength = 16;
             this.txtSeed2.Name = "txtSeed2";
             this.txtSeed2.Size = new System.Drawing.Size(140, 31);
             this.txtSeed2.TabIndex = 2;
