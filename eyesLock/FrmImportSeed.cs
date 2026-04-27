@@ -120,7 +120,7 @@ namespace eyesLock
             try
             {
                 // Create the Seed Phrase File.
-                File.WriteAllText($"{frmPassword._Title}{Global._EncryptedFileExtension}", CryptText.Encrypt(seedPhraseFileContent, _SE_DK, Encoding.ASCII.GetBytes(_SE_DV)));
+                File.WriteAllText($"{frmPassword._Title}{Global.seedPhraseFileFormat}", CryptText.Encrypt(seedPhraseFileContent, _SE_DK, Encoding.ASCII.GetBytes(_SE_DV)));
             }
             catch (Exception ex)
             {
@@ -138,7 +138,10 @@ namespace eyesLock
             _SE_DK = null;
             _SE_DV = null;
 
-            //Bip39 largest vocabulary
+            Hide();
+            FrmMain frmMain = new FrmMain();
+            frmMain.Show();
+            Close();
         }
 
         /// <summary>
