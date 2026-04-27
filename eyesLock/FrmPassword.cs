@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using System.Windows.Forms;
 
 namespace eyesLock
 {
@@ -8,6 +12,7 @@ namespace eyesLock
     {
         public string _Password, _Title;
         private FrmPasswordType? frmPasswordType = null;
+        private List<string> listFiles;
         public FrmPassword(FrmPasswordType frmPasswordType)
         {
             InitializeComponent();
@@ -26,6 +31,21 @@ namespace eyesLock
             btnOK.Text = frmPasswordType.ToString();
 
             txtTitle.Enabled = (frmPasswordType == FrmPasswordType.Set);
+
+            // Get List of the Seed Phrase files to Use.
+            listFiles = frmPasswordType == FrmPasswordType.Enter ? FileOptions.ListSeedPhrases() : null;
+
+            // Fill 
+            if (listFiles.Count > 0 && frmPasswordType == FrmPasswordType.Enter)
+            {
+                FileInfo fileInfo = new FileInfo(listFiles[0]);
+                txtTitle.Text = fileInfo.Name;
+            }
+            else
+            {
+                MessageBox.Show("Error 7", "eyes'Lock");
+                Close();
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -36,6 +56,7 @@ namespace eyesLock
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            string seedPhraseFileContent = "";
             // 1 Needs Conditions
             if (frmPasswordType == FrmPasswordType.Set)
             {
@@ -46,7 +67,31 @@ namespace eyesLock
             }
             else
             {
-                _Password = txtPassword.Text.Trim();
+                // Set Decryption Parameters
+                string _SE_Base = txtPassword.Text.Trim();
+                string _SE_Bridge = Key_IV_Generator.HApproach(_SE_Base);
+                string _SE_DK = Key_IV_Generator.HMethod_DK(_SE_Bridge, 32);
+                string _SE_DV = Key_IV_Generator.HMethod_DV(_SE_Bridge);
+
+                // Read content of listFile[0] and Decrypt and define
+                try
+                {
+                    seedPhraseFileContent = File.ReadAllText(listFiles[0]);
+                    seedPhraseFileContent = CryptText.Decrypt(seedPhraseFileContent, _SE_DK, Encoding.ASCII.GetBytes(_SE_DV));
+                    Global._SeedPhrase.Get12SeedPhrases(seedPhraseFileContent);
+                    Global._Seed13thPhrase = Global._Seed13thPhrase.Get13thSeedPhrase(seedPhraseFileContent);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "eyes'Lock");
+                }
+
+                // Secure Variables
+                seedPhraseFileContent = null;
+                _SE_Base = null;
+                _SE_Bridge = null;
+                _SE_DK = null;
+                _SE_DV = null;
 
                 Close();
             }

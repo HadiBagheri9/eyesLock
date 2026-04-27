@@ -133,6 +133,7 @@ namespace eyesLock
             // Secure Variables
             frmPassword.Dispose();
             frmPassword._Password = null;
+            seedPhraseFileContent = null;
             _SE_Base = null;
             _SE_Bridge = null;
             _SE_DK = null;

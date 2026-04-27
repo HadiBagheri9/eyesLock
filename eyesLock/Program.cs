@@ -18,8 +18,7 @@ namespace eyesLock
             // Basic Start Operation.
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmImportSeed());
-            //Application.Run(new FrmPassword(FrmPasswordType.Set));
+            //);
 
             // Get List of the Seed Phrase files to Check.
             List<string> listFiles = FileOptions.ListSeedPhrases();
@@ -30,11 +29,11 @@ namespace eyesLock
             //If more than one seed phrase file exist, it opens first item of the list.
             if (listFiles.Count > 0)
             {
-                //FrmEnterPass frmEnterPass = new FrmEnterPass();
+                Application.Run(new FrmPassword(FrmPasswordType.Enter));
             }
             else
-            { 
-                //Open FrmImportSeed
+            {
+                Application.Run(new FrmImportSeed());
             }
         }
     }
