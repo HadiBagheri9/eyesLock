@@ -33,18 +33,13 @@ namespace eyesLock
             txtTitle.Enabled = (frmPasswordType == FrmPasswordType.Set);
 
             // Get List of the Seed Phrase files to Use.
-            listFiles = frmPasswordType == FrmPasswordType.Enter ? FileOptions.ListSeedPhrases() : null;
+            listFiles = frmPasswordType == FrmPasswordType.Enter ? FileOptions.ListSeedPhrases() : new List<string>();
 
             // Fill 
             if (listFiles.Count > 0 && frmPasswordType == FrmPasswordType.Enter)
             {
                 FileInfo fileInfo = new FileInfo(listFiles[0]);
                 txtTitle.Text = fileInfo.Name;
-            }
-            else
-            {
-                MessageBox.Show("Error 7", "eyes'Lock");
-                Close();
             }
         }
 
@@ -93,7 +88,9 @@ namespace eyesLock
                 _SE_DK = null;
                 _SE_DV = null;
 
-                Close();
+                Hide();
+                FrmMain frmMain = new FrmMain();
+                frmMain.Show();
             }
         }
     }

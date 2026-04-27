@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
@@ -142,7 +141,6 @@ namespace eyesLock
             Hide();
             FrmMain frmMain = new FrmMain();
             frmMain.Show();
-            Close();
         }
 
         /// <summary>
