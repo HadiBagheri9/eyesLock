@@ -11,11 +11,11 @@ namespace eyesLock
     public partial class FrmMain : FrmTemp
     {
         List<string> listFiles = new List<string>();
-        
+
         string isEncryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIf your data is sensitive and important, you must turn on the recovery file option.\n\nDo you want to turn it on?";
         string isDecryptionNotRecoveryFileOnMessage = "Recovery file option is not enabaled!\nIt is better to turn on the recovery file option when you want to do Decryption Operation.\nIf you turn it on, it will delete the recovery.info file.";
         string path;
-        
+
         bool isCryptionOn = false, isLockingOn = false, isRecoveryFileOn = false;
 
         public FrmMain()
@@ -78,7 +78,7 @@ namespace eyesLock
                 await EncryptFilesAsync(path);
                 rtxtPath.Text += "\n\nInfo: Encryption has been done.";
             }
-            
+
             if (isRecoveryFileOn)
             {
                 RecoveryFile(path);
@@ -132,7 +132,7 @@ namespace eyesLock
                     }
                     catch (Exception ex)
                     {
-                        rtxtPath.Text+="\nError: " + ex.Message;
+                        rtxtPath.Text += "\nError: " + ex.Message;
                     }
                 }
                 else
@@ -180,7 +180,7 @@ namespace eyesLock
             }
             catch (Exception ex)
             {
-                 rtxtPath.Text += "\nError: " + ex.Message;
+                rtxtPath.Text += "\nError: " + ex.Message;
             }
         }
 
@@ -192,7 +192,7 @@ namespace eyesLock
             }
             catch (Exception ex)
             {
-                 rtxtPath.Text += "\nError: " + ex.Message;
+                rtxtPath.Text += "\nError: " + ex.Message;
             }
         }
 
@@ -220,9 +220,9 @@ namespace eyesLock
                         Global._FE_Bridge = Key_IV_Generator.HApproach(Global._FE_Base);
                         Global._FE_DK = Key_IV_Generator.HMethod_DK(Global._FE_Bridge, Global._DigitalKeySize);
                         Global._FE_DV = Encoding.ASCII.GetBytes(Key_IV_Generator.HMethod_DV(Global._FE_Bridge));
-                        
 
-                        FileOptions.EncryptFile(item, output, Global._FE_DK,Global._FE_DV);
+
+                        FileOptions.EncryptFile(item, output, Global._FE_DK, Global._FE_DV);
 
                         // Set ReadOnly Attribute for the file.
                         File.SetAttributes(output, FileAttributes.ReadOnly);
@@ -238,6 +238,13 @@ namespace eyesLock
             catch (Exception ex)
             {
                 rtxtPath.Text += "\nError: " + ex;
+            }
+            finally
+            {
+                Global._FE_Base = null;
+                Global._FE_Bridge = null;
+                Global._FE_DK = null;
+                Global._FE_DV = null;
             }
         }
 
@@ -265,7 +272,7 @@ namespace eyesLock
                                 Global._FE_Bridge = Key_IV_Generator.HApproach(Global._FE_Base);
                                 Global._FE_DK = Key_IV_Generator.HMethod_DK(Global._FE_Bridge, Global._DigitalKeySize);
                                 Global._FE_DV = Encoding.ASCII.GetBytes(Key_IV_Generator.HMethod_DV(Global._FE_Bridge)); ;
-                                
+
 
                                 FileOptions.DecryptFile(item, output, Global._FE_DK, Global._FE_DV);
                                 File.Delete(item);
@@ -296,8 +303,15 @@ namespace eyesLock
             {
                 rtxtPath.Text += "\nError: " + ex.Message;
             }
+            finally
+            {
+                Global._FE_Base = null;
+                Global._FE_Bridge = null;
+                Global._FE_DK = null;
+                Global._FE_DV = null;
+            }
         }
-        
+
         private void RecoveryFile(string path)
         {
             string recoveryFilePath = string.Format($"{path}\\{Global._RecoveryFileName}");
@@ -312,7 +326,7 @@ namespace eyesLock
                     continue;
                 }
                 FileInfo fileInfo = new FileInfo(item);
-                
+
                 try
                 {
                     streamWriter.WriteLine($"{fileInfo.Name}\t{fileInfo.Length} Bytes\t{fileInfo.CreationTime}");
