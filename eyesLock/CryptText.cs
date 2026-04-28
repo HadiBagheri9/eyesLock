@@ -13,6 +13,7 @@ namespace eyesLock
 
             using (Aes aes = Aes.Create())
             {
+                aes.Mode = CipherMode.CBC;
                 aes.KeySize = 256;
                 aes.Key = Encoding.ASCII.GetBytes(key);
                 aes.IV = iv;
@@ -49,6 +50,7 @@ namespace eyesLock
             {
                 using (Aes aes = Aes.Create())
                 {
+                    aes.Mode = CipherMode.CBC;
                     aes.KeySize = 256;
                     aes.Key = Encoding.ASCII.GetBytes(key);
                     aes.IV = iv;
