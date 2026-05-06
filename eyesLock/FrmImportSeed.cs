@@ -64,9 +64,9 @@ namespace eyesLock
             int validations = 0;
             foreach (Control item in pnlMain.Controls)
             {
-                if (item is ThemeTextBox)
+                if (item is CustomedTextBox)
                 {
-                    if (!ValidateWord((ThemeTextBox)item))
+                    if (!ValidateWord((CustomedTextBox)item))
                     {
                         MessageBox.Show(item.Text);
                         validations++;
@@ -119,7 +119,7 @@ namespace eyesLock
             try
             {
                 // Create the Seed Phrase File.
-                File.WriteAllText($"{frmPassword._Title}{Global.seedPhraseFileFormat}", CryptText.Encrypt(seedPhraseFileContent, _SE_DK, Encoding.ASCII.GetBytes(_SE_DV)));
+                File.WriteAllText($"{frmPassword._Title}{Global.seedPhraseFileFormat}", TextOptions.Encrypt(seedPhraseFileContent, _SE_DK, Encoding.ASCII.GetBytes(_SE_DV)));
             }
             catch (Exception ex)
             {
@@ -147,7 +147,7 @@ namespace eyesLock
         /// To check if the entered word in the text box is valid.
         /// </summary>
         /// <param name="txt"></param>
-        private bool ValidateWord(ThemeTextBox txt)
+        private bool ValidateWord(CustomedTextBox txt)
         {
             string word = txt.Text.Trim().ToLower();
 
@@ -170,7 +170,7 @@ namespace eyesLock
             foreach (Control item in pnlMain.Controls)
             {
                 int i = rand.Next(0, bip39List.Count);
-                if (item is ThemeTextBox)
+                if (item is CustomedTextBox)
                 {
                     item.Text = bip39List[i];
                     item.Enabled = false;

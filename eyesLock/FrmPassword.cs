@@ -72,7 +72,7 @@ namespace eyesLock
                 try
                 {
                     seedPhraseFileContent = File.ReadAllText(listFiles[0]);
-                    seedPhraseFileContent = CryptText.Decrypt(seedPhraseFileContent, _SE_DK, Encoding.ASCII.GetBytes(_SE_DV));
+                    seedPhraseFileContent = TextOptions.Decrypt(seedPhraseFileContent, _SE_DK, Encoding.ASCII.GetBytes(_SE_DV));
                     Global._SeedPhrase.Get12SeedPhrases(seedPhraseFileContent);
                     Global._Seed13thPhrase = Global._Seed13thPhrase.Get13thSeedPhrase(seedPhraseFileContent);
                 }
