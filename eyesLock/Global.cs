@@ -3,6 +3,11 @@
     class Global
     {
         /// <summary>
+        /// Check error for each part.
+        /// </summary>
+        public static bool _HasError { get; set; }
+
+        /// <summary>
         /// The 12 Mnemonic phrases.
         /// </summary>
         public static string[] _SeedPhrase { get; set; } = new string[12];

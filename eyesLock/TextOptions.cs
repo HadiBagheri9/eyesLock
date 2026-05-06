@@ -72,6 +72,7 @@ namespace eyesLock
             catch (Exception ex)
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
+                Global._HasError = true;
                 return "";
             }
         }

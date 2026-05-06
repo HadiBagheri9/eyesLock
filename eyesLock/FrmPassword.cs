@@ -67,21 +67,37 @@ namespace eyesLock
                 string _SE_Bridge = Key_IV_Generator.HApproach(_SE_Base);
                 string _SE_DK = Key_IV_Generator.HMethod_DK(_SE_Bridge, 32);
                 string _SE_DV = Key_IV_Generator.HMethod_DV(_SE_Bridge);
+                Global._HasError = false;
 
                 // Read content of listFile[0] and Decrypt and define
                 try
                 {
                     seedPhraseFileContent = File.ReadAllText(listFiles[0]);
                     seedPhraseFileContent = TextOptions.Decrypt(seedPhraseFileContent, _SE_DK, Encoding.ASCII.GetBytes(_SE_DV));
-                    Global._SeedPhrase.Get12SeedPhrases(seedPhraseFileContent);
-                    Global._Seed13thPhrase = Global._Seed13thPhrase.Get13thSeedPhrase(seedPhraseFileContent);
-                    Hide();
-                    FrmMain frmMain = new FrmMain();
-                    frmMain.Show();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "eyes'Lock");
+                    MessageBox.Show(ex.Message, "eyes'Lock", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Global._HasError = true;
+                }
+
+
+
+                if (!Global._HasError)
+                {
+                    try
+                    {
+                        // Check validation of Seed Phrase File
+                        Global._SeedPhrase.Get12SeedPhrases(seedPhraseFileContent);
+                        Global._Seed13thPhrase = Global._Seed13thPhrase.Get13thSeedPhrase(seedPhraseFileContent);
+                        Hide();
+                        FrmMain frmMain = new FrmMain();
+                        frmMain.Show();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Seed Phrase file is invalid.", "eyes'Lock", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
 
                 // Secure Variables
