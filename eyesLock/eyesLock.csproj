@@ -62,7 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CryptText.cs" />
+    <Compile Include="TextOptions.cs" />
     <Compile Include="FileOptions.cs" />
     <Compile Include="FileOptionsSeedPhraseFiles.cs" />
     <Compile Include="FolderOptions.cs" />
@@ -108,7 +108,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="System\Windows\Forms\ThemeTextBox.cs">
+    <Compile Include="CustomedTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Theme.cs" />

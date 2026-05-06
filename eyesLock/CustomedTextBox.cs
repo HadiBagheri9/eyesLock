@@ -1,8 +1,9 @@
 ﻿using System.Drawing;
+using System.Windows.Forms;
 
-namespace System.Windows.Forms
+namespace eyesLock
 {
-    internal class ThemeTextBox : TextBox
+    public class CustomedTextBox : TextBox
     {
         public Color BorderColor { get; set; } = Color.White;
 

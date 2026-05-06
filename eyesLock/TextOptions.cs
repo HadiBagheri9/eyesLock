@@ -5,7 +5,7 @@ using System.Text;
 
 namespace eyesLock
 {
-    class CryptText
+    class TextOptions
     {
         public static string Encrypt(string text, string key, byte[] iv)
         {
