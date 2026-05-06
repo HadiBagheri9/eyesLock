@@ -75,6 +75,9 @@ namespace eyesLock
                     seedPhraseFileContent = TextOptions.Decrypt(seedPhraseFileContent, _SE_DK, Encoding.ASCII.GetBytes(_SE_DV));
                     Global._SeedPhrase.Get12SeedPhrases(seedPhraseFileContent);
                     Global._Seed13thPhrase = Global._Seed13thPhrase.Get13thSeedPhrase(seedPhraseFileContent);
+                    Hide();
+                    FrmMain frmMain = new FrmMain();
+                    frmMain.Show();
                 }
                 catch (Exception ex)
                 {
@@ -87,10 +90,6 @@ namespace eyesLock
                 _SE_Bridge = null;
                 _SE_DK = null;
                 _SE_DV = null;
-
-                Hide();
-                FrmMain frmMain = new FrmMain();
-                frmMain.Show();
             }
         }
     }
