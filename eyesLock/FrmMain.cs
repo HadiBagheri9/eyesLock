@@ -152,6 +152,12 @@ namespace eyesLock
             frmAboutUs.ShowDialog();
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            FrmPassword frmPassword = new FrmPassword(FrmPasswordType.Show);
+            frmPassword.Show();
+        }
+
         private void chkCryptography_CheckedChanged(object sender, EventArgs e)
         {
             isCryptionOn = chkCryptography.Checked ? true : false;

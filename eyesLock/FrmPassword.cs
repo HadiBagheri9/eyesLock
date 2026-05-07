@@ -33,10 +33,10 @@ namespace eyesLock
             txtTitle.Enabled = (frmPasswordType == FrmPasswordType.Set);
 
             // Get List of the Seed Phrase files to Use.
-            listFiles = frmPasswordType == FrmPasswordType.Enter ? FileOptions.ListSeedPhrases() : new List<string>();
+            listFiles = (frmPasswordType == FrmPasswordType.Enter || frmPasswordType == FrmPasswordType.Show) ? FileOptions.ListSeedPhrases() : new List<string>();
 
             // Fill 
-            if (listFiles.Count > 0 && frmPasswordType == FrmPasswordType.Enter)
+            if (listFiles.Count > 0 && (frmPasswordType == FrmPasswordType.Enter || frmPasswordType == FrmPasswordType.Show))
             {
                 FileInfo fileInfo = new FileInfo(listFiles[0]);
                 txtTitle.Text = fileInfo.Name;

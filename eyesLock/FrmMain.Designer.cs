@@ -42,14 +42,17 @@ namespace eyesLock
             this.rtxtPath = new System.Windows.Forms.RichTextBox();
             this.btnSelectFolder = new System.Windows.Forms.Button();
             this.diaSelectFolder = new System.Windows.Forms.FolderBrowserDialog();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlSideBar.SuspendLayout();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eyeLockLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSideBar
             // 
             this.pnlSideBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlSideBar.Controls.Add(this.pictureBox1);
             this.pnlSideBar.Controls.Add(this.btnUnlockDecrypt);
             this.pnlSideBar.Controls.Add(this.btnLockEncrypt);
             this.pnlSideBar.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -192,6 +195,15 @@ namespace eyesLock
             this.btnSelectFolder.UseVisualStyleBackColor = false;
             this.btnSelectFolder.Click += new System.EventHandler(this.btnSelectFolder_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(211, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -209,6 +221,7 @@ namespace eyesLock
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eyeLockLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -228,5 +241,6 @@ namespace eyesLock
         private System.Windows.Forms.FolderBrowserDialog diaSelectFolder;
         private System.Windows.Forms.PictureBox eyeLockLogo;
         private System.Windows.Forms.Label lblLog;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
