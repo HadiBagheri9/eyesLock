@@ -50,18 +50,18 @@ namespace eyesLock
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSeed13 = new System.Windows.Forms.TextBox();
-            this.txtSeed11 = new CustomedTextBox();
-            this.txtSeed12 = new CustomedTextBox();
-            this.txtSeed9 = new CustomedTextBox();
-            this.txtSeed10 = new CustomedTextBox();
-            this.txtSeed7 = new CustomedTextBox();
-            this.txtSeed8 = new CustomedTextBox();
-            this.txtSeed5 = new CustomedTextBox();
-            this.txtSeed6 = new CustomedTextBox();
-            this.txtSeed3 = new CustomedTextBox();
-            this.txtSeed4 = new CustomedTextBox();
-            this.txtSeed1 = new CustomedTextBox();
-            this.txtSeed2 = new CustomedTextBox();
+            this.txtSeed11 = new eyesLock.CustomedTextBox();
+            this.txtSeed12 = new eyesLock.CustomedTextBox();
+            this.txtSeed9 = new eyesLock.CustomedTextBox();
+            this.txtSeed10 = new eyesLock.CustomedTextBox();
+            this.txtSeed7 = new eyesLock.CustomedTextBox();
+            this.txtSeed8 = new eyesLock.CustomedTextBox();
+            this.txtSeed5 = new eyesLock.CustomedTextBox();
+            this.txtSeed6 = new eyesLock.CustomedTextBox();
+            this.txtSeed3 = new eyesLock.CustomedTextBox();
+            this.txtSeed4 = new eyesLock.CustomedTextBox();
+            this.txtSeed1 = new eyesLock.CustomedTextBox();
+            this.txtSeed2 = new eyesLock.CustomedTextBox();
             this.pnlSideBar.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.SuspendLayout();
@@ -144,6 +144,7 @@ namespace eyesLock
             // chkEnterManually
             // 
             this.chkEnterManually.AutoSize = true;
+            this.chkEnterManually.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chkEnterManually.Location = new System.Drawing.Point(33, 49);
             this.chkEnterManually.Name = "chkEnterManually";
             this.chkEnterManually.Size = new System.Drawing.Size(316, 29);
@@ -155,6 +156,7 @@ namespace eyesLock
             // chk13thPhrase
             // 
             this.chk13thPhrase.AutoSize = true;
+            this.chk13thPhrase.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chk13thPhrase.Location = new System.Drawing.Point(33, 393);
             this.chk13thPhrase.Name = "chk13thPhrase";
             this.chk13thPhrase.Size = new System.Drawing.Size(424, 29);

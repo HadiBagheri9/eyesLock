@@ -108,6 +108,7 @@ namespace eyesLock
             // chkShowPassword
             // 
             this.chkShowPassword.AutoSize = true;
+            this.chkShowPassword.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chkShowPassword.Location = new System.Drawing.Point(33, 164);
             this.chkShowPassword.Name = "chkShowPassword";
             this.chkShowPassword.Size = new System.Drawing.Size(184, 29);
