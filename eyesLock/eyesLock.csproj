@@ -62,6 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmShowSeed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShowSeed.Designer.cs">
+      <DependentUpon>FrmShowSeed.cs</DependentUpon>
+    </Compile>
     <Compile Include="TextOptions.cs" />
     <Compile Include="FileOptions.cs" />
     <Compile Include="FileOptionsSeedPhraseFiles.cs" />
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPassword.resx">
       <DependentUpon>FrmPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShowSeed.resx">
+      <DependentUpon>FrmShowSeed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTemp.resx">
       <DependentUpon>FrmTemp.cs</DependentUpon>
