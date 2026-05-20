@@ -33,7 +33,7 @@ namespace eyesLock
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "eyes'Lock");
+                MessageBox.Show(ex.Message + "\nBip39 File NOT Found!", "eyes'Lock", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -68,7 +68,8 @@ namespace eyesLock
                 {
                     if (!ValidateWord((CustomedTextBox)item))
                     {
-                        MessageBox.Show(item.Text);
+                        MessageBox.Show($"{item.Text} is invalid, select a word from the bip39 file.",
+                            "eyes'Lock", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         validations++;
                     }
                 }

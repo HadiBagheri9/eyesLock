@@ -1,7 +1,8 @@
 ﻿using System;
 using System.IO;
-using System.Security.Cryptography;
 using System.Text;
+using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace eyesLock
 {
@@ -71,7 +72,8 @@ namespace eyesLock
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "eyes'Lock",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Global._HasError = true;
                 return "";
             }

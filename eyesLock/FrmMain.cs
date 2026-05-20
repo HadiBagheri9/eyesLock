@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Threading.Tasks;
-using System.Threading;
 using System.Text;
+using System.Threading;
+using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace eyesLock
 {
@@ -68,7 +68,7 @@ namespace eyesLock
             if (!isRecoveryFileOn)
             {
 
-                DialogResult flag = MessageBox.Show(isEncryptionNotRecoveryFileOnMessage, "eyeLock Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult flag = MessageBox.Show(isEncryptionNotRecoveryFileOnMessage, "eyes'Lock", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 isRecoveryFileOn = flag == DialogResult.Yes ? true : false;
                 chkRecoveryFile.Checked = flag == DialogResult.Yes ? true : false;
             }
@@ -103,7 +103,7 @@ namespace eyesLock
             // Check if The Recovery file option is not turned on, show a message.
             if (!isRecoveryFileOn)
             {
-                DialogResult flag = MessageBox.Show(isDecryptionNotRecoveryFileOnMessage, "eyeLock Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult flag = MessageBox.Show(isDecryptionNotRecoveryFileOnMessage, "eyes'Lock", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 isRecoveryFileOn = flag == DialogResult.Yes ? true : false;
                 chkRecoveryFile.Checked = flag == DialogResult.Yes ? true : false;
             }
