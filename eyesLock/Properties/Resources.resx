@@ -118,7 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Dark_ShowMnemonicPhraseIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dark-ShowMnemonicPhraseIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="eyeStar-logo-5th-reshape" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eyeStar-logo-5th-reshape.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Light_ShowMnemonicPhraseIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Light-ShowMnemonicPhraseIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

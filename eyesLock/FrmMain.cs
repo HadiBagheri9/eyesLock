@@ -5,6 +5,7 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using eyesLock.Properties;
 
 namespace eyesLock
 {
@@ -21,7 +22,8 @@ namespace eyesLock
         public FrmMain()
         {
             InitializeComponent();
-            this.SetTheme();
+            bool flag = this.SetTheme();
+            picShowSeed.Image = flag ? Resources.Dark_ShowMnemonicPhraseIcon: Resources.Light_ShowMnemonicPhraseIcon;
         }
 
 
@@ -37,6 +39,7 @@ namespace eyesLock
             toolTip.SetToolTip(chkFolderAccessibility, "Enable : It does the folder access limiting operation for the top folder.");
             toolTip.SetToolTip(chkRecoveryFile, "Enable : It creates a recovery file next to the selected folder. It is efficient for sensitive data.");
             toolTip.SetToolTip(eyeLockLogo, "About eyeLock");
+            toolTip.SetToolTip(picShowSeed, "Show the Mnemonic Phrase");
         }
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)

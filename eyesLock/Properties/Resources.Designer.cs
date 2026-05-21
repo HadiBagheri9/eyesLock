@@ -63,9 +63,29 @@ namespace eyesLock.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dark_ShowMnemonicPhraseIcon {
+            get {
+                object obj = ResourceManager.GetObject("Dark_ShowMnemonicPhraseIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap eyeStar_logo_5th_reshape {
             get {
                 object obj = ResourceManager.GetObject("eyeStar-logo-5th-reshape", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Light_ShowMnemonicPhraseIcon {
+            get {
+                object obj = ResourceManager.GetObject("Light_ShowMnemonicPhraseIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -18,7 +18,7 @@ namespace eyesLock
         /// Set the application theme based on system theme.
         /// </summary>
         /// <param name="frm"></param>
-        public static void SetTheme(this Form frm)
+        public static bool SetTheme(this Form frm)
         {
             bool? flag = CheckDarkModeOnOrOff();
 
@@ -26,17 +26,20 @@ namespace eyesLock
             {
                 frm.BackColor = DarkBack;
                 frm.ForeColor = LightFore;
-                return;
+                // Return Dark Mode Flag
+                return true;
             }
             else if (flag == false)
             {
                 frm.BackColor = LightBack;
                 frm.ForeColor = DarkFore;
-                return;
+                // Return Light Mode Flag
+                return false;
             }
             else
             {
-                return;
+                // Return Light Mode Flag
+                return true;
             }
         }
 

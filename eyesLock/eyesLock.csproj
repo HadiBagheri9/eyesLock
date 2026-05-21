@@ -163,6 +163,8 @@
     <Content Include="bin\Debug\bip39.txt" />
     <Content Include="bip39.txt" />
     <Content Include="MapsAndNotes\eyeLock.txt" />
+    <Content Include="Resources\Dark-ShowMnemonicPhraseIcon.png" />
+    <Content Include="Resources\Light-ShowMnemonicPhraseIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.1">

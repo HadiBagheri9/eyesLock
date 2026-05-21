@@ -30,6 +30,7 @@ namespace eyesLock
         private void InitializeComponent()
         {
             this.pnlSideBar = new System.Windows.Forms.Panel();
+            this.picShowSeed = new System.Windows.Forms.PictureBox();
             this.btnUnlockDecrypt = new System.Windows.Forms.Button();
             this.btnLockEncrypt = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
@@ -42,17 +43,16 @@ namespace eyesLock
             this.rtxtPath = new System.Windows.Forms.RichTextBox();
             this.btnSelectFolder = new System.Windows.Forms.Button();
             this.diaSelectFolder = new System.Windows.Forms.FolderBrowserDialog();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlSideBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picShowSeed)).BeginInit();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eyeLockLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSideBar
             // 
             this.pnlSideBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlSideBar.Controls.Add(this.pictureBox1);
+            this.pnlSideBar.Controls.Add(this.picShowSeed);
             this.pnlSideBar.Controls.Add(this.btnUnlockDecrypt);
             this.pnlSideBar.Controls.Add(this.btnLockEncrypt);
             this.pnlSideBar.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -60,6 +60,16 @@ namespace eyesLock
             this.pnlSideBar.Name = "pnlSideBar";
             this.pnlSideBar.Size = new System.Drawing.Size(488, 104);
             this.pnlSideBar.TabIndex = 0;
+            // 
+            // picShowSeed
+            // 
+            this.picShowSeed.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picShowSeed.Location = new System.Drawing.Point(211, 19);
+            this.picShowSeed.Name = "picShowSeed";
+            this.picShowSeed.Size = new System.Drawing.Size(64, 64);
+            this.picShowSeed.TabIndex = 1;
+            this.picShowSeed.TabStop = false;
+            this.picShowSeed.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnUnlockDecrypt
             // 
@@ -195,15 +205,6 @@ namespace eyesLock
             this.btnSelectFolder.UseVisualStyleBackColor = false;
             this.btnSelectFolder.Click += new System.EventHandler(this.btnSelectFolder_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(211, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -218,10 +219,10 @@ namespace eyesLock
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.pnlSideBar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picShowSeed)).EndInit();
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eyeLockLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -241,6 +242,6 @@ namespace eyesLock
         private System.Windows.Forms.FolderBrowserDialog diaSelectFolder;
         private System.Windows.Forms.PictureBox eyeLockLogo;
         private System.Windows.Forms.Label lblLog;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.PictureBox picShowSeed;
     }
 }
