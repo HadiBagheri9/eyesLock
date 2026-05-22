@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Bip39.cs" />
     <Compile Include="Views\FrmShowSeed.cs">
       <SubType>Form</SubType>
     </Compile>

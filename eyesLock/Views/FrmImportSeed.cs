@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using eyesLock.Models;
+using System;
 using System.Drawing;
 using System.IO;
 using System.Text;
@@ -9,7 +9,7 @@ namespace eyesLock
 {
     public partial class FrmImportSeed : FrmTemp
     {
-        List<string> bip39List = new List<string>();
+        //List<string> bip39List = new List<string>();
         
         public FrmImportSeed()
         {
@@ -17,12 +17,13 @@ namespace eyesLock
             this.SetTheme();
         }
 
-        private void FrmImportSeed_Load(object sender, System.EventArgs e)
+        private void FrmImportSeed_Load(object sender, EventArgs e)
         {
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(btnImport, "Manual Import");
             toolTip.SetToolTip(btnGenerateNew, "Generate New");
 
+            /*
             try
             {
                 StreamReader streamReader = new StreamReader(Global._Bip39File);
@@ -34,15 +35,15 @@ namespace eyesLock
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + "\nBip39 File NOT Found!", "eyes'Lock", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }*/
         }
 
-        private void chk13thPhrase_CheckedChanged(object sender, System.EventArgs e)
+        private void chk13thPhrase_CheckedChanged(object sender, EventArgs e)
         {
             txtSeed13.Enabled = chk13thPhrase.Checked ? true : false;
         }
 
-        private void chkEnterManually_CheckedChanged(object sender, System.EventArgs e)
+        private void chkEnterManually_CheckedChanged(object sender, EventArgs e)
         {
             txtSeed1.Enabled = chkEnterManually.Checked ? true : false;
             txtSeed2.Enabled = chkEnterManually.Checked ? true : false;
@@ -58,7 +59,7 @@ namespace eyesLock
             txtSeed12.Enabled = chkEnterManually.Checked ? true : false;
         }
 
-        private void btnImport_Click(object sender, System.EventArgs e)
+        private void btnImport_Click(object sender, EventArgs e)
         {
             // Check validation of all 12 text boxes
             int validations = 0;
@@ -68,7 +69,7 @@ namespace eyesLock
                 {
                     if (!ValidateWord((CustomedTextBox)item))
                     {
-                        MessageBox.Show($"\'{item.Text}\' is invalid, select a word from the bip39 file.",
+                        MessageBox.Show($"\'{item.Text}\' is invalid, select a word based on bip39 standard.",
                             "eyes'Lock", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         validations++;
                     }
@@ -152,7 +153,7 @@ namespace eyesLock
         {
             string word = txt.Text.Trim().ToLower();
 
-            if (!string.IsNullOrWhiteSpace(word) && !bip39List.Contains(word))
+            if (!string.IsNullOrWhiteSpace(word) && !Bip39.bip39List.Contains(word))
             {
                 txt.BorderColor = Color.Red;
                 return false;
@@ -170,10 +171,10 @@ namespace eyesLock
 
             foreach (Control item in pnlMain.Controls)
             {
-                int i = rand.Next(0, bip39List.Count);
+                int i = rand.Next(0, Bip39.bip39List.Count);
                 if (item is CustomedTextBox)
                 {
-                    item.Text = bip39List[i];
+                    item.Text = Bip39.bip39List[i];
                     item.Enabled = false;
                 }
             }

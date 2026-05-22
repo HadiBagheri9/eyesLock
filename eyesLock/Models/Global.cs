@@ -20,7 +20,7 @@
         /// <summary>
         /// Path for the bip39 file.
         /// </summary>
-        public static string _Bip39File { get; } = "bip39.txt";
+        //public static string _Bip39File { get; } = "bip39.txt";
 
         /// <summary>
         /// File Encrytion Base String.

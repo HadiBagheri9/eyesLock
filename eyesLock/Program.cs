@@ -21,7 +21,7 @@ namespace eyesLock
             //);
 
             // Get List of the Seed Phrase files to Check.
-            List<string> listFiles = FileOptions.ListSeedPhrases();
+            List<string> listFiles = FileOptions.ListSeedPhraseFiles();
 
             // 1 Comments
             //The initial version of the software includes only one seed phrase file.

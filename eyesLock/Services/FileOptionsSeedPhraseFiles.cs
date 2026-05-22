@@ -10,7 +10,7 @@ namespace eyesLock
         /// Get list of the existed Seed Phrase files in startup path and return file paths as a list.
         /// </summary>
         /// <returns></returns>
-        public static List<string> ListSeedPhrases()
+        public static List<string> ListSeedPhraseFiles()
         {
             List<string> listFiles = new List<string>();
             string[] arrayFiles = Directory.GetFiles(Application.StartupPath, $"*{Global.seedPhraseFileFormat}");
