@@ -68,7 +68,7 @@ namespace eyesLock
                 {
                     if (!ValidateWord((CustomedTextBox)item))
                     {
-                        MessageBox.Show($"{item.Text} is invalid, select a word from the bip39 file.",
+                        MessageBox.Show($"\'{item.Text}\' is invalid, select a word from the bip39 file.",
                             "eyes'Lock", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         validations++;
                     }
