@@ -228,7 +228,7 @@ namespace eyesLock
                         Global._FE_Base = $"{Global._SeedPhrase}{fileInfo.Name}";
                         Global._FE_Bridge = Key_IV_Generator.HApproach(Global._FE_Base);
                         Global._FE_DK = Key_IV_Generator.HMethod_DK(Global._FE_Bridge, Global._DigitalKeySize);
-                        Global._FE_DV = Encoding.ASCII.GetBytes(Key_IV_Generator.HMethod_DV(Global._FE_Bridge));
+                        Global._FE_DV = Encoding.ASCII.GetBytes(Key_IV_Generator.HMethod_DV(Global._FE_DK));
 
 
                         FileOptions.EncryptFile(item, output, Global._FE_DK, Global._FE_DV);
@@ -280,7 +280,7 @@ namespace eyesLock
                                 Global._FE_Base = $"{Global._SeedPhrase}{fileInfo.Name}";
                                 Global._FE_Bridge = Key_IV_Generator.HApproach(Global._FE_Base);
                                 Global._FE_DK = Key_IV_Generator.HMethod_DK(Global._FE_Bridge, Global._DigitalKeySize);
-                                Global._FE_DV = Encoding.ASCII.GetBytes(Key_IV_Generator.HMethod_DV(Global._FE_Bridge)); ;
+                                Global._FE_DV = Encoding.ASCII.GetBytes(Key_IV_Generator.HMethod_DV(Global._FE_DK)); ;
 
 
                                 FileOptions.DecryptFile(item, output, Global._FE_DK, Global._FE_DV);

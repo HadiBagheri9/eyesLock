@@ -18,22 +18,11 @@ namespace eyesLock
                 Encoding.UTF8.GetBytes(_Base)
                 );
 
-            for (int i = 0; i < hashed.Length; i++)
-            {
-                if (hashed[i] > 126)
-                {
-                    hashed[i] -= 129;
-                }
-
-                if (hashed[i] < 33)
-                {
-                    hashed[i] += 33;
-                }
-            }
             foreach (var hashedPerByte in hashed)
             {
                 _Bridge += (char)hashedPerByte;
             }
+            _Bridge = CrystalizeString(_Bridge);
 
             return _Bridge;
         }
@@ -47,10 +36,13 @@ namespace eyesLock
         public static string HMethod_DK(string _Bridge, byte keySize)
         {
             string _DK = "";
-            for (int i = 0; i < _Bridge.Length && _DK.Length != keySize; i++)
+
+            for (int i = 0; i < (_Bridge.Length - 1) && _DK.Length != keySize; i += 2)
             {
-                _DK += _Bridge[i];
+                _DK += (char)(_Bridge[i] ^ _Bridge[i + 1]);
             }
+
+            _DK = CrystalizeString(_DK);
 
             return _DK;
         }
@@ -60,14 +52,47 @@ namespace eyesLock
         /// </summary>
         /// <param name="_Bridge">File Encryption Bridge String</param>
         /// <returns></returns>
-        public static string HMethod_DV(string _Bridge)
+        public static string HMethod_DV(string _DK)
         {
             string _DV = "";
-            for (int i = _Bridge.Length - 1; i >= 0 && _DV.Length != 16; i--)
+
+            for (int i = 0; i < (_DK.Length - 1) && _DV.Length != 16; i += 2)
             {
-                _DV += _Bridge[i];
+                _DV += (char)(_DK[i] ^ _DK[i + 1]);
             }
+
+            _DV = CrystalizeString(_DV);
+
             return _DV;
+        }
+        /// <summary>
+        /// Convert a random string to a standard string.
+        /// </summary>
+        /// <param name="hashed"></param>
+        /// <returns></returns>
+        public static string CrystalizeString(string hashed)
+        {
+            string newHashed = "";
+
+            for (int i = 0; i < hashed.Length; i++)
+            {
+                if (hashed[i] > 126)
+                {
+                    newHashed += (char)(hashed[i] - 129);
+
+                }
+                else if (hashed[i] < 33)
+                {
+                    newHashed += (char)(hashed[i] + 33);
+                }
+                else
+                {
+                    newHashed += hashed[i];
+                }
+
+            }
+
+            return newHashed;
         }
 
     }

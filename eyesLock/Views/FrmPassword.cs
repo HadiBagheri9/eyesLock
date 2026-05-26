@@ -66,7 +66,7 @@ namespace eyesLock
                 string _SE_Base = txtPassword.Text.Trim();
                 string _SE_Bridge = Key_IV_Generator.HApproach(_SE_Base);
                 string _SE_DK = Key_IV_Generator.HMethod_DK(_SE_Bridge, Global._DigitalKeySize);
-                string _SE_DV = Key_IV_Generator.HMethod_DV(_SE_Bridge);
+                string _SE_DV = Key_IV_Generator.HMethod_DV(_SE_DK);
                 Global._HasError = false;
 
                 // Read content of listFile[0] and Decrypt and define
@@ -113,7 +113,7 @@ namespace eyesLock
                 string _SE_Base = txtPassword.Text.Trim();
                 string _SE_Bridge = Key_IV_Generator.HApproach(_SE_Base);
                 string _SE_DK = Key_IV_Generator.HMethod_DK(_SE_Bridge, Global._DigitalKeySize);
-                string _SE_DV = Key_IV_Generator.HMethod_DV(_SE_Bridge);
+                string _SE_DV = Key_IV_Generator.HMethod_DV(_SE_DK);
                 Global._HasError = false;
 
                 // Read content of listFile[0] and Decrypt and define

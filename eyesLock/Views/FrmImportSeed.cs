@@ -116,7 +116,8 @@ namespace eyesLock
             string _SE_Base = frmPassword._Password;
             string _SE_Bridge = Key_IV_Generator.HApproach(_SE_Base);
             string _SE_DK = Key_IV_Generator.HMethod_DK(_SE_Bridge, 32);
-            string _SE_DV = Key_IV_Generator.HMethod_DV(_SE_Bridge);
+            string _SE_DV = Key_IV_Generator.HMethod_DV(_SE_DK);
+
 
             try
             {
