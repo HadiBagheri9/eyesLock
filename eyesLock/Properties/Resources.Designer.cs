@@ -73,9 +73,9 @@ namespace eyesLock.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap eyeStar_logo_5th_reshape {
+        internal static System.Drawing.Bitmap eyesLock_Logo_main_172px {
             get {
-                object obj = ResourceManager.GetObject("eyeStar-logo-5th-reshape", resourceCulture);
+                object obj = ResourceManager.GetObject("eyesLock-Logo-main-172px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

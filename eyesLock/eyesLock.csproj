@@ -47,6 +47,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>eyesLock-Logo-main-Closed-256px.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -63,6 +66,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Bip39.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmShowSeed.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,11 +118,6 @@
     <Compile Include="Models\Key_IV_Generator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="ControlsAndTheme\CustomedTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -158,13 +161,13 @@
     <None Include="Configuration\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\eyeStar-logo-5th-reshape.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="bin\Debug\bip39.txt" />
+    <Content Include="eyesLock-Logo-main-256px.ico" />
+    <Content Include="eyesLock-Logo-main-Closed-256px.ico" />
     <Content Include="Resources\bip39.txt" />
     <Content Include="Flowchart\eyeLock.txt" />
     <Content Include="Resources\Dark-ShowMnemonicPhraseIcon.png" />
+    <None Include="Resources\eyesLock-Logo-main-172px.png" />
     <Content Include="Resources\Light-ShowMnemonicPhraseIcon.png" />
   </ItemGroup>
   <ItemGroup>

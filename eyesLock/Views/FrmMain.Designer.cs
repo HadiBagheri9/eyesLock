@@ -127,6 +127,7 @@ namespace eyesLock
             // eyeLockLogo
             // 
             this.eyeLockLogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.eyeLockLogo.Image = global::eyesLock.Properties.Resources.eyesLock_Logo_main_172px;
             this.eyeLockLogo.Location = new System.Drawing.Point(282, 289);
             this.eyeLockLogo.Name = "eyeLockLogo";
             this.eyeLockLogo.Size = new System.Drawing.Size(172, 172);
