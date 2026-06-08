@@ -73,29 +73,33 @@
         public static char _SeedPhraseSeparator { get; } = '|';
 
         /// <summary>
-        /// Github full path of the icon file to download.
+        /// Github full path of the icon files to download.
         /// </summary>
         //public static string _IconDownloadAddress { get; } = @"https://raw.githubusercontent.com/HadiBagheri9/eyesLock/refs/heads/master/eyesLock/Resources/eyeFileFormatIcon.ico";
-        public static string _IconDownloadAddress { get; } = @"https://raw.githubusercontent.com/HadiBagheri9/IconDownloadTest/refs/heads/main/eyeFileFormatIcon.ico";
+        public static string _EYES_IconDownloadAddress { get; } = @"https://raw.githubusercontent.com/HadiBagheri9/IconDownloadTest/refs/heads/main/eyes-icon-256px.ico";
+        public static string _EYESPH_IconDownloadAddress { get; } = @"https://raw.githubusercontent.com/HadiBagheri9/IconDownloadTest/refs/heads/main/eyesph-icon-256px.ico";
 
         /// <summary>
         /// Path of the folder which icon file will be saved in.
         /// </summary>
-        public static string _IconSaveAddressFolder { get; } = @"C:\Users\Public\Public Icons";
+        public static string _IconsSaveAddressFolder { get; } = @"C:\Users\Public\Public Icons";
 
         /// <summary>
-        /// Name of the icon file to be added to the path of folder to save.
+        /// Name of the icon files to be added to the path of folder to save.
         /// </summary>
-        public static string _IconSaveFileName { get; } = "\\eye_file_256px.ico";
+        public static string _EYES_IconSaveFileName { get; } = "\\eyes_file_icon_256px.ico";
+        public static string _EYESPH_IconSaveFileName { get; } = "\\eyesph_file_icon_256px.ico";
 
         /// <summary>
         /// Name for the encrypted file format.
         /// </summary>
-        public static string _EncryptedFileTypeName { get; } = "EYES";
+        public static string _EYES_IconTypeName { get; } = "EYES";
+        public static string _EYESPH_IconTypeName { get; } = "EYESPH";
 
         /// <summary>
         /// Discription for the encrypted file format.
         /// </summary>
-        public static string _EncryptedFileTypeDiscription { get; } = "Locked-eyes file.";
+        public static string _EYES_IconDiscription { get; } = "Locked-eyes file.";
+        public static string _EYESPH_IconDiscription { get; } = "Seed-Phrase-eyes key file.";
     }
 }

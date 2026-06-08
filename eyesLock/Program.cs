@@ -25,25 +25,53 @@ namespace eyesLock
             // Initializing icon settings.
             try
             {
-                if (!Directory.Exists(Global._IconSaveAddressFolder) || !File.Exists(Global._IconSaveAddressFolder + Global._IconSaveFileName))
+                if (!Directory.Exists(Global._IconsSaveAddressFolder))
+                {
+                    Directory.CreateDirectory(Global._IconsSaveAddressFolder);
+                }
+
+                // Set Icon for .eyes encrypted Files
+                if (!File.Exists(Global._IconsSaveAddressFolder + Global._EYES_IconSaveFileName))
                 {
                     if (!IsAdministrator())
                     {
                         MessageBox.Show("Please run the software as administrator to initialize file icon settings.", "eyes'Lock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         Environment.Exit(0);
                     }
-                    Directory.CreateDirectory(Global._IconSaveAddressFolder);
-                    FileOptions.LocateIconFile(Global._IconDownloadAddress, Global._IconSaveAddressFolder + Global._IconSaveFileName);
-                    FileOptions.SetFileExtensionDefaultIcon(Global._EncryptedFileExtension, Global._EncryptedFileTypeName,
-                    Global._EncryptedFileTypeDiscription, Global._IconSaveAddressFolder + Global._IconSaveFileName);
+
+                    FileOptions.LocateIconFile(Global._EYES_IconDownloadAddress, Global._IconsSaveAddressFolder + Global._EYES_IconSaveFileName);
+                    FileOptions.SetFileExtensionDefaultIcon(Global._EncryptedFileExtension, Global._EYES_IconTypeName,
+                    Global._EYES_IconDiscription, Global._IconsSaveAddressFolder + Global._EYES_IconSaveFileName);
+                }
+
+                // Set Icon for .eyesph seed phrase Files
+                if (!File.Exists(Global._IconsSaveAddressFolder + Global._EYESPH_IconSaveFileName))
+                {
+                    if (!IsAdministrator())
+                    {
+                        MessageBox.Show("Please run the software as administrator to initialize file icon settings.", "eyes'Lock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Environment.Exit(0);
+                    }
+
+                    FileOptions.LocateIconFile(Global._EYESPH_IconDownloadAddress, Global._IconsSaveAddressFolder + Global._EYESPH_IconSaveFileName);
+                    FileOptions.SetFileExtensionDefaultIcon(Global.seedPhraseFileFormat, Global._EYESPH_IconTypeName,
+                    Global._EYESPH_IconDiscription, Global._IconsSaveAddressFolder + Global._EYESPH_IconSaveFileName);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Icon file initializing failed :\n{ex.Message}", "eyes'Lock", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                if (File.Exists(Global._IconSaveAddressFolder + Global._IconSaveFileName))
+
+                // Delete .eyes icon if download operation failed
+                if (File.Exists(Global._IconsSaveAddressFolder + Global._EYES_IconSaveFileName))
                 {
-                    File.Delete(Global._IconSaveAddressFolder + Global._IconSaveFileName);
+                    File.Delete(Global._IconsSaveAddressFolder + Global._EYES_IconSaveFileName);
+                }
+
+                // Delete .eyesph icon if download operation failed
+                if (File.Exists(Global._IconsSaveAddressFolder + Global._EYESPH_IconSaveFileName))
+                {
+                    File.Delete(Global._IconsSaveAddressFolder + Global._EYESPH_IconSaveFileName);
                 }
             }
             
