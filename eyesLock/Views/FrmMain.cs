@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
 using System.Collections.Generic;
@@ -24,6 +25,8 @@ namespace eyesLock
             InitializeComponent();
             bool flag = this.SetTheme();
             picShowSeed.Image = flag ? Resources.Dark_ShowMnemonicPhraseIcon: Resources.Light_ShowMnemonicPhraseIcon;
+            rtxtPath.BackColor = flag ? Color.FromArgb(54, 54, 54) : Color.FromArgb(199, 199, 199);
+            rtxtPath.ForeColor = flag ? Color.FromArgb(224, 224, 224) : Color.FromArgb(26, 26, 26);
         }
 
 
