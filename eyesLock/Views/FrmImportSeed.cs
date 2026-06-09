@@ -166,6 +166,11 @@ namespace eyesLock
             }
         }
 
+        /// <summary>
+        /// Generate Random Seed Phrase
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGenerateNew_Click(object sender, EventArgs e)
         {
             Random rand = new Random();
