@@ -161,7 +161,7 @@ namespace eyesLock
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlSideBar);
             this.Name = "FrmPassword";
-            this.Text = "eyes\'Lock";
+            this.Text = "eyesLock";
             this.Load += new System.EventHandler(this.FrmPassword_Load);
             this.pnlSideBar.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);

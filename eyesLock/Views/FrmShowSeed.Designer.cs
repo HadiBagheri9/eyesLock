@@ -232,7 +232,7 @@ namespace eyesLock
             this.Controls.Add(this.pnlSideBar);
             this.Controls.Add(this.pnlMain);
             this.Name = "FrmShowSeed";
-            this.Text = "FrmShowSeed";
+            this.Text = "eyesLock";
             this.Load += new System.EventHandler(this.FrmShowSeed_Load);
             this.pnlSideBar.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);

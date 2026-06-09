@@ -442,7 +442,7 @@ namespace eyesLock
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlSideBar);
             this.Name = "FrmImportSeed";
-            this.Text = "eyes\'Lock";
+            this.Text = "eyesLock";
             this.Load += new System.EventHandler(this.FrmImportSeed_Load);
             this.pnlSideBar.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);

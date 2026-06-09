@@ -216,7 +216,7 @@ namespace eyesLock
             this.Controls.Add(this.pnlSideBar);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
-            this.Text = " eyes\'Lock";
+            this.Text = " eyesLock";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.pnlSideBar.ResumeLayout(false);
