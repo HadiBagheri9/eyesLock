@@ -212,7 +212,7 @@ namespace eyesLock
                 listFiles = FolderOptions.GetAllFiles(path);
                 foreach (var item in listFiles)
                 {
-                    string output = item + Global._EncryptedFileExtension;
+                    string output = item + Global._EYES_FileExtension;
 
                     if (item.EndsWith("desktop.ini"))
                     {
@@ -230,6 +230,8 @@ namespace eyesLock
                         Global._FE_DK = Key_IV_Generator.HMethod_DK(Global._FE_Bridge, Global._DigitalKeySize);
                         Global._FE_DV = Encoding.ASCII.GetBytes(Key_IV_Generator.HMethod_DV(Global._FE_DK));
 
+                        MessageBox.Show($"Key : {Global._FE_DK}\t{Global._FE_DK.Length}\n" +
+                            $"IV : {Global._FE_DV}\t{Global._FE_DV.Length}", "Test Encryption");// 1
 
                         FileOptions.EncryptFile(item, output, Global._FE_DK, Global._FE_DV);
 
@@ -264,11 +266,11 @@ namespace eyesLock
                 listFiles = FolderOptions.GetAllFiles(path);
                 foreach (var item in listFiles)
                 {
-                    string output = item.Remove(item.Length - Global._EncryptedFileExtension.Length, Global._EncryptedFileExtension.Length);
+                    string output = item.Remove(item.Length - Global._EYES_FileExtension.Length, Global._EYES_FileExtension.Length);
 
                     try
                     {
-                        if (item.EndsWith(Global._EncryptedFileExtension))
+                        if (item.EndsWith(Global._EYES_FileExtension))
                         {
                             // Remove ReadOnly Attribute from the file.
                             File.SetAttributes(item, ~FileAttributes.ReadOnly);
@@ -282,6 +284,8 @@ namespace eyesLock
                                 Global._FE_DK = Key_IV_Generator.HMethod_DK(Global._FE_Bridge, Global._DigitalKeySize);
                                 Global._FE_DV = Encoding.ASCII.GetBytes(Key_IV_Generator.HMethod_DV(Global._FE_DK)); ;
 
+                                MessageBox.Show($"Key : {Global._FE_DK}\t{Global._FE_DK.Length}\n" +
+                            $"IV : {Global._FE_DV}\t{Global._FE_DV.Length}", "Test Decryption");// 1
 
                                 FileOptions.DecryptFile(item, output, Global._FE_DK, Global._FE_DV);
                                 File.Delete(item);

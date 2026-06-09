@@ -2,8 +2,6 @@
 using System.IO;
 using System.Windows.Forms;
 using System.Collections.Generic;
-using System.Security.Cryptography;
-using System.Threading.Tasks;
 using System.Security.Principal;
 
 namespace eyesLock
@@ -40,7 +38,7 @@ namespace eyesLock
                     }
 
                     FileOptions.LocateIconFile(Global._EYES_IconDownloadAddress, Global._IconsSaveAddressFolder + Global._EYES_IconSaveFileName);
-                    FileOptions.SetFileExtensionDefaultIcon(Global._EncryptedFileExtension, Global._EYES_IconTypeName,
+                    FileOptions.SetFileExtensionDefaultIcon(Global._EYES_FileExtension, Global._EYES_IconTypeName,
                     Global._EYES_IconDiscription, Global._IconsSaveAddressFolder + Global._EYES_IconSaveFileName);
                 }
 
@@ -54,7 +52,7 @@ namespace eyesLock
                     }
 
                     FileOptions.LocateIconFile(Global._EYESPH_IconDownloadAddress, Global._IconsSaveAddressFolder + Global._EYESPH_IconSaveFileName);
-                    FileOptions.SetFileExtensionDefaultIcon(Global.seedPhraseFileFormat, Global._EYESPH_IconTypeName,
+                    FileOptions.SetFileExtensionDefaultIcon(Global._EYESPH_FileExtension, Global._EYESPH_IconTypeName,
                     Global._EYESPH_IconDiscription, Global._IconsSaveAddressFolder + Global._EYESPH_IconSaveFileName);
                 }
             }

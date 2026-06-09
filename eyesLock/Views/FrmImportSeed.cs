@@ -122,7 +122,7 @@ namespace eyesLock
             try
             {
                 // Create the Seed Phrase File.
-                File.WriteAllText($"{frmPassword._Title}{Global.seedPhraseFileFormat}", TextOptions.Encrypt(seedPhraseFileContent, _SE_DK, Encoding.ASCII.GetBytes(_SE_DV)));
+                File.WriteAllText($"{frmPassword._Title}{Global._EYESPH_FileExtension}", TextOptions.Encrypt(seedPhraseFileContent, _SE_DK, Encoding.ASCII.GetBytes(_SE_DV)));
             }
             catch (Exception ex)
             {

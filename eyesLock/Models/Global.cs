@@ -50,12 +50,12 @@
         /// <summary>
         /// The extension of the encrypted files.
         /// </summary>
-        public static string _EncryptedFileExtension { get; } = ".eyes";
+        public static string _EYES_FileExtension { get; } = ".eyes";
 
         /// <summary>
         /// Seed Phrase File Format
         /// </summary>
-        public static string seedPhraseFileFormat { get; } = ".eyesph";
+        public static string _EYESPH_FileExtension { get; } = ".eyesph";
 
         /// <summary>
         /// Sleep time between operating each file.
