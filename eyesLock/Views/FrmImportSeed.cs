@@ -185,5 +185,13 @@ namespace eyesLock
                 }
             }
         }
+
+        private void txtSeed13_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Global._SeedPhraseSeparator)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
