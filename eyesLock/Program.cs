@@ -33,7 +33,7 @@ namespace eyesLock
                 {
                     if (!IsAdministrator())
                     {
-                        MessageBox.Show("Please run the software as administrator to initialize file icon settings.", "eyes'Lock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Please run the software as administrator and make sure about your Internet connection to initialize file icon settings.", "eyesLock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         Environment.Exit(0);
                     }
 
@@ -47,7 +47,7 @@ namespace eyesLock
                 {
                     if (!IsAdministrator())
                     {
-                        MessageBox.Show("Please run the software as administrator to initialize file icon settings.", "eyes'Lock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Please run the software as administrator to initialize file icon settings.", "eyesLock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         Environment.Exit(0);
                     }
 
@@ -58,7 +58,7 @@ namespace eyesLock
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Icon file initializing failed :\n{ex.Message}", "eyes'Lock", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Icon file initializing failed :\n{ex.Message}", "eyesLock", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 // Delete .eyes icon if download operation failed
                 if (File.Exists(Global._IconsSaveAddressFolder + Global._EYES_IconSaveFileName))
