@@ -29,6 +29,7 @@ namespace eyesLock
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmImportSeed));
             this.pnlSideBar = new System.Windows.Forms.Panel();
             this.btnGenerateNew = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
@@ -301,6 +302,7 @@ namespace eyesLock
             this.txtSeed13.Name = "txtSeed13";
             this.txtSeed13.Size = new System.Drawing.Size(372, 31);
             this.txtSeed13.TabIndex = 14;
+            this.txtSeed13.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSeed13_KeyPress);
             // 
             // txtSeed11
             // 
@@ -441,8 +443,8 @@ namespace eyesLock
             this.ClientSize = new System.Drawing.Size(488, 580);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlSideBar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmImportSeed";
-            this.Text = "eyesLock";
             this.Load += new System.EventHandler(this.FrmImportSeed_Load);
             this.pnlSideBar.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);

@@ -29,6 +29,7 @@ namespace eyesLock
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.pnlSideBar = new System.Windows.Forms.Panel();
             this.picShowSeed = new System.Windows.Forms.PictureBox();
             this.btnUnlockDecrypt = new System.Windows.Forms.Button();
@@ -214,6 +215,7 @@ namespace eyesLock
             this.ClientSize = new System.Drawing.Size(488, 580);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlSideBar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
             this.Text = " eyesLock";
