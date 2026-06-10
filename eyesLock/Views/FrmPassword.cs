@@ -148,7 +148,7 @@ namespace eyesLock
                         the12SeedPhrases = null;
                         the13thSeedPhrase = null;
 
-                        frmShowSeed.Show();
+                        frmShowSeed.ShowDialog();
                     }
                     catch
                     {
