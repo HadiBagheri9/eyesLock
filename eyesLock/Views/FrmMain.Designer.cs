@@ -163,6 +163,7 @@ namespace eyesLock
             // 
             this.chkFolderAccessibility.AutoSize = true;
             this.chkFolderAccessibility.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkFolderAccessibility.Enabled = false;
             this.chkFolderAccessibility.Location = new System.Drawing.Point(33, 362);
             this.chkFolderAccessibility.Name = "chkFolderAccessibility";
             this.chkFolderAccessibility.Size = new System.Drawing.Size(217, 29);
