@@ -62,7 +62,7 @@ namespace eyesLock
         private void btnImport_Click(object sender, EventArgs e)
         {
             // Check validation of all 12 text boxes
-            int validations = 0;
+            int invalidWords = 0;
             foreach (Control item in pnlMain.Controls)
             {
                 if (item is CustomedTextBox)
@@ -71,13 +71,13 @@ namespace eyesLock
                     {
                         MessageBox.Show($"\'{item.Text}\' is invalid, select a word based on bip39 standard.",
                             "eyes'Lock", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        validations++;
+                        invalidWords++;
                     }
                 }
             }
 
-            // Check if all 12 words are valid
-            if (validations > 0)
+            // Check if all 12 words are not valid
+            if (invalidWords > 0)
                 return;
 
             // File Content Variable.
@@ -122,7 +122,8 @@ namespace eyesLock
             try
             {
                 // Create the Seed Phrase File.
-                File.WriteAllText($"{frmPassword._Title}{Global._EYESPH_FileExtension}", TextOptions.Encrypt(seedPhraseFileContent, _SE_DK, Encoding.ASCII.GetBytes(_SE_DV)));
+                File.WriteAllText($"{frmPassword._Title}{Global._EYESPH_FileExtension}",
+                    TextOptions.Encrypt(seedPhraseFileContent, _SE_DK, Encoding.ASCII.GetBytes(_SE_DV)));
             }
             catch (Exception ex)
             {
@@ -154,15 +155,16 @@ namespace eyesLock
         {
             string word = txt.Text.Trim().ToLower();
 
-            if (!string.IsNullOrWhiteSpace(word) && !Bip39.bip39List.Contains(word))
-            {
-                txt.BorderColor = Color.Red;
-                return false;
-            }
-            else
+            if (!string.IsNullOrWhiteSpace(word)
+                && Bip39.bip39List.Contains(word))
             {
                 txt.BorderColor = Color.White;
                 return true;
+            }
+            else
+            {
+                txt.BorderColor = Color.Red;
+                return false;
             }
         }
 
