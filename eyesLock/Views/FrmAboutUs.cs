@@ -21,8 +21,6 @@ namespace eyesLock
 
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(btnClose, "Close this form.");
-            toolTip.SetToolTip(eyeStarLogo, "eyeStar");
-            toolTip.SetToolTip(eyeLockLogo, "eyeLock");
         }
     }
 }
