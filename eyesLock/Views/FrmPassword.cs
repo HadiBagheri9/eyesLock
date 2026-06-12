@@ -88,7 +88,7 @@ namespace eyesLock
                     try
                     {
                         // Check validation of Seed Phrase File
-                        Global._SeedPhrase.Get12SeedPhrases(seedPhraseFileContent);
+                        Global._SeedPhrase = Global._SeedPhrase.Get12SeedPhrases(seedPhraseFileContent);
                         Global._Seed13thPhrase = Global._Seed13thPhrase.Get13thSeedPhrase(seedPhraseFileContent);
                         Hide();
                         FrmMain frmMain = new FrmMain();

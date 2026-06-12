@@ -29,6 +29,23 @@ namespace eyesLock
         }
 
         /// <summary>
+        /// Get 12 Seed Phrases and return them as a String Variable
+        /// </summary>
+        /// <param name="seedPhraseVariable"></param>
+        /// <param name="seedPhraseContent"></param>
+        /// <returns></returns>
+        public static string Get12SeedPhrases(this string seedPhraseVariable, string seedPhraseContent)
+        {
+            string[] getContents = seedPhraseContent.Split(Global._SeedPhraseSeparator);
+
+            for (int i = 0; i < 12; i++)
+            {
+                seedPhraseVariable += getContents[i].Trim();
+            }
+            return seedPhraseVariable;
+        }
+
+        /// <summary>
         /// Get 12 Seed Phrases and return them as a String Array
         /// </summary>
         /// <param name="seedPhraseVariable"></param>

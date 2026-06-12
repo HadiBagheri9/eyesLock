@@ -130,7 +130,7 @@ namespace eyesLock
                 MessageBox.Show(ex.Message, "eyes'Lock", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            Global._SeedPhrase.Get12SeedPhrases(seedPhraseFileContent);
+            Global._SeedPhrase = Global._SeedPhrase.Get12SeedPhrases(seedPhraseFileContent);
             Global._Seed13thPhrase = Global._Seed13thPhrase.Get13thSeedPhrase(seedPhraseFileContent);
             
             // Secure Variables

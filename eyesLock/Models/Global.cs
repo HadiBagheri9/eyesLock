@@ -10,7 +10,7 @@
         /// <summary>
         /// The 12 Mnemonic phrases.
         /// </summary>
-        public static string[] _SeedPhrase { get; set; } = new string[12];
+        public static string _SeedPhrase { get; set; } = "";
 
         /// <summary>
         /// The 13th Mnemonic phrase.
