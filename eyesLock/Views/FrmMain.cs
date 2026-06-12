@@ -339,7 +339,7 @@ namespace eyesLock
 
                 try
                 {
-                    streamWriter.WriteLine($"{fileInfo.Name}\t{fileInfo.Length} Bytes\t{fileInfo.Length * 1024} KB\t{fileInfo.Length * 1024 * 1024} MB\t{fileInfo.CreationTime}");
+                    streamWriter.WriteLine($"{fileInfo.Name}\t{fileInfo.Length} Bytes\t{fileInfo.Length / 1024} KB\t{fileInfo.Length / 1024 / 1024} MB\t{fileInfo.CreationTime}");
                 }
                 catch (Exception ex)
                 {
