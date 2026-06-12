@@ -228,13 +228,10 @@ namespace eyesLock
                     {
                         // Generate Key and IV.
                         FileInfo fileInfo = new FileInfo(output);
-                        Global._FE_Base = $"{Global._SeedPhrase}{fileInfo.Name}";
+                        Global._FE_Base = $"{Global._SeedPhrase}{Global._Seed13thPhrase}{fileInfo.Name}";
                         Global._FE_Bridge = Key_IV_Generator.HApproach(Global._FE_Base);
                         Global._FE_DK = Key_IV_Generator.HMethod_DK(Global._FE_Bridge, Global._DigitalKeySize);
                         Global._FE_DV = Encoding.ASCII.GetBytes(Key_IV_Generator.HMethod_DV(Global._FE_DK));
-
-                        MessageBox.Show($"Key : {Global._FE_DK}\t{Global._FE_DK.Length}\n" +
-                            $"IV : {Global._FE_DV}\t{Global._FE_DV.Length}", "Test Encryption");// 1
 
                         FileOptions.EncryptFile(item, output, Global._FE_DK, Global._FE_DV);
 
@@ -282,13 +279,10 @@ namespace eyesLock
                             {
                                 // Generate Key and IV.
                                 FileInfo fileInfo = new FileInfo(item);
-                                Global._FE_Base = $"{Global._SeedPhrase}{fileInfo.Name}";
+                                Global._FE_Base = $"{Global._SeedPhrase}{Global._Seed13thPhrase}{fileInfo.Name}";
                                 Global._FE_Bridge = Key_IV_Generator.HApproach(Global._FE_Base);
                                 Global._FE_DK = Key_IV_Generator.HMethod_DK(Global._FE_Bridge, Global._DigitalKeySize);
                                 Global._FE_DV = Encoding.ASCII.GetBytes(Key_IV_Generator.HMethod_DV(Global._FE_DK)); ;
-
-                                MessageBox.Show($"Key : {Global._FE_DK}\t{Global._FE_DK.Length}\n" +
-                            $"IV : {Global._FE_DV}\t{Global._FE_DV.Length}", "Test Decryption");// 1
 
                                 FileOptions.DecryptFile(item, output, Global._FE_DK, Global._FE_DV);
                                 File.Delete(item);
@@ -345,7 +339,7 @@ namespace eyesLock
 
                 try
                 {
-                    streamWriter.WriteLine($"{fileInfo.Name}\t{fileInfo.Length} Bytes\t{fileInfo.CreationTime}");
+                    streamWriter.WriteLine($"{fileInfo.Name}\t{fileInfo.Length} Bytes\t{fileInfo.Length * 1024} KB\t{fileInfo.Length * 1024 * 1024} MB\t{fileInfo.CreationTime}");
                 }
                 catch (Exception ex)
                 {
@@ -391,7 +385,7 @@ namespace eyesLock
         private void EnableComponents()
         {
             chkCryptography.Enabled = true;
-            chkFolderAccessibility.Enabled = true;
+            //chkFolderAccessibility.Enabled = true;
             chkRecoveryFile.Enabled = true;
             btnLockEncrypt.Enabled = true;
             btnUnlockDecrypt.Enabled = true;
