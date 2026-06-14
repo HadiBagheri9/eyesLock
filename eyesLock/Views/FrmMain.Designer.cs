@@ -153,9 +153,9 @@ namespace eyesLock
             this.chkRecoveryFile.Enabled = false;
             this.chkRecoveryFile.Location = new System.Drawing.Point(33, 409);
             this.chkRecoveryFile.Name = "chkRecoveryFile";
-            this.chkRecoveryFile.Size = new System.Drawing.Size(233, 29);
+            this.chkRecoveryFile.Size = new System.Drawing.Size(163, 29);
             this.chkRecoveryFile.TabIndex = 2;
-            this.chkRecoveryFile.Text = "Create Recovery File";
+            this.chkRecoveryFile.Text = "Recovery File";
             this.chkRecoveryFile.UseVisualStyleBackColor = true;
             this.chkRecoveryFile.CheckedChanged += new System.EventHandler(this.chkRecoveryFile_CheckedChanged);
             // 
