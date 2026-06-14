@@ -140,11 +140,11 @@ namespace eyesLock
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(185, 0);
+            this.label1.Location = new System.Drawing.Point(187, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 25);
+            this.label1.Size = new System.Drawing.Size(112, 25);
             this.label1.TabIndex = 3;
-            this.label1.Text = "eyes\'Lock";
+            this.label1.Text = "eyesLock";
             // 
             // chkRecoveryFile
             // 
