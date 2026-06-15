@@ -42,7 +42,7 @@ namespace eyesLock
             toolTip.SetToolTip(chkFolderAccessibility, "Enable : It does the folder access limiting operation for the top folder.");
             toolTip.SetToolTip(chkRecoveryFile, "Enable : It creates a recovery file next to the selected folder. It is efficient for sensitive data.");
             toolTip.SetToolTip(eyeLockLogo, "About eyes'Lock");
-            toolTip.SetToolTip(picShowSeed, "Show the Mnemonic Phrase");
+            toolTip.SetToolTip(picShowSeed, "Show the Mnemonic Phrases");
         }
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)

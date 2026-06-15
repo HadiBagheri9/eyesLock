@@ -32,10 +32,10 @@ namespace eyesLock
             this.pnlSideBar = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.eyeLockLogo = new System.Windows.Forms.PictureBox();
             this.lbl2 = new System.Windows.Forms.Label();
             this.lbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.eyeLockLogo = new System.Windows.Forms.PictureBox();
             this.pnlSideBar.SuspendLayout();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eyeLockLogo)).BeginInit();
@@ -78,16 +78,26 @@ namespace eyesLock
             this.pnlMain.Size = new System.Drawing.Size(488, 476);
             this.pnlMain.TabIndex = 1;
             // 
+            // eyeLockLogo
+            // 
+            this.eyeLockLogo.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.eyeLockLogo.Image = global::eyesLock.Properties.Resources.eyesLock_Logo_main_172px;
+            this.eyeLockLogo.Location = new System.Drawing.Point(278, 46);
+            this.eyeLockLogo.Name = "eyeLockLogo";
+            this.eyeLockLogo.Size = new System.Drawing.Size(172, 172);
+            this.eyeLockLogo.TabIndex = 6;
+            this.eyeLockLogo.TabStop = false;
+            // 
             // lbl2
             // 
             this.lbl2.AutoSize = true;
             this.lbl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl2.Location = new System.Drawing.Point(32, 257);
             this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(432, 125);
+            this.lbl2.Size = new System.Drawing.Size(432, 175);
             this.lbl2.TabIndex = 4;
             this.lbl2.Text = "Developer : Muhammad hadi Bagheri\r\n\r\nGithub : github.com/HadiBagheri9/eyesLock\r\n\r" +
-    "\nInstagram : @eyeslock.app";
+    "\nInstagram : @eyeslock.app\r\n\r\nEmail : eyeslock.app@gmail.com";
             // 
             // lbl
             // 
@@ -109,16 +119,6 @@ namespace eyesLock
             this.label1.Size = new System.Drawing.Size(108, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "About Us";
-            // 
-            // eyeLockLogo
-            // 
-            this.eyeLockLogo.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.eyeLockLogo.Image = global::eyesLock.Properties.Resources.eyesLock_Logo_main_172px;
-            this.eyeLockLogo.Location = new System.Drawing.Point(278, 46);
-            this.eyeLockLogo.Name = "eyeLockLogo";
-            this.eyeLockLogo.Size = new System.Drawing.Size(172, 172);
-            this.eyeLockLogo.TabIndex = 6;
-            this.eyeLockLogo.TabStop = false;
             // 
             // FrmAboutUs
             // 
