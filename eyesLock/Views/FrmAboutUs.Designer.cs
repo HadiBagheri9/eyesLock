@@ -92,12 +92,13 @@ namespace eyesLock
             // 
             this.lbl2.AutoSize = true;
             this.lbl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2.Location = new System.Drawing.Point(32, 257);
+            this.lbl2.Location = new System.Drawing.Point(32, 239);
             this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(432, 175);
+            this.lbl2.Size = new System.Drawing.Size(432, 225);
             this.lbl2.TabIndex = 4;
-            this.lbl2.Text = "Developer : Muhammad hadi Bagheri\r\n\r\nGithub : github.com/HadiBagheri9/eyesLock\r\n\r" +
-    "\nInstagram : @eyeslock.app\r\n\r\nEmail : eyeslock.app@gmail.com";
+            this.lbl2.Text = "Website : eyeslock.app\r\n\r\nInstagram : @eyeslock.app\r\n\r\nEmail : eyeslock.app@gmail" +
+    ".com\r\n\r\nGithub : github.com/HadiBagheri9/eyesLock\r\n\r\nDeveloper : Muhammad hadi B" +
+    "agheri";
             // 
             // lbl
             // 
