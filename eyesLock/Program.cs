@@ -33,7 +33,7 @@ namespace eyesLock
                 {
                     if (!IsAdministrator())
                     {
-                        MessageBox.Show("Please run the software as administrator and make sure about your Internet connection to initialize file icon settings.", "eyesLock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Please run the software as administrator and ensure that your Internet is connected to download icons from Github and initialize file icon settings.", "eyesLock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         Environment.Exit(0);
                     }
 
