@@ -169,3 +169,7 @@ _I am going to release the **Android** and **Gnome** version of **eyesLock** app
 |**Donation**|[eyeslock.app](https://www.eyeslock.app)|
 |**Instagram**|[@eyeslock.app](https://www.instagram.com/eyeslock.app)|
 |**Email**|[eyeslock.app@gmail.com]()|
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE.txt) file for details.
