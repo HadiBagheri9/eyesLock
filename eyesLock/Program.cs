@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*
+ Copyright (C) 2026 [HadiBagheri9]
+ SPDX-License-Identifier: GPL-3.0-only
+*/
+using System;
 using System.IO;
 using System.Windows.Forms;
 using System.Collections.Generic;

@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿/*
+ Copyright (C) 2026 [HadiBagheri9]
+ SPDX-License-Identifier: GPL-3.0-only
+*/
+using System.Text;
 using System.Security.Cryptography;
 
 namespace eyesLock

@@ -1,4 +1,8 @@
-﻿using Microsoft.Win32;
+﻿/*
+ Copyright (C) 2026 [HadiBagheri9]
+ SPDX-License-Identifier: GPL-3.0-only
+*/
+using Microsoft.Win32;
 using System.Drawing;
 using System.Windows.Forms;
 

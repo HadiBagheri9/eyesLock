@@ -1,4 +1,8 @@
-﻿using System.IO;
+﻿/*
+ Copyright (C) 2026 [HadiBagheri9]
+ SPDX-License-Identifier: GPL-3.0-only
+*/
+using System.IO;
 using System.Text;
 using System.Security.Cryptography;
 

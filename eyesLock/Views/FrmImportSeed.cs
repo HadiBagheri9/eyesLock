@@ -1,4 +1,8 @@
-﻿using eyesLock.Models;
+﻿/*
+ Copyright (C) 2026 [HadiBagheri9]
+ SPDX-License-Identifier: GPL-3.0-only
+*/
+using eyesLock.Models;
 using System;
 using System.Drawing;
 using System.IO;
