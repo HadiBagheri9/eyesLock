@@ -79,9 +79,8 @@ namespace eyesLock
         /// <summary>
         /// Github full path of the icon files to download.
         /// </summary>
-        //public static string _IconDownloadAddress { get; } = @"https://raw.githubusercontent.com/HadiBagheri9/eyesLock/refs/heads/master/eyesLock/Resources/eyeFileFormatIcon.ico";
-        public static string _EYES_IconDownloadAddress { get; } = @"https://raw.githubusercontent.com/HadiBagheri9/IconDownloadTest/refs/heads/main/eyes-icon-256px.ico";
-        public static string _EYESPH_IconDownloadAddress { get; } = @"https://raw.githubusercontent.com/HadiBagheri9/IconDownloadTest/refs/heads/main/eyesph-icon-256px.ico";
+        public static string _EYES_IconDownloadAddress { get; } = @"https://raw.githubusercontent.com/HadiBagheri9/eyesLock/refs/heads/master/eyes-icon-256px.ico";
+        public static string _EYESPH_IconDownloadAddress { get; } = @"https://raw.githubusercontent.com/HadiBagheri9/eyesLock/refs/heads/master/eyesph-icon-256px.ico";
 
         /// <summary>
         /// Path of the folder which icon file will be saved in.
