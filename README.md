@@ -119,7 +119,7 @@ This diagram below demonstrates how **eyesLock** generates key and IV for each f
 
 - Then, it generates 32-Byte key from **the Bridge string** using `HMethod_DK()` and `CrystalizeString()` methods.
 
-- Next, the 16-Byte IV will be generated from the key using through `HMethod_DV()` and `CrystalizeString()` methods.
+- Next, the 16-Byte IV will be generated from the key through `HMethod_DV()` and `CrystalizeString()` methods.
 
 Ultimately, encryption or decryption operation is done. If you encrypt files, you will have your files converted to `.eyes` encrypted files. Picture below shows an example of operation for each file.
 
@@ -156,7 +156,7 @@ If you are running **eyesLock** for the **first time**, the software needs to do
 
 - <span style="color:orange">Use the software CAREFULLY and be wary of your SENSITIVE data and files.</span>
 
-- <span style="color:orange">_The responsibility and consequences for using this software incorrectly lies with user._</span>
+- <span style="color:orange">**_The responsibility and consequences for using this software incorrectly lies with user._**</span>
 
 ## Plans for future
 
