@@ -7,7 +7,7 @@
 
 ## What is eyesLock?
 
-**eyesLock** is a file encryptor software which uses two parameters - [mnemonic phrases](#2-mnemonic-phrases) and file name - in several methods to generate 32-Byte(32-character) key for each file. Unlike <ins>7zip and Winrar</ins>, you do NOT need to memorize different tough passwords; The software processes keys in a safe way inside the RAM to encrypt files through AES256([CBC](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC))) algorithm. It also uses a completely different 32-Byte key for each file which is unguessable.<br>
+**eyesLock** is a file encryptor software which uses two parameters - [mnemonic phrases](#2-mnemonic-phrases) and file name - in several methods to generate 32-Byte(32-character) key for each file. Unlike <ins>7zip and Winrar</ins>, you do NOT need to memorize different tough passwords; The software processes keys in a safe way inside the RAM to encrypt your files and keep them private through AES256([CBC](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC))) algorithm. It also uses a completely different 32-Byte key for each file which is unguessable.<br>
 The software does NOT save keys on your hard disk or SSD, it handles keys inside the RAM, and after each process, the key will be DEALLOCATED from the RAM. The only thing that is saved on your disk is a `.eyesph` file which consists of your [mnemonic phrases](#2-mnemonic-phrases). Different keys are generated from the words in this file. The content of the `.eyesph` file is encrypted using a password(key) that is set by **user**, i.e., the only thing that you have to memorize is the [mnemonic phrases](#2-mnemonic-phrases). Additionally, you must recall the password which you have set for the `.eyesph` file to log into the software any time you run it. You are able to change the password whenever you want. However, the password is NOT related to generating keys. It is only for protecting your [mnemonic phrases](#2-mnemonic-phrases) - as similar as <ins>what Bitcoin wallets do.</ins>
 
 ### Features
@@ -158,9 +158,9 @@ If you are running **eyesLock** for the **first time**, the software needs to do
 
 - <span style="color:orange">_The responsibility and consequences for using this software incorrectly lies with user._</span>
 
-## Android and Gnome versions
+## Plans for future
 
-_I am going to release the **Android** and **Gnome** version of **eyesLock** application in this repository on December 1st, 2026._
+_I am releasing a new windows version of the software which has a modern form of UI(WPF UI) on September 24th. I am going to release the **Android** and **Gnome** version of **eyesLock** application in this repository on December 1st, 2026._
 
 ### Follow
 
