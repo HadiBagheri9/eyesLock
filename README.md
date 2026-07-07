@@ -5,12 +5,12 @@
 
 ![eyesLock logo](assets/eyesLock-Logo.png "eyesLock")
 
-## What is eyesLock?
+## What is eyesLock? An AES256 File Encryption Tool
 
 **eyesLock** is a file encryptor software which uses two parameters - [mnemonic phrases](#2-mnemonic-phrases) and file name - in several methods to generate 32-Byte(32-character) key for each file. Unlike <ins>7zip and Winrar</ins>, you do NOT need to memorize different tough passwords; The software processes keys in a safe way inside the RAM to encrypt your files and keep them private through AES256-[CBC](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) algorithm. It also uses a completely different 32-Byte key for each file which is unguessable.<br>
 The software does NOT save keys on your hard disk or SSD, it handles keys inside the RAM, and after each process, the key will be DEALLOCATED from the RAM. The only thing that is saved on your disk is a `.eyesph` file which consists of your [mnemonic phrases](#2-mnemonic-phrases). Different keys are generated from the words in this file. The content of the `.eyesph` file is encrypted using a password(key) that is set by **user**, i.e., the only thing that you have to memorize is the [mnemonic phrases](#2-mnemonic-phrases). Additionally, you must recall the password which you have set for the `.eyesph` file to log into the software any time you run it. You are able to change the password whenever you want. However, the password is NOT related to generating keys. It is only for protecting your [mnemonic phrases](#2-mnemonic-phrases) - as similar as <ins>what Bitcoin wallets do.</ins>
 
-### Features
+### Key Features of eyesLock Secure Encryptor
 
 - It uses AES256-[CBC](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)) cryptography.
 
@@ -32,15 +32,13 @@ The software does NOT save keys on your hard disk or SSD, it handles keys inside
 
 - Your [mnemonic phrases](#2-mnemonic-phrases) are encrypted and secured using the password you have chosen in a `.eyesph` file.
 
-
-
-## How to use **eyesLock** windows application
+## How to Encrypt Files Using **eyesLock** on Windows
 
 ### 1. Run
 
 Run the software(as administrator).
 
-### 2. Mnemonic phrases
+### 2. Mnemonic Phrases
 
 If you do not have mnemonic phrases to enter manually, click on "Gen|New" button to generate 12 words from [Bip0039 list](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt). Then, click on "Import" button.
 
@@ -57,7 +55,7 @@ Set title and password for the mnemonic phrases. This will write your mnemonic p
 
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="assets/LightMode-Form-Password-Set.png">
-  <img alt="Set Password Form - Secure the mnemonic phrases file" src="assets/DarkMode-Form-Password-Set.png">
+  <img alt="Set Password Form - secure the mnemonic phrases file" src="assets/DarkMode-Form-Password-Set.png">
 </picture>
 
 **The encrypted mnemonic phrases in a `eyesph` file that is located in the folder of the application.**
@@ -89,7 +87,7 @@ Now click on "Select Folder" button, after that, you will have these 3 options :
   <img alt="Main Form - AES256 File Encryption Tool" src="assets/DarkMode-Form-Main.png">
 </picture>
 
-#### Table of checkboxes and buttons
+#### Table of Checkboxes and Buttons
 
 | CheckBox \ Button | DecryptU|EncryptL|
 | :--- | :---: | :---: |
@@ -104,7 +102,7 @@ Now click on "Select Folder" button, after that, you will have these 3 options :
   <img alt="Encrypted file `.eyes`" src="assets/DarkMode-eyes.png">
 </picture>
 
-## How **eyesLock** fundamentally works
+## eyesLock Encryption Mechanism: How It Fundamentally Works
 
 This diagram below demonstrates how **eyesLock** generates key and IV for each file.
 
@@ -158,7 +156,7 @@ If you are running **eyesLock** for the **first time**, the software needs to do
 
 - <span style="color:orange">**_The responsibility and consequences for using this software incorrectly lies with user._**</span>
 
-## Plans for future
+## Plans for Future
 
 _I am releasing a new windows version of the software which has a modern form of UI(WPF UI) on September 24th. I am going to release the **Android** and **Gnome** version of **eyesLock** application in this repository on December 1st, 2026._
 
