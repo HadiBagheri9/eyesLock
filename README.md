@@ -57,7 +57,7 @@ Set title and password for the mnemonic phrases. This will write your mnemonic p
 
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="assets/LightMode-Form-Password-Set.png">
-  <img alt="Set Password Form" src="assets/DarkMode-Form-Password-Set.png">
+  <img alt="Set Password Form - Secure the mnemonic phrases file" src="assets/DarkMode-Form-Password-Set.png">
 </picture>
 
 **The encrypted mnemonic phrases in a `eyesph` file that is located in the folder of the application.**
@@ -66,14 +66,14 @@ Set title and password for the mnemonic phrases. This will write your mnemonic p
 
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="assets/LightMode-eyesph.png">
-  <img alt="Mnemonic Phrases file `.eyesph`" src="assets/DarkMode-eyesph.png">
+  <img alt="Mnemonic Phrases file `.eyesph` - secured file including mnemonic phrases" src="assets/DarkMode-eyesph.png">
 </picture>
 
 When you open the software after the `eyesph` file is made, you will need to enter the set password.
 
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="assets/LightMode-Form-Password-Enter.png">
-  <img alt="Enter Password Form" src="assets/DarkMode-Form-Password-Enter.png">
+  <img alt="Enter Password Form - show mnemonic phrases" src="assets/DarkMode-Form-Password-Enter.png">
 </picture>
 
 ### 4. The Operation
@@ -86,7 +86,7 @@ Now click on "Select Folder" button, after that, you will have these 3 options :
 
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="assets/LightMode-Form-Main.png">
-  <img alt="Main Form" src="assets/DarkMode-Form-Main.png">
+  <img alt="Main Form - AES256 File Encryption Tool" src="assets/DarkMode-Form-Main.png">
 </picture>
 
 #### Table of checkboxes and buttons
@@ -110,7 +110,7 @@ This diagram below demonstrates how **eyesLock** generates key and IV for each f
 
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="assets/LightMode-Mnemonic-to-key-diagram.png">
-  <img alt="eyesLock Methods Diagram" src="assets/DarkMode-Mnemonic-to-key-diagram.png">
+  <img alt="eyesLock Methods Diagram - operation" src="assets/DarkMode-Mnemonic-to-key-diagram.png">
 </picture>
 
 - First, we have 2 required parameters - 12 words and the file name - and an optional parameter - the 13th word which you are able to leave it empty or enter it in the textbox of the **mnemonic phrase form**. The software defines these parameters as **the Base string**.
@@ -125,7 +125,7 @@ Ultimately, encryption or decryption operation is done. If you encrypt files, yo
 
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="assets/LightMode-eyesLock-Operation.png">
-  <img alt="eyesLock Operation Diagram" src="assets/DarkMode-eyesLock-Operation.png">
+  <img alt="eyesLock Operation Diagram - operation" src="assets/DarkMode-eyesLock-Operation.png">
 </picture>
 
 ## Icons
