@@ -1,5 +1,5 @@
 
-# eysLock
+# eyesLock
 
 **A file encryptor software that uses a different method of handling cryptographic keys.**
 
