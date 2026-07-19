@@ -146,7 +146,7 @@ If you are running **eyesLock** for the **first time**, the software needs to do
 
 - <span style="color:orange">Do NOT set a simple and guessable password for your `.eyesph` file because hackers might be able to crack and extract your [mnemonic phrases](#2-mnemonic-phrases) from the `.eyesph` file, and use it to decrypt your sensitive data and files.</span>
 
-- <span style="color:orange">**Currently** Do NOT try to encrypt large files(more than 128MB) because the software is on its first version and might have some omitted bugs.</span>
+- <span style="color:orange">**Currently** Do NOT try to encrypt large files(more than 128MB) because the software is on its pre-release version and might have some omitted bugs.</span>
 
 - <span style="color:orange">Do NOT lose your [mnemonic phrases](#2-mnemonic-phrases)(the `.eyesph` file or the content of it, if you have written it down on a physical paper), if you lose both of them and do not have a backup of your [mnemonic phrases](#2-mnemonic-phrases), you will LOSE your files.</span>
 
