@@ -1,7 +1,7 @@
 
 # eyesLock
 
-**A file encryptor software that uses a different method of handling cryptographic keys.**
+**A file encryptor software that uses mnemonic phrases for handling cryptographic keys.**
 
 ![eyesLock logo](assets/eyesLock-Logo.png "eyesLock")
 
