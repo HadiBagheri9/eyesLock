@@ -28,7 +28,7 @@ The software does NOT save keys on your hard disk or SSD, it handles keys inside
 
 - The 32-Byte keys consist of letters, numbers, and symbols.
 
-- It is impossible to crack keys.
+- It is absolutely arduous to crack keys.
 
 - Your [mnemonic phrases](#2-mnemonic-phrases) are encrypted and secured using the password you have chosen in a `.eyesph` file.
 
